@@ -1,13 +1,12 @@
 from django.urls import path
-from .views import signup, logout_view, login_view, home
-
+from .views import signup, logout_view, login_view, feed
 
 
 app_name = 'accounts'
 
 urlpatterns = [
-    path('', home, name='home'),
+    path('', login_view, name='login'),
     path('signup/', signup, name='signup'),
     path('logout/', logout_view, name='logout'),
-    path('login/', login_view, name='login'),
+    path('feed/', feed, name='feed'), 
 ]

@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 
 
 class SignUpForm(UserCreationForm):
-    username = forms.CharField(max_length=30, required=True, widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    username = forms.CharField(label= "Nom d'utilisateur", max_length=30, required=True, widget=forms.TextInput(attrs={"placeholder": "Nom d'utilisateur"}))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
 
@@ -23,6 +23,6 @@ class SignUpForm(UserCreationForm):
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=30, required=True, widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    username = forms.CharField(max_length=30, required=True, widget=forms.TextInput(attrs={"placeholder": "Nom d'utilisateur"}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
 

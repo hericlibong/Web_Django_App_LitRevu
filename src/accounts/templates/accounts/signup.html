@@ -1,12 +1,19 @@
+
+
+
+<!-- templates/accounts/signup.html -->
+<!-- templates/accounts/signup.html -->
 {% extends 'base.html' %}
 
-{% block title %}Sign Up{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block content %}
-  <h2>Sign Up</h2>
-  <form method="post">
+<h2>Inscrivez-vous</h2>
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-    </form>
+    <button type="submit">S'inscrire</button>
+</form>
+<p><a href="{% url 'accounts:login' %}">Retour</a></p>
 {% endblock %}
+

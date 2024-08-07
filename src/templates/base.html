@@ -6,21 +6,15 @@
     <title>{% block title %}Web Django App{% endblock %}</title>
     </head>
 <body>
-    <header>
-        <h1>Web Django App</h1>
-    
     <nav>
-        <ul>
-            <li><a href="{% url 'accounts:home' %}">Home</a></li>
-            <li><a href="{% url 'accounts:login' %}">login</a></li>
-            <li><a href="{% url 'accounts:signup' %}">signup</a></li>
-            <li><a href="{% url 'accounts:logout' %}">logout</a></li>
-        </ul>
+        <p>page d'accueil</p>
     </nav>
-    </header>
+    <h4>LITReview</h4>
+    
     <main>
         {% block content %}{% endblock %}
     </main>
+</body>
     <footer>
         <p>&copy; 2024 Web Django App</p>
     </footer>
