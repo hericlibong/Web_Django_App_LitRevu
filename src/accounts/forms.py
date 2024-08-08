@@ -4,9 +4,9 @@ from django.contrib.auth import get_user_model
 
 
 class SignUpForm(UserCreationForm):
-    username = forms.CharField(label= "Nom d'utilisateur", max_length=30, required=True, widget=forms.TextInput(attrs={"placeholder": "Nom d'utilisateur"}))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
+    username = forms.CharField(label="Nom d'utilisateur", max_length=30, required=True, widget=forms.TextInput(attrs={"placeholder": "Nom d'utilisateur"}))
+    password1 = forms.CharField(label = "Mot de passe", widget=forms.PasswordInput(attrs={'placeholder': 'Mot de passe'}))
+    password2 = forms.CharField(label = "Confirmez mot de passe", widget=forms.PasswordInput(attrs={'placeholder': 'Confirmez mot de passe'}))
 
     class Meta:
         model = get_user_model()
@@ -23,6 +23,6 @@ class SignUpForm(UserCreationForm):
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=30, required=True, widget=forms.TextInput(attrs={"placeholder": "Nom d'utilisateur"}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+    username = forms.CharField(label="Nom d'utilisateur", max_length=30, required=True, widget=forms.TextInput(attrs={"placeholder": "Nom d'utilisateur"}))
+    password = forms.CharField(label="Mot de passe", widget=forms.PasswordInput(attrs={'placeholder': 'Mot de passe'}))
 
