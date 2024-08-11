@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.decorators import login_required
 
 
+
 @login_required
 def feed(request):
     """test page feed to check if user is logged in"""
