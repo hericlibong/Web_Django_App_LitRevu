@@ -11,6 +11,7 @@ def feed(request):
     return render(request, 'accounts/feed.html')
 
 def login_view(request):
+    """View function for handling user login."""
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -25,10 +26,12 @@ def login_view(request):
     return render(request, 'accounts/login.html', {'form': form})
 
 def logout_view(request):
+    """View function for handling user logout."""
     auth_logout(request)
     return redirect('accounts:login')
 
 def signup(request):
+    """View function for handling user signup."""
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
