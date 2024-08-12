@@ -1,22 +1,45 @@
-<!-- templates/accounts/login.html -->
+<!-- login.html -->
 {% extends 'base.html' %}
 
 {% block title %}Connectez-vous ou Inscrivez-vous{% endblock %}
 
 {% block content %}
-<div class="login-container">
-  <div class="signup-section">
-    <p>Inscrivez-vous maintenant</p>
-    <a href="{% url 'accounts:signup' %}" class="button">S'inscrire</a>
-  </div>
-  
-  <div class="login-section">
-    <h2>Connectez-vous</h2>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Se connecter</button>
-    </form>
-  </div>
+<div class="container mt-4">
+    <div class="row">
+        <!-- Inscription -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Inscrivez-vous maintenant
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'accounts:signup' %}" class="btn btn-primary">S'inscrire</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connexion -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Connectez-vous
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'accounts:login' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="login-username" class="form-label">Nom d'utilisateur</label>
+                            <input type="text" class="form-control" id="login-username" name="username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="login-password" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="login-password" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Se connecter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

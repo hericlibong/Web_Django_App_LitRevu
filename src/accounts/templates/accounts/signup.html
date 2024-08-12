@@ -4,15 +4,23 @@
 {% block title %}Inscription{% endblock %}
 
 {% block content %}
-<div class="signup-form">
-  <h2>Inscrivez-vous</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">S'inscrire</button>
-  </form>
-  <a href="{% url 'accounts:login' %}" class="button">Retourner</a>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Inscrivez-vous
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">S'inscrire</button>
+                    </form>
+                    <a href="{% url 'accounts:login' %}" class="btn btn-link">Retourner</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
-
-

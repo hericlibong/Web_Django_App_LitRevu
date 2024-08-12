@@ -2,33 +2,80 @@
 @import "reset.css";
 
 
+/* Style de base pour le body pour s'assurer que le contenu est centré */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Couleur de fond légère pour le corps de la page */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
-.login-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
-  .signup-section, .login-section {
-    width: 48%;
-  }
-  
-  .button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
+.global-container {
+  width: 80%;
+  max-width: 1200px; /* Largeur maximale du conteneur global pour une meilleure lisibilité sur grands écrans */
+  background-color: #fff;
+  border: 2px solid #ccc;
+ 
+  text-align: center;
+  min-height: 80vh;
+}
+
+
   
   form input, form button {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
   }
+
+
+header {
+    background: #f8f9fa;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.login-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+   
+}
+
+.signup-section, .login-section {
+  
+    padding: 20px;
+    width: 30%;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+  
+.navbar {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
   
