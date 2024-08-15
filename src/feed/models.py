@@ -6,7 +6,8 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Ticket(models.Model):
     """Model for a ticket."""
     title = models.CharField(max_length=128, help_text='Titre du billet')
-    description = models.TextField(max_length=2048, blank=True, help_text='Description du livre critiqué')
+    description = models.TextField(max_length=2048, blank=True, 
+                                   help_text='Décrivez brièvement le livre à critiquer, indiquez son auteur, son éditeur, son année de publication et éventuellement indiquez le type de critique que vous souhaitez.')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     time_created = models.DateTimeField(auto_now_add=True)
