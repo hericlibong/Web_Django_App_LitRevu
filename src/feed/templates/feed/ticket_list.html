@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Mes Billets</h1>
+    <ul>
+        {% for ticket in tickets %}
+<li>
+    <strong>{{ ticket.title }}</strong> - {{ ticket.description }}
+    {% if ticket.image %}
+    <img src="{{ ticket.image.url }}" alt="Image de {{ ticket.title }}" style="width:100px; height:auto;">
+    {% endif %}
+    <a href="{% url 'feed:edit_ticket' ticket.id %}">Modifier</a> | 
+    <a href="{% url 'feed:delete_ticket' ticket.id %}">Supprimer</a>
+</li>
+{% empty %}
+<li>Aucun billet trouvé.</li>
+{% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,4 +1,3 @@
-<!-- base.html -->
 {% load static %}
 
 <!DOCTYPE html>
@@ -13,7 +12,17 @@
     <div class="container mt-5">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand mx-auto" href="#">LITReview</a>
+                <a class="navbar-brand" href="{% url 'feed:ticket_list' %}">LITReview</a>
+                <div class="navbar-nav">
+                    {% if user.is_authenticated %}
+                    <span class="nav-item">
+                        Bonjour, {{ user.username }} |
+                        <a class="nav-link" href="{% url 'accounts:logout' %}">Déconnexion</a>
+                    </span>
+                    {% else %}
+                    <a class="nav-link" href="{% url 'accounts:login' %}">Connexion</a>
+                    {% endif %}
+                </div>
             </div>
         </nav>
 
@@ -26,4 +35,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>
+
 
