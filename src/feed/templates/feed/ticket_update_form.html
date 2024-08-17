@@ -6,6 +6,13 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+        {% if object.image %}
+        <div class="form-group">
+            <label>Image actuelle:</label>
+            <img src="{{ object.image.url }}" alt="current image {{ object.title }}" style="width: 50px;">
+        </div>
+        {% endif %}
+
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
     </form>
 </div>

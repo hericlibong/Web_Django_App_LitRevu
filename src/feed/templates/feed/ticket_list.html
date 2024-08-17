@@ -3,19 +3,27 @@
 {% block content %}
 <div class="container">
     <h1>Mes Billets</h1>
-    <ul>
-        {% for ticket in tickets %}
-<li>
-    <strong>{{ ticket.title }}</strong> - {{ ticket.description }}
-    {% if ticket.image %}
-    <img src="{{ ticket.image.url }}" alt="Image de {{ ticket.title }}" style="width:100px; height:auto;">
-    {% endif %}
-    <a href="{% url 'feed:edit_ticket' ticket.id %}">Modifier</a> | 
-    <a href="{% url 'feed:delete_ticket' ticket.id %}">Supprimer</a>
-</li>
-{% empty %}
-<li>Aucun billet trouvé.</li>
-{% endfor %}
-    </ul>
+    {% for ticket in tickets %}
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          {% if ticket.image %}
+          <img src="{{ ticket.image.url }}" class="img-fluid rounded-start" alt="Image de {{ ticket.title }}">
+          {% endif %}
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ ticket.title }}</h5>
+            <p class="card-text">{{ ticket.description }}</p>
+            <p class="card-text"><small class="text-muted">Publié par {{ ticket.user }} le {{ ticket.time_created|date:"d M Y H:i" }}</small></p>
+            <a href="{% url 'feed:edit_ticket' ticket.id %}" class="btn btn-primary">Modifier</a>
+            <a href="{% url 'feed:delete_ticket' ticket.id %}" class="btn btn-danger">Supprimer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p>Aucun billet trouvé.</p>
+    {% endfor %}
 </div>
 {% endblock %}
