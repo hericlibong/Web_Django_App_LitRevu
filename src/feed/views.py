@@ -2,15 +2,32 @@ from django.db.models.query import QuerySet
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse, reverse_lazy
-from .models import Ticket, Review
+from .models import Ticket, Review, UserFollows
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
+
+class UserFollowsCreateView(LoginRequiredMixin, ListView):
+    """View for following a user."""
+    model = UserFollows
+    template_name = 'feed/user_follows.html'
+    context_object_name = 'follows'
+
+    def get_queryset(self):
+        return UserFollows.objects.filter(user=self.request.user)
+    
+class unfollowView(LoginRequiredMixin, DeleteView):
+    model = UserFollows
+    success_url = reverse_lazy('feed:follow_list')
+
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
 
 
 class ReviewCreateView(LoginRequiredMixin, CreateView):
     """View for creating a review."""
     model = Review
     fields = ['ticket','rating', 'headline', 'body']
-    template_name = 'feed/review_create.html'
+    template_name = 'feed/review_create_form.html'
 
     def form_valid(self, form):
         """Set the user of the review to the current user."""
@@ -19,7 +36,7 @@ class ReviewCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         """Return the URL to redirect to after creating a review."""
-        return reverse('feed:ticket_list', kwargs={'pk': self.object.ticket.pk})
+        return reverse('feed:ticket_list')
 
 
 class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -28,13 +45,19 @@ class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     fields = ['rating', 'headline', 'body']
     template_name = 'feed/review_update_form.html'
 
+    def test_func(self):
+        # Récupère l'objet review en cours de modification
+        review = self.get_object()
+        # Vérifie que l'utilisateur actuel est l'auteur de la critique
+        return self.request.user == review.user
+
     def get_queryset(self):
         """Return the reviews of the current user."""
         return Review.objects.filter(user=self.request.user)
 
     def get_success_url(self):
         """Return the URL to redirect to after updating a review."""
-        return reverse('feed:ticket_list', kwargs={'pk': self.object.ticket.pk})
+        return reverse('feed:ticket_list')
 
 
 class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -42,13 +65,19 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Review  
     template_name = 'feed/review_confirm_delete.html'
 
+    def test_func(self):
+        # Récupère l'objet review en cours de modification
+        review = self.get_object()
+        # Vérifie que l'utilisateur actuel est l'auteur de la critique
+        return self.request.user == review.user
+
     def get_queryset(self):
         """Return the reviews of the current user."""
         return Review.objects.filter(user=self.request.user)
 
     def get_success_url(self):
         """Return the URL to redirect to after deleting a review."""
-        return reverse('feed:ticket_list', kwargs={'pk': self.object.ticket.pk})
+        return reverse('feed:ticket_list')
 
 
 class TicketCreateView(LoginRequiredMixin, CreateView):

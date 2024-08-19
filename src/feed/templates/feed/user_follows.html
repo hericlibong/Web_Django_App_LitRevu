@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Utilisateurs Suivis</h1>
+    <ul>
+        {% for follow in follows %}
+        <li>{{ follow.followed_user.username }} - <a href="{% url 'feed:unfollow' follow.pk %}">Se désabonner</a></li>
+        {% empty %}
+        <li>Vous ne suivez aucun utilisateur.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

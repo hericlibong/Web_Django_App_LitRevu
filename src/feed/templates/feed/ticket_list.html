@@ -1,29 +1,53 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<a href="{% url 'feed:add_ticket' %}" class="btn btn-primary">Créer un billet</a>
+</br>
 <div class="container">
     <h1>Mes Billets</h1>
+    
     {% for ticket in tickets %}
+    
     <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          {% if ticket.image %}
-          <img src="{{ ticket.image.url }}" class="img-fluid rounded-start" alt="Image de {{ ticket.title }}">
-          {% endif %}
+        <div class="row g-0">
+            <div class="col-md-4">
+                {% if ticket.image %}
+                <img src="{{ ticket.image.url }}" class="img-fluid rounded-start" alt="Image de {{ ticket.title }}">
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ ticket.title }}</h5>
+                    <p class="card-text">{{ ticket.description }}</p>
+                    <p class="card-text"><small class="text-muted">Publié par {{ ticket.user }} le {{ ticket.time_created|date:"d M Y H:i" }}</small></p>
+                    <a href="{% url 'feed:edit_ticket' ticket.id %}" class="btn btn-primary">Modifier</a>
+                    <a href="{% url 'feed:delete_ticket' ticket.id %}" class="btn btn-danger">Supprimer</a>
+                </div>
+            </div>
         </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{ ticket.title }}</h5>
-            <p class="card-text">{{ ticket.description }}</p>
-            <p class="card-text"><small class="text-muted">Publié par {{ ticket.user }} le {{ ticket.time_created|date:"d M Y H:i" }}</small></p>
-            <a href="{% url 'feed:edit_ticket' ticket.id %}" class="btn btn-primary">Modifier</a>
-            <a href="{% url 'feed:delete_ticket' ticket.id %}" class="btn btn-danger">Supprimer</a>
-          </div>
+        <div class="card-footer">
+            <h5 class="card-title">Critiques</h5>
+            {% for review in ticket.review_set.all %}
+            <div class="mb-2">
+                <strong>{{ review.user.username }} a écrit une critique</strong> - {{ review.rating }}/5
+                <p>{{ review.body }}</p>
+                {% if review.user == request.user %}
+                    <a href="{% url 'feed:edit_review' review.id %}" class="btn btn-secondary">Modifier</a>
+                    <a href="{% url 'feed:delete_review' review.id %}" class="btn btn-danger">Supprimer</a>
+                {% endif %}
+            </div>
+            {% empty %}
+            <p>Aucune critique trouvée pour ce billet.</p>
+            {% endfor %}
+            <a href="{% url 'feed:add_review' ticket.id %}" class="btn btn-success">Ajouter une critique</a>
         </div>
-      </div>
     </div>
     {% empty %}
     <p>Aucun billet trouvé.</p>
     {% endfor %}
 </div>
 {% endblock %}
+
+
+
+
