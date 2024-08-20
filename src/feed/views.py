@@ -1,9 +1,47 @@
-from django.db.models.query import QuerySet
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse, reverse_lazy
 from .models import Ticket, Review, UserFollows
+from .forms import UserFollowForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
+from django.contrib import messages
+
+User = get_user_model()
+
+
+# class FollowersListView(LoginRequiredMixin, ListView):
+#     """View for listing followers of the current user."""
+#     model = UserFollows
+#     template_name = 'feed/followers_list.html'
+#     context_object_name = 'followers'
+
+#     def get_queryset(self):
+#         """Return the followers of the current user."""
+#         return UserFollows.objects.filter(followed_user=self.request.user)
+    
+
+@login_required
+def add_follow(request):
+    """add a follow."""
+    if request.method == 'POST':
+        form = UserFollowForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            try:
+                followed_user = User.objects.get(username=username)
+                if UserFollows.objects.filter(user=request.user, followed_user=followed_user).exists():
+                    form.add_error(None, 'Vous suivez déjà cet utilisateur.')
+                else:
+                    UserFollows.objects.create(user=request.user, followed_user=followed_user)
+                    return redirect('feed:follow_list')
+            except User.DoesNotExist:
+                form.add_error('username', 'Cet utilisateur n\'existe pas.')
+    else:
+        form = UserFollowForm()
+    return render(request, 'feed/add_follow.html', {'form': form})
 
 
 class UserFollowsCreateView(LoginRequiredMixin, ListView):
@@ -15,6 +53,34 @@ class UserFollowsCreateView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return UserFollows.objects.filter(user=self.request.user)
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = UserFollowForm()
+        context['followers'] = UserFollows.objects.filter(followed_user=self.request.user)
+        return context
+    
+    def post(self, request, *args, **kwargs):
+        form = UserFollowForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            try:
+                followed_user = User.objects.get(username=username)
+                if UserFollows.objects.filter(user=request.user, followed_user=followed_user).exists():
+                    messages.error(request, 'Vous suivez déjà cet utilisateur.')
+                else:
+                    UserFollows.objects.create(user=request.user, followed_user=followed_user)
+                    messages.success(request, 'Utilisateur suivi avec succès.')
+                    return redirect('feed:follow_list')
+            except User.DoesNotExist:
+                messages.error(request, 'Cet utilisateur n\'existe pas.')
+        else:
+            # Gestion des erreurs du formulaire
+            for error in form.errors.values():
+                messages.error(request, error.as_text())
+        return super().get(request, *args, **kwargs)  # Rediriger vers la même page avec les messages d'erreur.
+
+ 
+
 class unfollowView(LoginRequiredMixin, DeleteView):
     model = UserFollows
     success_url = reverse_lazy('feed:follow_list')

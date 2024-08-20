@@ -1,0 +1,17 @@
+
+
+{% block content %}
+<div class="container">
+    <h1>Mes Abonnés</h1>
+    <div class="list-group">
+        {% for follower in followers %}
+        <div class="list-group-item">
+            <h5 class="mb-1">{{ follower.user.username }}</h5>
+            <p class="mb-1">Abonné depuis: {{ follower.created|date:"d M Y" }}</p>
+        </div>
+        {% empty %}
+        <p>Aucun abonné trouvé.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

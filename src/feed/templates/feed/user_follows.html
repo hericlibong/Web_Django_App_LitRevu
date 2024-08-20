@@ -1,14 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+
 <div class="container">
-    <h1>Utilisateurs Suivis</h1>
-    <ul>
-        {% for follow in follows %}
-        <li>{{ follow.followed_user.username }} - <a href="{% url 'feed:unfollow' follow.pk %}">Se désabonner</a></li>
-        {% empty %}
-        <li>Vous ne suivez aucun utilisateur.</li>
-        {% endfor %}
-    </ul>
+
+    {% include 'feed/add_follow.html' with form=form %}
+
+    {% if messages %}
+<div class="alert alert-dismissible">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
 </div>
+{% endif %}
+
+
+    <h1>Abonnements</h1>
+    <div class="row">
+        {% for follow in follows %}
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ follow.followed_user.username }}</h5>
+                    <a href="{% url 'feed:unfollow' follow.id %}" class="btn btn-danger">Désabonner</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>Aucun abonnement trouvé.</p>
+        {% endfor %}
+    </div>
+
+    <div class="col-md-6">
+        <h2>Abonnés</h2>
+        {% for follower in followers %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ follower.user.username }}</h5>
+                
+            </div>
+        </div>
+        {% empty %}
+        <p>Aucun abonné trouvé.</p>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}

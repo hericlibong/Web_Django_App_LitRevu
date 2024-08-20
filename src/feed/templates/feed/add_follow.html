@@ -1,0 +1,13 @@
+<!-- feed/templates/feed/add_follow.html -->
+
+
+<div class="container">
+    <h1>Suivre d'autres utilisateurs</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div>
+
+
