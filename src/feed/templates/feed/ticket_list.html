@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href="{% url 'feed:add_ticket' %}" class="btn btn-primary">Créer un billet</a>
+
 </br>
 <div class="container">
     <h1>Mes Billets</h1>
@@ -39,7 +39,7 @@
             {% empty %}
             <p>Aucune critique trouvée pour ce billet.</p>
             {% endfor %}
-            <a href="{% url 'feed:add_review' ticket.id %}" class="btn btn-success">Ajouter une critique</a>
+            
         </div>
     </div>
     {% empty %}

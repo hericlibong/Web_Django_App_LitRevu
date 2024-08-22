@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Mon Flux</h1>
+    </br>
+    <a href="{% url 'feed:add_ticket' %}" class="btn btn-primary">Demander une critique</a>
+    <div class="list-group">
+        {% for ticket in feed_items %}
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <small>{{ ticket.user.username }} a publié</small>
+                <h5 class="mb-1">{{ ticket.title }}</h5>
+                <small>{{ ticket.time_created|date:"d M Y H:i" }}</small>
+            </div>
+            <p class="mb-1">{{ ticket.description }}</p>
+            {% if ticket.image %}
+            <img src="{{ ticket.image.url }}" class="img-fluid rounded" alt="Image">
+            {% endif %}
+            <!-- Afficher les critiques pour ce ticket -->
+            {% for review in ticket.review_set.all %}
+            <div class="border-top pt-2">
+                <strong>{{ review.user.username }}</strong>: {{ review.headline }}
+                <p>Rating : {{ review.rating }}</p>
+                <p>{{ review.body }}</p>
+                <small>{{ review.time_created|date:"d M Y H:i" }}</small>
+            </div>
+            {% endfor %}
+            <!-- Lien pour ajouter une critique à ce billet -->
+            <a href="{% url 'feed:add_review' ticket.id %}" class="btn btn-secondary mt-2">Ajouter une Critique</a>
+        </div>
+        {% empty %}
+        <div class="alert alert-info" role="alert">
+            Aucun billet ou commentaire à afficher.
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

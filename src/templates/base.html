@@ -10,18 +10,36 @@
 </head>
 <body>
     <div class="container mt-5">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'feed:ticket_list' %}">LITReview</a>
-                <div class="navbar-nav">
-                    {% if user.is_authenticated %}
-                    <span class="nav-item">
-                        Bonjour, {{ user.username }} |
-                        <a class="nav-link" href="{% url 'accounts:logout' %}">Déconnexion</a>
-                    </span>
-                    {% else %}
-                    <a class="nav-link" href="{% url 'accounts:login' %}">Connexion</a>
-                    {% endif %}
+                <a class="navbar-brand" href="{% url 'feed:feed' %}">LITReview</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'feed:feed' %}">Mon Flux</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'feed:ticket_list' %}">Mes Billets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'feed:follow_list' %}">Abonnements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"> Connecté : {{ user.username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:logout' %}"> Déconnexion</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:login' %}">Connexion</a>
+                        </li>
+                        {% endif %}
+                    </ul>
                 </div>
             </div>
         </nav>

@@ -2,13 +2,13 @@ from django.urls import path
 from .views import (TicketCreateView, TicketListView, TicketUpdateView, 
                     TicketDeleteView, ReviewCreateView, ReviewUpdateView,
                     ReviewDeleteView, UserFollowsCreateView, unfollowView, 
-                    add_follow)
+                    add_follow, FeedView)
 
 
 app_name = 'feed'
 
 urlpatterns = [
-    # path('followers/', FollowersListView.as_view(), name='followers_list'),
+    path('feed/', FeedView.as_view(), name='feed'),
     path('add_follow/', add_follow, name='add_follow'),
     path('add_ticket/', TicketCreateView.as_view(), name='add_ticket'),
     path('my_tickets/', TicketListView.as_view(), name='ticket_list'),
@@ -19,5 +19,4 @@ urlpatterns = [
     path('delete_review/<int:pk>/', ReviewDeleteView.as_view(), name='delete_review'),
     path('follows/', UserFollowsCreateView.as_view(), name='follow_list'),
     path('unfollow/<int:pk>/', unfollowView.as_view(), name='unfollow'),
-
 ]

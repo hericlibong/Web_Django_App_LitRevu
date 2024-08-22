@@ -20,7 +20,7 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 auth_login(request, user)
-                return redirect('feed:ticket_list')  # Redirection mise à jour
+                return redirect('feed:feed')  # Redirection mise à jour
     else:
         form = LoginForm()
     return render(request, 'accounts/login.html', {'form': form})
@@ -41,7 +41,7 @@ def signup(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 auth_login(request, user)
-                return redirect('feed:ticket_list')  # Redirection mise à jour
+                return redirect('feed:feed')  # Redirection mise à jour
     else:
         form = SignUpForm()
     return render(request, 'accounts/signup.html', {'form': form})

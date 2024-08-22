@@ -2,11 +2,46 @@
 
 {% block content %}
 <div class="container">
-    <h1>Ajouter une critique</h1>
+    <h1>Créer une critique</h1>
+    <div class="alert alert-info">
+        <strong>Vous êtes en train de répondre au ticket de :</strong>
+        <p>Nom de l'auteur: {{ ticket.user.username }}</p>
+        <p>Date de publication: {{ ticket.time_created|date:"d M Y H:i" }}</p>
+        <p>Titre du ticket: {{ ticket.title }}</p>
+        <p>Description du ticket: {{ ticket.description }}</p>
+        {% if ticket.image %}
+            <img src="{{ ticket.image.url }}" class="img-fluid rounded" alt="Image du ticket">
+        {% endif %}
+    </div>
+
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="rating1" value="1">
+                <label class="form-check-label" for="rating1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="rating2" value="2">
+                <label class="form-check-label" for="rating2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="rating3" value="3">
+                <label class="form-check-label" for="rating3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="rating4" value="4">
+                <label class="form-check-label" for="rating4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="rating5" value="5">
+                <label class="form-check-label" for="rating5">5</label>
+            </div>
+        </div>
         <button type="submit" class="btn btn-success">Publier la critique</button>
+    </form>
     </form>
 </div>
 {% endblock %}

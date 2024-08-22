@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.db.models import Q, Prefetch
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse, reverse_lazy
@@ -8,20 +9,34 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from django.contrib import messages
+from itertools import chain
+from django.core.paginator import Paginator
+
 
 User = get_user_model()
 
 
-# class FollowersListView(LoginRequiredMixin, ListView):
-#     """View for listing followers of the current user."""
-#     model = UserFollows
-#     template_name = 'feed/followers_list.html'
-#     context_object_name = 'followers'
+class FeedView(LoginRequiredMixin, ListView):
+    """View for the feed."""
+    template_name = 'feed/feed.html'
+    context_object_name = 'feed_items'
+    paginate_by = 5
 
-#     def get_queryset(self):
-#         """Return the followers of the current user."""
-#         return UserFollows.objects.filter(followed_user=self.request.user)
-    
+    def get_queryset(self):
+        user = self.request.user
+        followed_users = UserFollows.objects.filter(user=user).values_list('followed_user', flat=True)
+
+        # Préparer une requête prefetch pour inclure les critiques avec les tickets
+        reviews_prefetch = Prefetch('review_set', queryset=Review.objects.all().order_by('-time_created'))
+
+        # Récupérer les tickets de l'utilisateur et des utilisateurs suivis, incluant les critiques
+        tickets = Ticket.objects.filter(
+            Q(user__in=followed_users) | Q(user=user)
+        ).prefetch_related(reviews_prefetch).order_by('-time_created')
+
+        return tickets
+
+
 
 @login_required
 def add_follow(request):
@@ -92,17 +107,30 @@ class unfollowView(LoginRequiredMixin, DeleteView):
 class ReviewCreateView(LoginRequiredMixin, CreateView):
     """View for creating a review."""
     model = Review
-    fields = ['ticket','rating', 'headline', 'body']
+    fields = ['rating', 'headline', 'body']
     template_name = 'feed/review_create_form.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        # récupérer et attacher le ticket à la vue pour utilisation dans plusieurs méthodes
+        self.Ticket = get_object_or_404(Ticket, pk=self.kwargs.get('pk'))
+        return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         """Set the user of the review to the current user."""
         form.instance.user = self.request.user
+        form.instance.ticket = self.Ticket
         return super().form_valid(form)
 
     def get_success_url(self):
         """Return the URL to redirect to after creating a review."""
-        return reverse('feed:ticket_list')
+        return reverse('feed:feed')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        ticket_id = self.kwargs.get('pk')
+        ticket = Ticket.objects.get(pk=ticket_id)
+        context['ticket'] = ticket  # Ajouter le ticket au contexte pour y accéder dans le template
+        return context
 
 
 class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -151,7 +179,7 @@ class TicketCreateView(LoginRequiredMixin, CreateView):
     model = Ticket
     fields = ['title', 'description', 'image']
     template_name = 'feed/ticket_create.html'
-    success_url = reverse_lazy('feed:ticket_list')
+    success_url = reverse_lazy('feed:feed')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
