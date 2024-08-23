@@ -2,13 +2,15 @@ from django.urls import path
 from .views import (TicketCreateView, TicketListView, TicketUpdateView, 
                     TicketDeleteView, ReviewCreateView, ReviewUpdateView,
                     ReviewDeleteView, UserFollowsCreateView, unfollowView, 
-                    add_follow, FeedView)
+                    add_follow, FeedView, TicketDetailView, CreateTicketAndReviewView)
 
 
 app_name = 'feed'
 
 urlpatterns = [
+    path('add_ticket_and_review/', CreateTicketAndReviewView.as_view(), name='add_ticket_and_review'),
     path('feed/', FeedView.as_view(), name='feed'),
+    path('ticket/<int:pk>/', TicketDetailView.as_view(), name='ticket_detail'),
     path('add_follow/', add_follow, name='add_follow'),
     path('add_ticket/', TicketCreateView.as_view(), name='add_ticket'),
     path('my_tickets/', TicketListView.as_view(), name='ticket_list'),

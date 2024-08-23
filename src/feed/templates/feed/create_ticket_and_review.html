@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Créer un Billet et une Critique</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <h2>Critique associée</h2>
+        {{ review_form.as_p }}
+        <button type="submit" class="btn btn-success">Publier le billet et la critique</button>
+    </form>
+</div>
+{% endblock %}

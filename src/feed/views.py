@@ -2,6 +2,7 @@ from django.db.models import Q, Prefetch
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from django.urls import reverse, reverse_lazy
 from .models import Ticket, Review, UserFollows
 from .forms import UserFollowForm, ReviewForm
@@ -15,6 +16,47 @@ from django.core.paginator import Paginator
 
 User = get_user_model()
 
+class CreateTicketAndReviewView(LoginRequiredMixin, CreateView):
+    """View for creating a ticket and a review."""
+    model = Ticket
+    fields = ['title', 'description', 'image']
+    template_name = 'feed/create_ticket_and_review.html'
+
+    def form_valid(self, form):
+        # Assigner l'utilisateur avant de sauvegarder le formulaire du billet
+        form.instance.user = self.request.user
+        response = super().form_valid(form)
+        # Traiter le formulaire de critique si le billet est validement créé
+        review_form = ReviewForm(self.request.POST)
+        if review_form.is_valid():
+            review = review_form.save(commit=False)
+            review.ticket = self.object  # Le nouveau billet créé
+            review.user = self.request.user
+            review.save()
+        return response
+
+    def get_success_url(self):
+        """Return the URL to redirect to after creating a ticket and a review."""
+        return reverse('feed:feed')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if 'review_form' not in context:
+            context['review_form'] = ReviewForm(self.request.POST or None)
+        return context
+
+
+class TicketDetailView(LoginRequiredMixin, DetailView):
+    """View for see a single ticket with all the reviews."""
+    model = Ticket
+    template_name = 'feed/ticket_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['reviews'] = self.object.review_set.all().order_by('-time_created')
+        context['stars'] = range(1, 6)
+        return context
+
 
 class FeedView(LoginRequiredMixin, ListView):
     """View for the feed."""
@@ -26,23 +68,24 @@ class FeedView(LoginRequiredMixin, ListView):
         user = self.request.user
         followed_users = UserFollows.objects.filter(user=user).values_list('followed_user', flat=True)
 
-        # Préparer une requête prefetch pour inclure les critiques avec les tickets
-        reviews_prefetch = Prefetch('review_set', queryset=Review.objects.all().order_by('-time_created'))
-        # recent_reviews_prefetch = Prefetch('review_set', queryset=Review.objects.order_by('-time_created')[:2], to_attr='recent_reviews')
+    #     # Préparer une requête prefetch pour inclure les critiques avec les tickets
+        
+        recent_reviews_prefetch = Prefetch('review_set', queryset=Review.objects.order_by('-time_created')[:2], to_attr='recent_reviews')
 
-        # Récupérer les tickets de l'utilisateur et des utilisateurs suivis, incluant les critiques
+    #     # Récupérer les tickets de l'utilisateur et des utilisateurs suivis, incluant les critiques
         tickets = Ticket.objects.filter(
             Q(user__in=followed_users) | Q(user=user)
-        ).prefetch_related(reviews_prefetch).order_by('-time_created')
+        ).prefetch_related(recent_reviews_prefetch).order_by('-time_created')
+
 
         return tickets
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        feed_items = context['feed_items']
         context['stars'] = range(1, 6)
         return context
-
-
+    
 
 @login_required
 def add_follow(request):

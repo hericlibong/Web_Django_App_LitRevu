@@ -3,8 +3,9 @@
 {% block content %}
 <div class="container mt-4">
     <h1>Mon Flux</h1>
-    </br>
     <a href="{% url 'feed:add_ticket' %}" class="btn btn-primary">Demander une critique</a>
+    <a href="{% url 'feed:add_ticket_and_review' %}" class="btn btn-primary">Créer un Billet et une Critique</a>
+
     <div class="list-group">
         {% for ticket in feed_items %}
         <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -18,7 +19,7 @@
             <img src="{{ ticket.image.url }}" class="img-fluid rounded" alt="Image">
             {% endif %}
             <!-- Afficher les critiques pour ce ticket -->
-            {% for review in ticket.review_set.all %}
+            {% for review in ticket.recent_reviews %}
             <div class="border-top pt-2">
                 <strong>{{ review.user.username }}</strong>: {{ review.headline }}
                 <div>
@@ -26,10 +27,38 @@
                     <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
                     {% endfor %}
                 </div>
-                <p>{{ review.body }}</p>
+
+                <p>
+                    {{ review.body|truncatechars:200 }}
+                    {% if review.body|length > 200 %}
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#reviewModal{{ review.id }}">Lire la suite...</a>
+                    {% endif %}
+                </p>
+
                 <small>{{ review.time_created|date:"d M Y H:i" }}</small>
             </div>
-            
+
+            <!-- Modal for Review Details -->
+            <div class="modal fade" id="reviewModal{{ review.id }}" tabindex="-1" aria-labelledby="reviewModalLabel{{ review.id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="reviewModalLabel{{ review.id }}">Critique de {{ review.user.username }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h6>{{ review.headline }}</h6>
+                            <p>{{ review.body }}</p>
+                            <div>
+                                {% for star in stars %}
+                                <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {% endfor %}
             <!-- Lien pour ajouter une critique à ce billet -->
             <a href="{% url 'feed:add_review' ticket.id %}" class="btn btn-secondary mt-2">Ajouter une Critique</a>
@@ -42,4 +71,3 @@
     </div>
 </div>
 {% endblock %}
-
