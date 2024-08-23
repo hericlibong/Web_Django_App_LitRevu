@@ -2,6 +2,7 @@
 
 from django import forms
 from django.contrib.auth import get_user_model
+from .models import Review
 
 User = get_user_model()
 
@@ -14,3 +15,15 @@ class UserFollowForm(forms.Form):
         if not User.objects.filter(username=username).exists():
             raise forms.ValidationError("Cet utilisateur n'existe pas.")
         return username
+
+
+class ReviewForm(forms.ModelForm):
+    """Form for adding a review to a ticket."""
+    rating = forms.ChoiceField(
+        choices=[(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')],
+        widget=forms.RadioSelect,
+        label="Rating"
+    )
+    class Meta:
+        model = Review
+        fields = ['headline', 'rating', 'body']

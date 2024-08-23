@@ -21,10 +21,15 @@
             {% for review in ticket.review_set.all %}
             <div class="border-top pt-2">
                 <strong>{{ review.user.username }}</strong>: {{ review.headline }}
-                <p>Rating : {{ review.rating }}</p>
+                <div>
+                    {% for star in stars %}
+                    <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
+                    {% endfor %}
+                </div>
                 <p>{{ review.body }}</p>
                 <small>{{ review.time_created|date:"d M Y H:i" }}</small>
             </div>
+            
             {% endfor %}
             <!-- Lien pour ajouter une critique à ce billet -->
             <a href="{% url 'feed:add_review' ticket.id %}" class="btn btn-secondary mt-2">Ajouter une Critique</a>

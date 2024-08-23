@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse, reverse_lazy
 from .models import Ticket, Review, UserFollows
-from .forms import UserFollowForm
+from .forms import UserFollowForm, ReviewForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
@@ -28,6 +28,7 @@ class FeedView(LoginRequiredMixin, ListView):
 
         # Préparer une requête prefetch pour inclure les critiques avec les tickets
         reviews_prefetch = Prefetch('review_set', queryset=Review.objects.all().order_by('-time_created'))
+        # recent_reviews_prefetch = Prefetch('review_set', queryset=Review.objects.order_by('-time_created')[:2], to_attr='recent_reviews')
 
         # Récupérer les tickets de l'utilisateur et des utilisateurs suivis, incluant les critiques
         tickets = Ticket.objects.filter(
@@ -35,6 +36,11 @@ class FeedView(LoginRequiredMixin, ListView):
         ).prefetch_related(reviews_prefetch).order_by('-time_created')
 
         return tickets
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['stars'] = range(1, 6)
+        return context
 
 
 
@@ -107,7 +113,7 @@ class unfollowView(LoginRequiredMixin, DeleteView):
 class ReviewCreateView(LoginRequiredMixin, CreateView):
     """View for creating a review."""
     model = Review
-    fields = ['rating', 'headline', 'body']
+    form_class = ReviewForm
     template_name = 'feed/review_create_form.html'
 
     def dispatch(self, request, *args, **kwargs):
