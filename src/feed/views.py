@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from django.contrib import messages
 from itertools import chain
-from django.core.paginator import Paginator
+
 
 
 User = get_user_model()
