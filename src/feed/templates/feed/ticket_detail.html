@@ -3,6 +3,7 @@
 {% block content %}
 <div class="container">
     <h1>{{ ticket.title }}</h1>
+    <h2>{{ ticket.author }}</h2>
     <p>{{ ticket.description }}</p>
     {% if ticket.image %}
     <img src="{{ ticket.image.url }}" class="img-fluid rounded" alt="Image">

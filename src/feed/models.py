@@ -1,13 +1,15 @@
 from django.db import models
 from django.conf import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
+from ckeditor.fields import RichTextField
+
 
 
 class Ticket(models.Model):
     """Model for a ticket."""
     title = models.CharField(max_length=128, help_text='Titre du billet')
-    description = models.TextField(max_length=2048, blank=True, 
-                                   help_text='Décrivez brièvement le livre à critiquer, indiquez son auteur, son éditeur, son année de publication et éventuellement indiquez le type de critique que vous souhaitez.')
+    author = models.CharField(max_length=128, default='Auteur inconnu', help_text='Auteur du livre')
+    description = RichTextField(max_length= 2048, blank=True, help_text='Description du livre')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     time_created = models.DateTimeField(auto_now_add=True)

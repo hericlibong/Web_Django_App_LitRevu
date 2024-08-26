@@ -5,7 +5,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.urls import reverse, reverse_lazy
 from .models import Ticket, Review, UserFollows
-from .forms import UserFollowForm, ReviewForm
+from .forms import UserFollowForm, ReviewForm, TicketForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
@@ -19,7 +19,7 @@ User = get_user_model()
 class CreateTicketAndReviewView(LoginRequiredMixin, CreateView):
     """View for creating a ticket and a review."""
     model = Ticket
-    fields = ['title', 'description', 'image']
+    fields = ['title', 'author', 'description', 'image']
     template_name = 'feed/create_ticket_and_review.html'
 
     def form_valid(self, form):
@@ -226,7 +226,8 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class TicketCreateView(LoginRequiredMixin, CreateView):
     """View for creating a ticket."""
     model = Ticket
-    fields = ['title', 'description', 'image']
+    form_class = TicketForm
+    #fields = ['title', 'author', 'description', 'image']
     template_name = 'feed/ticket_create.html'
     success_url = reverse_lazy('feed:feed')
 
@@ -238,7 +239,7 @@ class TicketCreateView(LoginRequiredMixin, CreateView):
 class TicketUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """View for updating a ticket."""
     model = Ticket
-    fields = ['title', 'description', 'image']
+    fields = ['title', 'author', 'description', 'image']
     template_name = 'feed/ticket_update_form.html'
     success_url = reverse_lazy('feed:ticket_list')
 

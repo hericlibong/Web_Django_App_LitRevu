@@ -7,7 +7,7 @@ class SignUpForm(UserCreationForm):
     """Form for user registration."""
     username = forms.CharField(label="Nom d'utilisateur", max_length=30, required=True, widget=forms.TextInput(attrs={"placeholder": "Nom d'utilisateur"}))
     password1 = forms.CharField(label = "Mot de passe", widget=forms.PasswordInput(attrs={'placeholder': 'Mot de passe'}))
-    password2 = forms.CharField(label = "Confirmez mot de passe", widget=forms.PasswordInput(attrs={'placeholder': 'Confirmez mot de passe'}))
+    password2 = forms.CharField(label = "Confirmez", widget=forms.PasswordInput(attrs={'placeholder': 'Confirmez mot de passe'}))
 
     class Meta:
         model = get_user_model()
@@ -19,7 +19,7 @@ class SignUpForm(UserCreationForm):
         password2 = self.cleaned_data.get('password2')
 
         if password1 and password2 and password1 != password2:
-            raise forms.ValidationError('Passwords do not match')
+            raise forms.ValidationError('les mots de passe ne correspondent pas')
 
         return password2
 

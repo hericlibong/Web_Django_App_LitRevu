@@ -11,7 +11,7 @@ class TicketAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('first informations', {
-            'fields': ('title', 'description', 'user',)
+            'fields': ('title', 'author', 'description', 'user',)
         }),
         ('Date information', {
             'fields': ('time_created',)

@@ -12,9 +12,10 @@
             <div class="d-flex w-100 justify-content-between">
                 <small>{{ ticket.user.username }} a publié</small>
                 <h5 class="mb-1">{{ ticket.title }}</h5>
+                <h5 class="mb-1">{{ ticket.author }}</h5>
                 <small>{{ ticket.time_created|date:"d M Y H:i" }}</small>
             </div>
-            <p class="mb-1">{{ ticket.description }}</p>
+            <p class="mb-1">{{ ticket.description| safe }}</p>
             {% if ticket.image %}
             <img src="{{ ticket.image.url }}" class="img-fluid rounded" alt="Image">
             {% endif %}
@@ -67,6 +68,9 @@
         <div class="alert alert-info" role="alert">
             Aucun billet ou commentaire à afficher.
         </div>
+        
+
+
         {% endfor %}
     </div>
     {% if is_paginated %}

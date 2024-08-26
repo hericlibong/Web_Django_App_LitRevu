@@ -2,9 +2,19 @@
 
 from django import forms
 from django.contrib.auth import get_user_model
-from .models import Review
+from .models import Review, Ticket
+from ckeditor.widgets import CKEditorWidget
 
 User = get_user_model()
+
+class TicketForm(forms.ModelForm):
+    """Form for adding a tucket"""
+    description = forms.CharField(widget=CKEditorWidget())
+
+    class Meta:
+        model = Ticket
+        fields = ['title', 'author', 'description', 'image']    
+
 
 class UserFollowForm(forms.Form):
     username = forms.CharField(label='Nom d\'utilisateur', max_length=150,

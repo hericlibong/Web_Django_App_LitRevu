@@ -5,10 +5,41 @@
     <h1>Créer un Billet et une Critique</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-group">
+            <label for="id_title">Titre</label>
+            <input type="text" class="form-control" id="id_title" name="title" required>
+            <p><em>Inscrire le titre du livre dont vous demandez la critique</em></p>
+            <label for="id_author">Auteur</label>
+            <input type="text" class="form-control" id="id_author" name="author" required>
+            <p><em>Inscrire le nom de l'auteur du livre</em></p>
+            
+        </div>
+        <div class="form-group">
+            <label for="id_description">Description</label>
+            <textarea class="form-control" id="id_description" name="description"></textarea>
+            <p><em>Résumez du livre dont vous voulez la critique </em></p>
+        </div>
+        <script>
+            document.getElementById('id_image').onchange = function () {
+                document.getElementById('file-name').textContent = this.files[0].name;
+            };
+            </script>
+        <div class="form-group">
+            <label for="id_image">Image</label>
+            <div id="preview">
+            <button type="button" class="btn btn-primary" onclick="document.getElementById('id_image').click();">
+                Télécharger fichier
+            </button>
+            <input type="file" class="form-control" id="id_image" name="image" accept="image/*" style="display:none;">
+        </div>
+        </div>
+    </br>
+        
+    </form>
+</div>
         <h2>Critique associée</h2>
         {{ review_form.as_p }}
         <button type="submit" class="btn btn-success">Publier le billet et la critique</button>
-    </form>
+    
 </div>
 {% endblock %}

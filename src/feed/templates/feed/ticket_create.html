@@ -1,35 +1,43 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <h1>Créer un ticket</h1>
-    <form method="post" enctype="multipart/form-data">
+<div class="container mt-4">
+    <h1 class="create_ticket_title">Créer un ticket</h1>
+    <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
         {% csrf_token %}
-        <div class="form-group">
-            <label for="id_title">Titre</label>
-            <input type="text" class="form-control" id="id_title" name="title" required>
-            <p><em>Inscrire le titre du livre dont vous demandez la critique</em></p>
+        {{ form.media }} <!-- Assurez-vous d'inclure les médias nécessaires pour CKEditor -->
+
+        <div class="mb-3">
+            <label for="{{ form.title.id_for_label }}" class="form-label">Titre</label>
+            {{ form.title }}
+            <div class="form-text">Inscrire le titre du livre dont vous demandez la critique.</div>
         </div>
-        <div class="form-group">
-            <label for="id_description">Description</label>
-            <textarea class="form-control" id="id_description" name="description"></textarea>
+
+        <div class="mb-3">
+            <label for="{{ form.author.id_for_label }}" class="form-label">Auteur</label>
+            {{ form.author }}
+            <div class="form-text">Inscrire le nom de l'auteur du livre.</div>
         </div>
-        <script>
-            document.getElementById('id_image').onchange = function () {
-                document.getElementById('file-name').textContent = this.files[0].name;
-            };
-            </script>
-        <div class="form-group">
-            <label for="id_image">Image</label>
-            <div id="preview">
-            <button type="button" class="btn btn-primary" onclick="document.getElementById('id_image').click();">
-                Télécharger fichier
-            </button>
-            <input type="file" class="form-control" id="id_image" name="image" accept="image/*" style="display:none;">
+
+        <div class="mb-3">
+            <label for="{{ form.description.id_for_label }}" class="form-label">Description</label>
+            {{ form.description }}
+            <div class="form-text">Résumez du livre dont vous voulez la critique.</div>
         </div>
+
+        <div class="mb-3">
+            <label for="{{ form.image.id_for_label }}" class="form-label">Image</label>
+            {{ form.image }}
+            <div class="form-text" id="file-name"></div>
         </div>
-    </br>
+
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
 </div>
+
+<script>
+    document.getElementById('id_image').onchange = function () {
+        document.getElementById('file-name').textContent = this.files[0].name;
+    };
+</script>
 {% endblock %}
