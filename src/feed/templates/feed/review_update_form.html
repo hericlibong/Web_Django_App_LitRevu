@@ -3,10 +3,32 @@
 {% block content %}
 <div class="container">
     <h1>Modifier la critique</h1>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" style="max-width: 600px;">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Mettre à jour la critique</button>
+        {{ form.media }}
+        <div class="form-group">
+            <label for="{{ form.headline.id_for_label }}">Titre de la critique :</label>
+            <input type="text" class="form-control" id="id_headline" name="headline" required>
+            <div class="form-text">Inscrire un titre pour votre critique.</div>
+        </div>
+    </br>
+        <div class="form-group">
+            <label>Évaluation :</label>
+            {% for choice in form.rating %}
+            <div class="form-check form-check-inline">
+                {{ choice.tag }}
+                <label class="form-check-label" for="{{ choice.id_for_label }}">{{ choice.choice_label }}</label>
+            </div>
+            {% endfor %}
+        </div>
+    </br>
+
+        <div class="form-group">
+            <label for="{{ form.body.id_for_label }}">Corps de la critique :</label>
+            {{ form.body }}
+        </div>
+        
+        <button type="submit" class="btn btn-success">Publier la critique</button>
     </form>
 </div>
 {% endblock %}

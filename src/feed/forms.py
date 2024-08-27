@@ -34,6 +34,7 @@ class ReviewForm(forms.ModelForm):
         widget=forms.RadioSelect,
         label="Rating"
     )
+    body = forms.CharField(widget=CKEditorWidget())
     class Meta:
         model = Review
         fields = ['headline', 'rating', 'body']

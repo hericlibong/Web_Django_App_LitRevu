@@ -15,12 +15,24 @@
                 <h5 class="mb-1">{{ ticket.author }}</h5>
                 <small>{{ ticket.time_created|date:"d M Y H:i" }}</small>
             </div>
-            <p class="mb-1">{{ ticket.description| safe }}</p>
+            <h5>Nombre de critiques {{ ticket.num_reviews }} </h5>
+            <p class="mb-1">
+                <div id="shortDescription{{ forloop.counter }}">{{ ticket.description|truncatechars:200|safe }}
+                    {% if ticket.description|length > 200 %}
+                    <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Lire la suite...</a>
+                    {% endif %}
+                </div>
+                <div id="fullDescription{{ forloop.counter }}" class="collapse">
+                    {{ ticket.description|safe }}
+                    <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Réduire</a>
+                </div>
+            </p>
             {% if ticket.image %}
             <img src="{{ ticket.image.url }}" class="img-fluid rounded" alt="Image">
             {% endif %}
             <!-- Afficher les critiques pour ce ticket -->
             {% for review in ticket.recent_reviews %}
+            
             <div class="border-top pt-2">
                 <strong>{{ review.user.username }}</strong>: {{ review.headline }}
                 <div>
@@ -28,40 +40,23 @@
                     <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
                     {% endfor %}
                 </div>
-
                 <p>
-                    {{ review.body|truncatechars:200 }}
-                    {% if review.body|length > 200 %}
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#reviewModal{{ review.id }}">Lire la suite...</a>
-                    {% endif %}
+                    <div id="shortReview{{ forloop.parentloop.counter }}{{ forloop.counter }}">{{ review.body|truncatechars:200|safe }}
+                        {% if review.body|length > 200 %}
+                        <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Lire la suite...</a>
+                        {% endif %}
+                    </div>
+                    <div id="fullReview{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="collapse">
+                        {{ review.body|safe }}
+                        <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Réduire</a>
+                    </div>
                 </p>
-
                 <small>{{ review.time_created|date:"d M Y H:i" }}</small>
             </div>
-
-            <!-- Modal for Review Details -->
-            <div class="modal fade" id="reviewModal{{ review.id }}" tabindex="-1" aria-labelledby="reviewModalLabel{{ review.id }}" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="reviewModalLabel{{ review.id }}">Critique de {{ review.user.username }}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <h6>{{ review.headline }}</h6>
-                            <p>{{ review.body }}</p>
-                            <div>
-                                {% for star in stars %}
-                                <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            
             {% endfor %}
-            <!-- Lien pour ajouter une critique à ce billet -->
+            
+            <a href="{% url 'feed:ticket_detail' ticket.id %}" class="btn btn-secondary mt-2">Voir toutes les critiques</a>
             <a href="{% url 'feed:add_review' ticket.id %}" class="btn btn-secondary mt-2">Ajouter une Critique</a>
         </div>
         {% empty %}
@@ -72,26 +67,24 @@
 
 
         {% endfor %}
+         <!-- Pagination -->
+         {% if is_paginated %}
+         <nav>
+           <ul class="pagination">
+             {% if page_obj.has_previous %}
+             <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li>
+             <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+             {% endif %}
+             <li class="page-item active"><a class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</a></li>
+             {% if page_obj.has_next %}
+             <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+             <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
+             {% endif %}
+           </ul>
+         </nav>
+         {% endif %}
     </div>
-    {% if is_paginated %}
-    <div class="pagination">
-      <span class="step-links">
-          {% if page_obj.has_previous %}
-              <a href="?page=1">&laquo; First</a>
-              <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-          {% endif %}
-  
-          <span class="current">
-              Page {{ page_obj.number }} on {{ page_obj.paginator.num_pages }}.
-          </span>
-  
-          {% if page_obj.has_next %}
-              <a href="?page={{ page_obj.next_page_number }}">Next..</a>
-              <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
-          {% endif %}
-      </span>
-    </div>
-  {% endif %}
+    
 </div>
 
 </div>

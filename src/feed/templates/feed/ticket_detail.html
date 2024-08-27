@@ -4,22 +4,44 @@
 <div class="container">
     <h1>{{ ticket.title }}</h1>
     <h2>{{ ticket.author }}</h2>
-    <p>{{ ticket.description }}</p>
+    <p class="card-text">
+        <div id="shortDescription{{ forloop.counter }}">{{ ticket.description|truncatechars:200|safe }}
+            {% if ticket.description|length > 200 %}
+            <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Lire la suite...</a>
+            {% endif %}
+        </div>
+        <div id="fullDescription{{ forloop.counter }}" class="collapse">
+            {{ ticket.description|safe }}
+            <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Réduire</a>
+        </div>
+    </p>
     {% if ticket.image %}
     <img src="{{ ticket.image.url }}" class="img-fluid rounded" alt="Image">
     {% endif %}
     <h2>Critiques</h2>
-    <h3>{{ reviews.headline }}</h3>
+    
     {% for review in reviews %}
+    <h3>{{ review.headline }}</h3>
     
     <div>
         
-        <strong>{{ review.user.username }}</strong>: {{ review.body }}
+        <strong>{{ review.user.username }}</strong>
         <div>
             {% for star in stars %}
             <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
             {% endfor %}
         </div>
+        <p>
+            <div id="shortReview{{ forloop.parentloop.counter }}{{ forloop.counter }}">{{ review.body|truncatechars:200|safe }}
+                {% if review.body|length > 200 %}
+                <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Lire la suite...</a>
+                {% endif %}
+            </div>
+            <div id="fullReview{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="collapse">
+                {{ review.body|safe }}
+                <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Réduire</a>
+            </div>
+        </p>
     </div>
     {% endfor %}
 </div>

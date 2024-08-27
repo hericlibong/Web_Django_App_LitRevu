@@ -8,17 +8,19 @@
         <p>Nom de l'auteur: {{ ticket.user.username }}</p>
         <p>Date de publication: {{ ticket.time_created|date:"d M Y H:i" }}</p>
         <p>Titre du ticket: {{ ticket.title }}</p>
-        <p>Description du ticket: {{ ticket.description }}</p>
+        <p>Description du ticket: {{ ticket.description|safe }}</p>
         {% if ticket.image %}
             <img src="{{ ticket.image.url }}" class="img-fluid rounded" alt="Image du ticket">
         {% endif %}
     </div>
 
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" style="max-width: 600px;">
         {% csrf_token %}
+        {{ form.media }}
         <div class="form-group">
             <label for="{{ form.headline.id_for_label }}">Titre de la critique :</label>
-            {{ form.headline }}
+            <input type="text" class="form-control" id="id_headline" name="headline" required>
+            <div class="form-text">Inscrire un titre pour votre critique.</div>
         </div>
     </br>
         <div class="form-group">

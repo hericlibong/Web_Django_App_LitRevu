@@ -3,19 +3,20 @@
 {% block content %}
 <div class="container mt-4">
     <h1 class="create_ticket_title">Créer un ticket</h1>
-    <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+    <form method="post" enctype="multipart/form-data" class="needs-validation" style="max-width: 600px;"  novalidate>
         {% csrf_token %}
         {{ form.media }} <!-- Assurez-vous d'inclure les médias nécessaires pour CKEditor -->
 
-        <div class="mb-3">
+        <div class="mb-2">
             <label for="{{ form.title.id_for_label }}" class="form-label">Titre</label>
-            {{ form.title }}
+            <input type="text" class="form-control" id="id_title" name="title" required>
+            
             <div class="form-text">Inscrire le titre du livre dont vous demandez la critique.</div>
         </div>
 
         <div class="mb-3">
             <label for="{{ form.author.id_for_label }}" class="form-label">Auteur</label>
-            {{ form.author }}
+            <input type="text" class="form-control" id="id_author" name="author" required>
             <div class="form-text">Inscrire le nom de l'auteur du livre.</div>
         </div>
 
@@ -27,7 +28,7 @@
 
         <div class="mb-3">
             <label for="{{ form.image.id_for_label }}" class="form-label">Image</label>
-            {{ form.image }}
+            <input type="file" class="form-control" id="id_image" name="image" accept="image/*">
             <div class="form-text" id="file-name"></div>
         </div>
 
