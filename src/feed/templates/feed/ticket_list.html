@@ -9,7 +9,7 @@
         <div class="row g-0">
             <div class="col-md-4">
                 {% if ticket.image %}
-                <img src="{{ ticket.image.url }}" class="img-fluid rounded-start" alt="Image de {{ ticket.title }}">
+                <img src="{{ ticket.image.url }}" class="img-thumbnail" alt="{{ ticket.title }}">
                 {% endif %}
             </div>
             <div class="col-md-8">
@@ -71,25 +71,7 @@
     {% empty %}
     <p>Aucun billet trouvé.</p>
     {% endfor %}
-    
-    {% if is_paginated %}
-    <div class="pagination">
-      <span class="step-links">
-          {% if page_obj.has_previous %}
-              <a href="?page=1">&laquo; First</a>
-              <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-          {% endif %}
-  
-          <span class="current">
-              Page {{ page_obj.number }} on {{ page_obj.paginator.num_pages }}.
-          </span>
-  
-          {% if page_obj.has_next %}
-              <a href="?page={{ page_obj.next_page_number }}">Next..</a>
-              <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
-          {% endif %}
-      </span>
-    </div>
-  {% endif %}
+    Pagination 
+    {% include 'feed/pagination.html' %}
 </div>    
 {% endblock %}

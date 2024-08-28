@@ -13,10 +13,7 @@ h1.create_ticket_title {
   text-align: center;
 }
 
-.form-text {
 
-  font-style: italic; /* Add this line */
-}
 
 .form-center {
   max-width: 600px;
@@ -35,4 +32,10 @@ html, body {
   line-height: 60px; /* Centrer le texte verticalement */
   background-color: #f5f5f5;
 
+}
+
+.card-img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
 }

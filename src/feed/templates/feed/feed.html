@@ -5,87 +5,82 @@
     <h1>Mon Flux</h1>
     <a href="{% url 'feed:add_ticket' %}" class="btn btn-primary">Demander une critique</a>
     <a href="{% url 'feed:add_ticket_and_review' %}" class="btn btn-primary">Créer un Billet et une Critique</a>
+    </div>
+</br>
 
     <div class="list-group">
         {% for ticket in feed_items %}
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <small>{{ ticket.user.username }} a publié</small>
-                <h5 class="mb-1">{{ ticket.title }}</h5>
-                <h5 class="mb-1">{{ ticket.author }}</h5>
-                <small>{{ ticket.time_created|date:"d M Y H:i" }}</small>
-            </div>
-            <h5>Nombre de critiques {{ ticket.num_reviews }} </h5>
-            <p class="mb-1">
-                <div id="shortDescription{{ forloop.counter }}">{{ ticket.description|truncatechars:200|safe }}
-                    {% if ticket.description|length > 200 %}
-                    <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Lire la suite...</a>
+        <div class="card mb-4" style="max-width: 700px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    {% if ticket.image %}
+                    <img src="{{ ticket.image.url }}" class="card-img" alt="{{ ticket.title }}">
                     {% endif %}
                 </div>
-                <div id="fullDescription{{ forloop.counter }}" class="collapse">
-                    {{ ticket.description|safe }}
-                    <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Réduire</a>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <em>{% if ticket.user == request.user %}Vous avez{% else %}{{ ticket.user.username }} a{% endif %} publié un ticket</em>
+                        <p class="card-text"><small class="text-muted">{{ ticket.time_created|date:"d M Y H:i" }}</small></p>
+                        <h5 class="card-title">{{ ticket.title }}</h5>
+                        <h5 class="card-title">{{ ticket.author }}</h5>
+                        <p class="card-text">résumé</p>
+                        <div id="shortDescription{{ forloop.counter }}">{{ ticket.description|truncatechars:400|safe }}
+                            {% if ticket.description|length > 400 %}
+                            <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Lire la suite</a>
+                            {% endif %}
+                        </div>
+                        <div id="fullDescription{{ forloop.counter }}" class="collapse">
+                            {{ ticket.description|safe }}
+                            <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Réduire</a>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{% url 'feed:add_review' ticket.id %}" class="btn btn-dark">Ajouter une Critique</a>
+                            <a href="{% url 'feed:ticket_detail' ticket.id %}" class="btn btn-outline-dark">Voir toutes les critiques ({{ ticket.num_reviews }})</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            {% for review in ticket.recent_reviews %}
+            <div class="card text-bg-light mb-3" style="max-width: 600px;">
+                <div class="card-header">{% if review.user == request.user %}Vous avez{% else %}{{ review.user.username }} a{% endif %} publié une critique | Date de publication : <strong>{{ review.time_created|date:"d M Y H:i" }}</strong></div>
+                
+                <div class="card-body">
+                  <h5 class="card-title">{{ review.headline }}</h5>
+                  <p class="card-text">Critique</p>
+                  <p>
+                <div id="shortReview{{ forloop.parentloop.counter }}{{ forloop.counter }}">{{ review.body|truncatechars:200|safe }}
+                    {% if review.body|length > 200 %}
+                    <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Lire la suite...</a>
+                    {% endif %}
+                </div>
+                <div id="fullReview{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="collapse">
+                    {{ review.body|safe }}
+                    <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Réduire</a>
                 </div>
             </p>
-            {% if ticket.image %}
-            <img src="{{ ticket.image.url }}" class="img-fluid rounded" alt="Image">
-            {% endif %}
-            <!-- Afficher les critiques pour ce ticket -->
-            {% for review in ticket.recent_reviews %}
-            
-            <div class="border-top pt-2">
-                <strong>{{ review.user.username }}</strong>: {{ review.headline }}
+                </div>
                 <div>
+                   Note :
                     {% for star in stars %}
                     <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
                     {% endfor %}
                 </div>
-                <p>
-                    <div id="shortReview{{ forloop.parentloop.counter }}{{ forloop.counter }}">{{ review.body|truncatechars:200|safe }}
-                        {% if review.body|length > 200 %}
-                        <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Lire la suite...</a>
-                        {% endif %}
-                    </div>
-                    <div id="fullReview{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="collapse">
-                        {{ review.body|safe }}
-                        <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Réduire</a>
-                    </div>
-                </p>
-                <small>{{ review.time_created|date:"d M Y H:i" }}</small>
-            </div>
-            
-            {% endfor %}
-            
-            <a href="{% url 'feed:ticket_detail' ticket.id %}" class="btn btn-secondary mt-2">Voir toutes les critiques</a>
-            <a href="{% url 'feed:add_review' ticket.id %}" class="btn btn-secondary mt-2">Ajouter une Critique</a>
+                
+              </div>
+              
+              {% endfor %}
+              
         </div>
+        
         {% empty %}
         <div class="alert alert-info" role="alert">
             Aucun billet ou commentaire à afficher.
         </div>
-        
-
-
         {% endfor %}
-         <!-- Pagination -->
-         {% if is_paginated %}
-         <nav>
-           <ul class="pagination">
-             {% if page_obj.has_previous %}
-             <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li>
-             <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
-             {% endif %}
-             <li class="page-item active"><a class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</a></li>
-             {% if page_obj.has_next %}
-             <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-             <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
-             {% endif %}
-           </ul>
-         </nav>
-         {% endif %}
+        
+        <!-- Pagination -->
+        {% include 'feed/pagination.html' %}
     </div>
-    
-</div>
-
 </div>
 {% endblock %}

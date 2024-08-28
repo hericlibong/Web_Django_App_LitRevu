@@ -272,7 +272,7 @@ class TicketListView(LoginRequiredMixin, ListView):
     model = Ticket
     template_name = 'feed/ticket_list.html'
     context_object_name = 'tickets'
-    ordering = ['-time_created']
+    ordering = ['time_created']
     paginate_by = 5
     
     def get_queryset(self):
@@ -283,8 +283,6 @@ class TicketListView(LoginRequiredMixin, ListView):
         context['stars'] = range(1, 6)
         return context
     
-
-
     
 
 

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Mon Flux</h1>
+    <a href="{% url 'feed:add_ticket' %}" class="btn btn-primary">Demander une critique</a>
+    <a href="{% url 'feed:add_ticket_and_review' %}" class="btn btn-primary">Créer un Billet et une Critique</a>
+
+    <div class="list-group">
+        {% for ticket in feed_items %}
+        <div class="list-group-item list-group-item-action flex-column align-items-start" style="max-width: 700px;">
+            <div class="row">
+                <!-- Image and username -->
+                <div class="col-md-4">
+                    <div class="card-header">
+                        <small>{{ ticket.user.username }} a publié</small>
+                    </div>
+                    {% if ticket.image %}
+                    <img src="{{ ticket.image.url }}" class="img-thumbnail" alt="{{ ticket.title }}">
+                    {% endif %}
+                </div>
+                
+                <!-- Ticket details -->
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <small class="text-muted">{{ ticket.time_created|date:"d M Y H:i" }}</small>
+                        <h5 class="mb-1">{{ ticket.title }}</h5>
+                        <p>{{ ticket.description|safe }}</p>
+                        <div class="card-footer">
+                            <a href="{% url 'feed:ticket_detail' ticket.id %}" class="btn btn-secondary">Voir toutes les critiques ({{ ticket.num_reviews }})</a>
+                            <a href="{% url 'feed:add_review' ticket.id %}" class="btn btn-secondary">Ajouter une Critique</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Afficher les critiques pour ce ticket -->
+            {% for review in ticket.recent_reviews %}
+            <div class="border-top pt-2 d-flex justify-content-between">
+                <strong>{{ review.user.username }}</strong>: {{ review.headline }}
+                <div>
+                    {% for star in stars %}
+                    <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
+                    {% endfor %}
+                </div>
+                <div class="text-right">
+                    <small>{{ review.time_created|date:"d M Y H:i" }}</small>
+                    <div class="collapse" id="reviewBody{{ review.id }}">
+                        {{ review.body|safe }}
+                    </div>
+                    <a href="#reviewBody{{ review.id }}" data-toggle="collapse" class="btn btn-link">Lire la suite...</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% empty %}
+        <div class="alert alert-info" role="alert">
+            Aucun billet ou commentaire à afficher.
+        </div>
+        {% endfor %}
+        <!-- Pagination -->
+        {% include 'pagination.html' %}
+    </div>
+</div>
+{% endblock %}
