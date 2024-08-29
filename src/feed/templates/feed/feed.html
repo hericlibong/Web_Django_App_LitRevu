@@ -2,7 +2,6 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h1>Mon Flux</h1>
     <a href="{% url 'feed:add_ticket' %}" class="btn btn-primary">Demander une critique</a>
     <a href="{% url 'feed:add_ticket_and_review' %}" class="btn btn-primary">Créer un Billet et une Critique</a>
     </div>
@@ -19,30 +18,32 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <em>{% if ticket.user == request.user %}Vous avez{% else %}{{ ticket.user.username }} a{% endif %} publié un ticket</em>
-                        <p class="card-text"><small class="text-muted">{{ ticket.time_created|date:"d M Y H:i" }}</small></p>
-                        <h5 class="card-title">{{ ticket.title }}</h5>
-                        <h5 class="card-title">{{ ticket.author }}</h5>
-                        <p class="card-text">résumé</p>
-                        <div id="shortDescription{{ forloop.counter }}">{{ ticket.description|truncatechars:400|safe }}
+                        <em class="ticket-publication">
+                            {% if ticket.user == request.user %}Vous avez{% else %}{{ ticket.user.username }} a{% endif %} publié un ticket
+                        </em>
+                        <p class="ticket-date">{{ ticket.time_created|date:"d M Y H:i" }}</p>
+                        <h5 class="ticket-title">{{ ticket.title }}</h5>
+                        <h5 class="ticket-author">{{ ticket.author }}</h5>
+                        <p class="description-title">Résumé</p>
+                        <div id="shortDescription{{ forloop.counter }}" class="ticket-description">
+                            {{ ticket.description|truncatechars:400|safe }}
                             {% if ticket.description|length > 400 %}
                             <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Lire la suite</a>
                             {% endif %}
                         </div>
-                        <div id="fullDescription{{ forloop.counter }}" class="collapse">
+                        <div id="fullDescription{{ forloop.counter }}" class="ticket-description collapse">
                             {{ ticket.description|safe }}
                             <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Réduire</a>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer" style = "background-color: white;">
                             <a href="{% url 'feed:add_review' ticket.id %}" class="btn btn-dark">Ajouter une Critique</a>
                             <a href="{% url 'feed:ticket_detail' ticket.id %}" class="btn btn-outline-dark">Voir toutes les critiques ({{ ticket.num_reviews }})</a>
                         </div>
-                        
                     </div>
                 </div>
             </div>
             {% for review in ticket.recent_reviews %}
-            <div class="card text-bg-light mb-3" style="max-width: 600px;">
+            <div class="card text-bg-light mb-3" style="max-width: 600px;margin-left: 30px;">
                 <div class="card-header">{% if review.user == request.user %}Vous avez{% else %}{{ review.user.username }} a{% endif %} publié une critique | Date de publication : <strong>{{ review.time_created|date:"d M Y H:i" }}</strong></div>
                 
                 <div class="card-body">
@@ -59,13 +60,12 @@
                     <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Réduire</a>
                 </div>
             </p>
+            Note :
+            {% for star in stars %}
+            <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
+            {% endfor %}
                 </div>
-                <div>
-                   Note :
-                    {% for star in stars %}
-                    <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
-                    {% endfor %}
-                </div>
+                
                 
               </div>
               

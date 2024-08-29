@@ -153,7 +153,6 @@ class UserFollowsCreateView(LoginRequiredMixin, ListView):
         return super().get(request, *args, **kwargs)  # Rediriger vers la même page avec les messages d'erreur.
 
  
-
 class unfollowView(LoginRequiredMixin, DeleteView):
     model = UserFollows
     success_url = reverse_lazy('feed:follow_list')
@@ -168,26 +167,25 @@ class ReviewCreateView(LoginRequiredMixin, CreateView):
     form_class = ReviewForm
     template_name = 'feed/review_create_form.html'
 
-    def dispatch(self, request, *args, **kwargs):
-        # récupérer et attacher le ticket à la vue pour utilisation dans plusieurs méthodes
-        self.Ticket = get_object_or_404(Ticket, pk=self.kwargs.get('pk'))
-        return super().dispatch(request, *args, **kwargs)
-
     def form_valid(self, form):
-        """Set the user of the review to the current user."""
+        # Vérification pour éviter la duplication de critique pour le même ticket par le même utilisateur
+        self.ticket = get_object_or_404(Ticket, pk=self.kwargs.get('pk'))
+        existing_review = Review.objects.filter(ticket=self.ticket, user=self.request.user).exists()
+        if existing_review:
+            form.add_error(None, 'Vous avez déjà publié une critique pour ce billet.')
+            return self.form_invalid(form)
+        
         form.instance.user = self.request.user
-        form.instance.ticket = self.Ticket
+        form.instance.ticket = self.ticket
         return super().form_valid(form)
-
+    
     def get_success_url(self):
         """Return the URL to redirect to after creating a review."""
         return reverse('feed:feed')
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        ticket_id = self.kwargs.get('pk')
-        ticket = Ticket.objects.get(pk=ticket_id)
-        context['ticket'] = ticket  # Ajouter le ticket au contexte pour y accéder dans le template
+        context['ticket'] = get_object_or_404(Ticket, pk=self.kwargs.get('pk'))
         return context
 
 

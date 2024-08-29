@@ -36,6 +36,59 @@ html, body {
 
 .card-img {
   width: 100%;
-  max-width: 150px;
+  max-width: 200px;
   height: auto;
+  margin-top: 35px;
+  margin-left: 15px;
+}
+
+/* Style pour le texte de publication */
+.ticket-publication {
+  font-style: italic;
+  color: #6c757d; /* Gris Bootstrap pour un effet de texte secondaire */
+  margin-bottom: 10px;
+}
+
+/* Style pour la date de création */
+.ticket-date {
+  font-size: 0.9rem;
+  color: #adb5bd; /* Gris clair pour un texte moins important */
+}
+
+/* Style pour le titre du ticket */
+.ticket-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #343a40; /* Couleur sombre pour accentuer le titre */
+  margin-bottom: 5px;
+}
+
+/* Style pour l'auteur du ticket */
+.ticket-author {
+  font-size: 1.25rem;
+  font-weight: 500; /* Poids moyen pour différencier de titre */
+  color: #495057; /* Un gris plus doux que le titre */
+  margin-bottom: 15px;
+}
+
+/* Style pour le titre de la description */
+.description-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #343a40;
+  text-transform: capitalize; /* Augmenter la casse */
+  margin-bottom: 10px;
+}
+
+/* Style pour le texte de la description */
+.ticket-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #212529; /* Couleur de texte par défaut de Bootstrap */
+  margin-bottom: 15px;
+}
+
+/* Style pour les boutons de la card-footer */
+.card-footer .btn {
+  margin-right: 5px;
 }

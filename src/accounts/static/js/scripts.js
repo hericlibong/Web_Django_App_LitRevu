@@ -28,3 +28,4 @@ function toggleReview(index) {
     shortText.classList.toggle('collapse');
     fullText.classList.toggle('collapse');
 }
+

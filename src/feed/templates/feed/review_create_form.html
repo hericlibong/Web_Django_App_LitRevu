@@ -17,6 +17,11 @@
     <form method="post" enctype="multipart/form-data" style="max-width: 600px;">
         {% csrf_token %}
         {{ form.media }}
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
         <div class="form-group">
             <label for="{{ form.headline.id_for_label }}">Titre de la critique :</label>
             <input type="text" class="form-control" id="id_headline" name="headline" required>
