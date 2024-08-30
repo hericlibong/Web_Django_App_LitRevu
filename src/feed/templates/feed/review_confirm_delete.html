@@ -7,7 +7,7 @@
     <form method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Supprimer</button>
-        <a href="{% url 'feed:ticket_list' %}" class="btn btn-secondary">Annuler</a>
+        <a href="{% url 'feed:posts' %}" class="btn btn-secondary">Annuler</a>
     </form>
 </div>
 {% endblock %}

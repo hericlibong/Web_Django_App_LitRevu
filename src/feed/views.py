@@ -1,4 +1,4 @@
-from django.db.models import Q, Prefetch, Count
+from django.db.models import Q, Prefetch, Count, Value, CharField, F
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
@@ -173,6 +173,7 @@ class ReviewCreateView(LoginRequiredMixin, CreateView):
         existing_review = Review.objects.filter(ticket=self.ticket, user=self.request.user).exists()
         if existing_review:
             form.add_error(None, 'Vous avez déjà publié une critique pour ce billet.')
+            form.add_error(None, 'Cliquez pour retourner au flux.')
             return self.form_invalid(form)
         
         form.instance.user = self.request.user
@@ -207,7 +208,7 @@ class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def get_success_url(self):
         """Return the URL to redirect to after updating a review."""
-        return reverse('feed:ticket_list')
+        return reverse('feed:posts')
 
 
 class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -227,7 +228,7 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def get_success_url(self):
         """Return the URL to redirect to after deleting a review."""
-        return reverse('feed:ticket_list')
+        return reverse('feed:posts')
 
 
 class TicketCreateView(LoginRequiredMixin, CreateView):
@@ -240,14 +241,14 @@ class TicketCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-    
+   
 
 class TicketUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """View for updating a ticket."""
     model = Ticket
     form_class = TicketForm
     template_name = 'feed/ticket_update_form.html'
-    success_url = reverse_lazy('feed:ticket_list')
+    success_url = reverse_lazy('feed:posts')
 
     def test_func(self):
         ticket = self.get_object()
@@ -258,31 +259,42 @@ class TicketDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """View for deleting a ticket."""
     model = Ticket
     template_name = 'feed/ticket_confirm_delete.html'
-    success_url = reverse_lazy('feed:ticket_list')
+    success_url = reverse_lazy('feed:posts')
 
     def test_func(self):
         ticket = self.get_object()
         return ticket.user == self.request.user
-    
 
-class TicketListView(LoginRequiredMixin, ListView):
-    """View for listing tickets."""
-    model = Ticket
-    template_name = 'feed/ticket_list.html'
-    context_object_name = 'tickets'
-    ordering = ['time_created']
+    
+class PostsListView(LoginRequiredMixin, ListView):
+    """View for listing tickets and reviews."""
+    template_name = 'feed/posts_list.html'
+    context_object_name = 'items'
     paginate_by = 5
-    
+   
     def get_queryset(self):
-        return Ticket.objects.filter(user=self.request.user)
-    
+        user = self.request.user
+        # Récupérer les tickets de l'utilisateur
+        tickets = Ticket.objects.filter(user=user).prefetch_related('review_set').annotate(
+            content_type=Value('ticket', output_field=CharField()),
+            sort_date=F('time_created')
+        )
+        
+        # Récupérer les critiques de l'utilisateur sur les tickets d'autres utilisateurs
+        reviews = Review.objects.filter(user=user).exclude(ticket__user=user).select_related('ticket').annotate(
+            content_type=Value('review', output_field=CharField()),
+            sort_date=F('time_created')
+        )
+
+        # Combiner les deux querysets et les trier par date de création
+        result_list = sorted(
+            chain(tickets, reviews),
+            key=lambda instance: instance.sort_date,
+            reverse=True
+        )
+        return result_list
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['stars'] = range(1, 6)
         return context
-    
-    
-
-
-
-

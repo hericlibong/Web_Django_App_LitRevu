@@ -40,6 +40,7 @@ html, body {
   height: auto;
   margin-top: 35px;
   margin-left: 15px;
+  border: 0.5px solid #0c0c0c;  
 }
 
 /* Style pour le texte de publication */
@@ -52,7 +53,7 @@ html, body {
 /* Style pour la date de création */
 .ticket-date {
   font-size: 0.9rem;
-  color: #adb5bd; /* Gris clair pour un texte moins important */
+  color: #171718; /* Gris clair pour un texte moins important */
 }
 
 /* Style pour le titre du ticket */
@@ -92,3 +93,5 @@ html, body {
 .card-footer .btn {
   margin-right: 5px;
 }
+
+

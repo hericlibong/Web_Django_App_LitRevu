@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'feed:feed' %}">
                     <img src="{% static 'images/logo.jpeg' %}" alt="Logo" width="50" height="50">
@@ -32,7 +32,7 @@
                             <a class="nav-link" href="{% url 'feed:feed' %}">Mon Flux</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'feed:ticket_list' %}">Mes Posts</a>
+                            <a class="nav-link" href="{% url 'feed:posts' %}">Mes Posts</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'feed:follow_list' %}">Abonnements</a>

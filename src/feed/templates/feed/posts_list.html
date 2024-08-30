@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="container">
+    <h2>Vos posts</h2>
+    {% for item in items %}
+        {% if item.content_type == "ticket" %}
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        {% if item.image %}
+                            <img src="{{ item.image.url }}" class="img-thumbnail" alt="{{ item.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.title }}</h5>
+                            <h6 class="card-title">{{ item.author }}</h6>
+                            <p class="card-text">
+                                <div id="shortDescription{{ forloop.counter }}">{{ item.description|truncatechars:200|safe }}
+                                    {% if item.description|length > 200 %}
+                                    <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Lire la suite...</a>
+                                    {% endif %}
+                                </div>
+                                <div id="fullDescription{{ forloop.counter }}" class="collapse">
+                                    {{ item.description|safe }}
+                                    <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Réduire</a>
+                                </div>
+                            </p>
+                            <p class="card-text"><small class="text-muted">Publié par {{ item.user }} le {{ item.time_created|date:"d M Y H:i" }}</small></p>
+                            <a href="{% url 'feed:edit_ticket' item.id %}" class="btn btn-primary">Modifier</a>
+                            <a href="{% url 'feed:delete_ticket' item.id %}" class="btn btn-danger">Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <h5 class="card-title">Critiques</h5>
+                    {% for review in item.review_set.all %}
+                    <div class="mb-2">
+                        <strong>{{ review.user.username }} a écrit une critique</strong> 
+                        <div>
+                            {% for star in stars %}
+                            <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
+                            {% endfor %}
+                        </div>
+                        <p>{{ review.headline }}</p>
+
+                        <p>
+                            <div id="shortReview{{ forloop.parentloop.counter }}{{ forloop.counter }}">{{ review.body|truncatechars:200|safe }}
+                                {% if review.body|length > 200 %}
+                                <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Lire la suite...</a>
+                                {% endif %}
+                            </div>
+                            <div id="fullReview{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="collapse">
+                                {{ review.body|safe }}
+                                <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Réduire</a>
+                            </div>
+                        </p>
+                        {% if review.user == request.user %}
+                            <a href="{% url 'feed:edit_review' review.id %}" class="btn btn-secondary">Modifier</a>
+                            <a href="{% url 'feed:delete_review' review.id %}" class="btn btn-danger">Supprimer</a>
+                        {% endif %}
+                    </div>
+                    {% empty %}
+                    <p>Aucune critique trouvée pour ce billet.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="card mb-4" style="max-width: 700px; background-color: skyblue;">
+                    <div class="row g-0">
+                        <!-- Colonne pour l'image -->
+                        {% if item.ticket.image %}
+                        <div class="col-md-4">
+                            <img src="{{ item.ticket.image.url }}" class="img-fluid rounded-start" alt="{{ item.ticket.title }}">
+                        </div>
+                        {% endif %}
+                        <!-- Colonne pour le texte -->
+                        <div class="{% if item.ticket.image %}col-md-8{% else %}col-md-12{% endif %}">
+                            <div class="card-body">
+                                <p>{{ item.time_created }}</p>
+                                <strong>
+                                    {% if item.user == request.user %}
+                                    Vous avez écrit une critique sur "{{ item.ticket.title }}" un ticket de {{ item.ticket.user.username }}
+                                    {% endif %}
+                                </strong>
+                                <div class="mt-2">
+                                    {% for star in stars %}
+                                    <i class="fa fa-star {% if item.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
+                                    {% endfor %}
+                                </div>
+                                <p class="mt-3"><strong>Titre de votre critique :</strong> {{ item.headline }}</p>
+                                <p class="card-text">
+                                    <div id="shortReview{{ forloop.counter }}">{{ item.body|truncatechars:200|safe }}
+                                        {% if item.body|length > 200 %}
+                                        <a href="#" data-index="{{ forloop.counter }}" class="toggleReview">Lire la suite...</a>
+                                        {% endif %}
+                                    </div>
+                                    <div id="fullReview{{ forloop.counter }}" class="collapse">
+                                        {{ item.body|safe }}
+                                        <a href="#" data-index="{{ forloop.counter }}" class="toggleReview">Réduire</a>
+                                    </div>
+                                </p>
+                                <!-- Boutons de gestion -->
+                                {% if item.user == request.user %}
+                                <div class="mt-3">
+                                    <a href="{% url 'feed:edit_review' item.id %}" class="btn btn-secondary">Modifier</a>
+                                    <a href="{% url 'feed:delete_review' item.id %}" class="btn btn-danger">Supprimer</a>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+        {% endif %}
+    {% empty %}
+        <p>Aucune publication trouvée.</p>
+    {% endfor %}
+    <!-- Pagination -->
+    {% include 'feed/pagination.html' %}
+</div>    
+{% endblock %}

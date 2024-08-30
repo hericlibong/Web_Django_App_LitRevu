@@ -1,17 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
+</br>
 <div class="container">
-    <h1>Créer une critique</h1>
-    <div class="alert alert-info">
-        <strong>Vous êtes en train de répondre au ticket de :</strong>
-        <p>Nom de l'auteur: {{ ticket.user.username }}</p>
-        <p>Date de publication: {{ ticket.time_created|date:"d M Y H:i" }}</p>
-        <p>Titre du ticket: {{ ticket.title }}</p>
-        <p>Description du ticket: {{ ticket.description|safe }}</p>
-        {% if ticket.image %}
-            <img src="{{ ticket.image.url }}" class="img-fluid rounded" alt="Image du ticket">
-        {% endif %}
+    <h1><span class="badge bg-dark">Créer une critique</span></h1>
+
+</br>
+    
+        <div class="card mb-4" style="max-width: 700px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    {% if ticket.image %}
+                    <img src="{{ ticket.image.url }}" class="card-img" alt="{{ ticket.title }}">
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <em class="ticket-publication">
+                            {{ ticket.user.username }} a besoin d'une critique pour : "{{ ticket.title }}"
+                        </em>
+                        <p class="ticket-date"><strong>{{ ticket.time_created|date:"d M Y H:i" }}</strong></p>
+                        <h5 class="ticket-title">{{ ticket.title }}</h5>
+                        <h5 class="ticket-author">{{ ticket.author }}</h5>
+                        <p class="description-title">Résumé</p>
+                        <div id="shortDescription{{ forloop.counter }}" class="ticket-description">
+                            {{ ticket.description|truncatechars:400|safe }}
+                            {% if ticket.description|length > 400 %}
+                            <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Lire la suite</a>
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+    
+            </div>
     </div>
 
     <form method="post" enctype="multipart/form-data" style="max-width: 600px;">
@@ -19,8 +40,9 @@
         {{ form.media }}
         {% if form.non_field_errors %}
             <div class="alert alert-danger">
-                {{ form.non_field_errors }}
+                <a href="{% url 'feed:feed' %}"> {{ form.non_field_errors }}</a>
             </div>
+           
         {% endif %}
         <div class="form-group">
             <label for="{{ form.headline.id_for_label }}">Titre de la critique :</label>
@@ -43,8 +65,10 @@
             <label for="{{ form.body.id_for_label }}">Corps de la critique :</label>
             {{ form.body }}
         </div>
+    </br>
         
-        <button type="submit" class="btn btn-success">Publier la critique</button>
+        <button type="submit" class="btn btn-dark">Publier la critique</button>
     </form>
 </div>
+
 {% endblock %}
