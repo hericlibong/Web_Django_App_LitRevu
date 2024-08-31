@@ -13,7 +13,9 @@
             <div class="row no-gutters">
                 <div class="col-md-4">
                     {% if ticket.image %}
-                    <img src="{{ ticket.image.url }}" class="card-img" alt="{{ ticket.title }}">
+                    <a href="{% url 'feed:ticket_detail' ticket.id %}">
+                        <img src="{{ ticket.image.url }}" class="card-img" alt="{{ ticket.title }}">
+                    </a>
                     {% endif %}
                 </div>
                 <div class="col-md-8">
@@ -22,7 +24,9 @@
                             {% if ticket.user == request.user %}Vous avez{% else %}{{ ticket.user.username }} a{% endif %} publié un ticket
                         </em>
                         <p class="ticket-date">{{ ticket.time_created|date:"d M Y H:i" }}</p>
-                        <h5 class="ticket-title">{{ ticket.title }}</h5>
+                        <a href="{% url 'feed:ticket_detail' ticket.id %}" style="text-decoration: none;">
+                            <h5 class="ticket-title">{{ ticket.title }}</h5>
+                        </a>
                         <h5 class="ticket-author">{{ ticket.author }}</h5>
                         <p class="description-title">Résumé</p>
                         <div id="shortDescription{{ forloop.counter }}" class="ticket-description">

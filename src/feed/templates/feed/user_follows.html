@@ -2,47 +2,56 @@
 
 {% block content %}
 
-
-<div class="container">
-
+<div class="container mt-4">
+    <!-- Formulaire pour ajouter un abonnement -->
     {% include 'feed/add_follow.html' with form=form %}
 
+    <!-- Messages d'alerte -->
     {% if messages %}
-<div class="alert alert-dismissible">
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-    {% endfor %}
-</div>
-{% endif %}
+    <div class="alert alert-dismissible">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</br>
 
-
-    <h1>Abonnements</h1>
+    <!-- Section des abonnements -->
+    <h1 class="mb-4">Abonnements</h1>
     <div class="row">
         {% for follow in follows %}
         <div class="col-md-6 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ follow.followed_user.username }}</h5>
-                    <a href="{% url 'feed:unfollow' follow.id %}" class="btn btn-danger">Désabonner</a>
+            <div class="card shadow-sm">
+                <div class="card-body d-flex align-items-center">
+                    <i class="bi bi-person-circle me-3" style="font-size: 2rem;"></i>
+                    <div>
+                        <h5 class="card-title mb-0">{{ follow.followed_user.username }}</h5>
+                        <a href="{% url 'feed:unfollow' follow.id %}" class="btn btn-sm btn-outline-danger mt-2">Désabonner</a>
+                    </div>
                 </div>
             </div>
         </div>
         {% empty %}
-        <p>Aucun abonnement trouvé.</p>
+        <p class="text-muted">Aucun abonnement trouvé.</p>
         {% endfor %}
     </div>
 
-    <div class="col-md-6">
-        <h2>Abonnés</h2>
+    <!-- Section des abonnés -->
+    <h2 class="mt-5">Abonnés</h2>
+    <div class="row">
         {% for follower in followers %}
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">{{ follower.user.username }}</h5>
-                
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body d-flex align-items-center">
+                    <i class="bi bi-person-circle me-3" style="font-size: 2rem;"></i>
+                    <div>
+                        <h5 class="card-title mb-0">{{ follower.user.username }}</h5>
+                    </div>
+                </div>
             </div>
         </div>
         {% empty %}
-        <p>Aucun abonné trouvé.</p>
+        <p class="text-muted">Aucun abonné trouvé.</p>
         {% endfor %}
     </div>
 </div>

@@ -6,7 +6,7 @@
     <h2>Vos posts</h2>
     {% for item in items %}
         {% if item.content_type == "ticket" %}
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3" style="max-width: 700px;">
                 <div class="row g-0">
                     <div class="col-md-4">
                         {% if item.image %}
@@ -28,7 +28,7 @@
                                     <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Réduire</a>
                                 </div>
                             </p>
-                            <p class="card-text"><small class="text-muted">Publié par {{ item.user }} le {{ item.time_created|date:"d M Y H:i" }}</small></p>
+                            <p class="card-text"><small class="text-muted"> Publié par {% if item.user == request.user %} vous{% else %} {{ item.user }}{% endif %}  le {{ item.time_created|date:"d M Y H:i" }}</small></p>
                             <a href="{% url 'feed:edit_ticket' item.id %}" class="btn btn-primary">Modifier</a>
                             <a href="{% url 'feed:delete_ticket' item.id %}" class="btn btn-danger">Supprimer</a>
                         </div>
@@ -38,7 +38,8 @@
                     <h5 class="card-title">Critiques</h5>
                     {% for review in item.review_set.all %}
                     <div class="mb-2">
-                        <strong>{{ review.user.username }} a écrit une critique</strong> 
+                        <strong>{% if review.user == request.user %} vous avez écrit une critique {% else %}{{ review.user.username }} a écrit une critique{% endif %}</strong> 
+                        
                         <div>
                             {% for star in stars %}
                             <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
@@ -68,7 +69,8 @@
                 </div>
             </div>
         {% else %}
-            <div class="card mb-3" style="max-width: 540px;">
+        <!-- critique/réponse à billet d'un utilisateur  -->
+            <div class="card mb-3" style="max-width: 700px;">
                 <div class="card mb-4" style="max-width: 700px; background-color: skyblue;">
                     <div class="row g-0">
                         <!-- Colonne pour l'image -->
@@ -114,6 +116,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
                 
         {% endif %}
     {% empty %}

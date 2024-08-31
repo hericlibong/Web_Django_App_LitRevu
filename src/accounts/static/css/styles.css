@@ -94,4 +94,13 @@ html, body {
   margin-right: 5px;
 }
 
+.card.custom-border {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #0e0f0f; /* couleur par défaut de Bootstrap pour les bordures */
+  border-radius: 0; /* Supprime les coins arrondis */
+}
+
+
 
