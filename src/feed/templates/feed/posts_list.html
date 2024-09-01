@@ -4,125 +4,117 @@
 <br>
 <div class="container">
     <div>
-    <h2>Vos posts</h2>
-</div>
-</br>
+        <h2>Vos posts</h2>
+    </div>
+    <br>
     <div class="list-group">
-    {% for item in items %}
-        {% if item.content_type == "ticket" %}
-        <!-- Billet d'un utilisateur -->
-            <div class="card mb-4" style="max-width: 700px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        {% if item.image %}
-                            <img src="{{ item.image.url }}" class="card-img" alt="{{ item.title }}">
-                        {% endif %}
+        {% for item in items %}
+            {% if item.content_type == "ticket" %}
+            <!-- Billet d'un utilisateur -->
+                <div class="card mb-4" style="max-width: 700px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            {% if item.image %}
+                                <img src="{{ item.image.url }}" class="card-img" alt="{{ item.title }}">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.title }}</h5>
+                                <h6 class="card-title">{{ item.author }}</h6>
+                                <p class="card-text">
+                                    <div id="shortDescription{{ forloop.counter }}">{{ item.description|truncatechars:200|safe }}
+                                        {% if item.description|length > 200 %}
+                                        <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Lire la suite...</a>
+                                        {% endif %}
+                                    </div>
+                                    <div id="fullDescription{{ forloop.counter }}" class="collapse">
+                                        {{ item.description|safe }}
+                                        <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Réduire</a>
+                                    </div>
+                                </p>
+                                <p class="card-text"><small class="text-muted"> Publié par {% if item.user == request.user %} vous{% else %} {{ item.user }}{% endif %} le {{ item.time_created|date:"d M Y H:i" }}</small></p>
+                                <a href="{% url 'feed:edit_ticket' item.id %}" class="btn btn-primary">Modifier</a>
+                                <a href="{% url 'feed:delete_ticket' item.id %}" class="btn btn-danger">Supprimer</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-8">
+                    
+                    <!-- Critiques associées à ce billet -->
+                    {% for review in item.review_set.all %}
+                    <div class="card text-bg-light mb-3" style="max-width: 600px; margin-left: 30px;">
+                        <div class="card-header">
+                            {% if review.user == request.user %}
+                                Vous avez écrit une critique
+                            {% else %}
+                                {{ review.user.username }} a écrit une critique
+                            {% endif %}
+                            | Date de publication : <strong>{{ review.time_created|date:"d M Y H:i" }}</strong>
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">{{ item.title }}</h5>
-                            <h6 class="card-title">{{ item.author }}</h6>
-                            <p class="card-text">
-                                <div id="shortDescription{{ forloop.counter }}">{{ item.description|truncatechars:200|safe }}
-                                    {% if item.description|length > 200 %}
-                                    <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Lire la suite...</a>
+                            <p>{{ review.headline }}</p>
+                            <p>
+                                <div id="shortReview{{ forloop.parentloop.counter }}{{ forloop.counter }}">{{ review.body|truncatechars:200|safe }}
+                                    {% if review.body|length > 200 %}
+                                    <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Lire la suite...</a>
                                     {% endif %}
                                 </div>
-                                <div id="fullDescription{{ forloop.counter }}" class="collapse">
-                                    {{ item.description|safe }}
-                                    <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Réduire</a>
+                                <div id="fullReview{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="collapse">
+                                    {{ review.body|safe }}
+                                    <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Réduire</a>
                                 </div>
                             </p>
-                            <p class="card-text"><small class="text-muted"> Publié par {% if item.user == request.user %} vous{% else %} {{ item.user }}{% endif %}  le {{ item.time_created|date:"d M Y H:i" }}</small></p>
-                            <a href="{% url 'feed:edit_ticket' item.id %}" class="btn btn-primary">Modifier</a>
-                            <a href="{% url 'feed:delete_ticket' item.id %}" class="btn btn-danger">Supprimer</a>
+                            <p>Note :</p>
+                            <div>
+                                {% for star in stars %}
+                                <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
+                                {% endfor %}
+                            </div>
+                            {% if review.user == request.user %}
+                                <a href="{% url 'feed:edit_review' review.id %}" class="btn btn-secondary">Modifier</a>
+                                <a href="{% url 'feed:delete_review' review.id %}" class="btn btn-danger">Supprimer</a>
+                            {% endif %}
                         </div>
                     </div>
-                </div>
-            </br>
-                {% for review in item.review_set.all %}
-                <div class="card text-bg-light mb-3" style="max-width: 600px;margin-left: 30px;">
-                    <div class="card-header">
-                        {% if review.user == request.user %} 
-                        vous avez écrit une critique
-                         {% else %}
-                         {{ review.user.username }} a écrit une critique
-                         {% endif %}
-                          | Date de publication : <strong>{{ review.time_created|date:"d M Y H:i" }}</strong>
-                        
-                    </div>
-                        
-                        
-                        <div class="card-body">
-                       
-                        <p>{{ review.headline }}</p>
-
-                        <p>
-                            <div id="shortReview{{ forloop.parentloop.counter }}{{ forloop.counter }}">{{ review.body|truncatechars:200|safe }}
-                                {% if review.body|length > 200 %}
-                                <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Lire la suite...</a>
-                                {% endif %}
-                            </div>
-                            <div id="fullReview{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="collapse">
-                                {{ review.body|safe }}
-                                <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Réduire</a>
-                            </div>
-                        </p>
-                        
-                        Note:
-                        
-                            {% for star in stars %}
-                            <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
-                            {% endfor %}
-                        
-                        <div class="card-footer">
-                        {% if review.user == request.user %}
-                            <a href="{% url 'feed:edit_review' review.id %}" class="btn btn-secondary">Modifier</a>
-                            <a href="{% url 'feed:delete_review' review.id %}" class="btn btn-danger">Supprimer</a>
-                        {% endif %}
-                        </div>
-                    </div>
+                    {% empty %}
+                    <p class="text-muted">Aucune critique trouvée pour ce billet.</p>
                     {% endfor %}
-                  
-                    <p>Aucune critique trouvée pour ce billet.</p>
-                    
-                    </div>
-                        
-        {% else %}
+                </div>
 
-        
-        <!-- critique/réponse à billet d'un utilisateur  -->
-            
+            {% else %}
+            <!-- Critique/réponse à billet d'un utilisateur -->
                 <div class="card mb-4" style="max-width: 700px; background-color: skyblue;">
-                </br>
-                    <div class="card text-bg-light mb-3" style="max-width: 600px;margin-left:30px;">
+                    <div class="card text-bg-light mb-3" style="max-width: 600px; margin-left: 30px;">
                         <div class="card-header">
-                            {% if item.user == request.user %} vous avez {% else %} {{ item.user.username }} a {% endif %} publié une critique | Date de publication : <strong>{{ item.time_created|date:"d M Y H:i" }}</strong>
+                            {% if item.user == request.user %}
+                                Vous avez
+                            {% else %}
+                                {{ item.user.username }} a
+                            {% endif %}
+                            publié une critique | Date de publication : <strong>{{ item.time_created|date:"d M Y H:i" }}</strong>
                         </div>
 
                         <div class="card-body">
                             <h5 class="card-title">{{ item.headline }}</h5>
                             <p class="card-text">Critique</p>
                             <p>
-                            <div id="shortReview{{ forloop.counter }}">{{ item.body|truncatechars:200|safe }}
-                                {% if item.body|length > 200 %}
-                                <a href="#" data-index="{{ forloop.counter }}" class="toggleReview">Lire la suite...</a>
-                                {% endif %} 
+                                <div id="shortReview{{ forloop.counter }}">{{ item.body|truncatechars:200|safe }}
+                                    {% if item.body|length > 200 %}
+                                    <a href="#" data-index="{{ forloop.counter }}" class="toggleReview">Lire la suite...</a>
+                                    {% endif %}
+                                </div>
+                                <div id="fullReview{{ forloop.counter }}" class="collapse">
+                                    {{ item.body|safe }}
+                                    <a href="#" data-index="{{ forloop.counter }}" class="toggleReview">Réduire</a>
+                                </div>
+                            </p>
+                            <p>Note :</p>
+                            <div class="mt-2">
+                                {% for star in stars %}
+                                <i class="fa fa-star {% if item.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
+                                {% endfor %}
                             </div>
-                            <div id="fullReview{{ forloop.counter }}" class="collapse">
-                                {{ item.body|safe }}
-                                <a href="#" data-index="{{ forloop.counter }}" class="toggleReview">Réduire</a>
-                            </div>
-                        </p>
-                        Note :
-                        <div class="mt-2">
-                            {% for star in stars %}
-                            <i class="fa fa-star {% if item.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
-                            {% endfor %}
-                        </div>
 
-                           <div class="card-footer"> 
-                            <!-- Boutons de gestion -->
                             {% if item.user == request.user %}
                             <div class="mt-3">
                                 <a href="{% url 'feed:edit_review' item.id %}" class="btn btn-secondary">Modifier</a>
@@ -131,21 +123,18 @@
                             {% endif %}
                         </div>
                     </div>
-                </div>
+
+                    <!-- Ticket associé à cette critique -->
                     <div class="row no-gutters">
-                        <!-- Colonne pour l'image -->
-                        
                         <div class="col-md-4">
                             {% if item.ticket.image %}
-                            <img src="{{ item.ticket.image.url }}" class="card-img" alt="{{ item.ticket.title }}">
-                        
-                        {% endif %}
-                    </div>
-                        <!-- Colonne pour le texte -->
+                                <img src="{{ item.ticket.image.url }}" class="card-img" alt="{{ item.ticket.title }}">
+                            {% endif %}
+                        </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <em class="ticket-publication">
-                                {{ item.ticket.user.username }} a publié un ticket
+                                    {{ item.ticket.user.username }} a publié un ticket
                                 </em>
                                 <p class="ticket-date">{{ item.ticket.time_created|date:"d M Y H:i" }}</p>
                                 <h5 class="ticket-title">{{ item.ticket.title }}</h5>
@@ -161,20 +150,16 @@
                                     {{ item.ticket.description|safe }}
                                     <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Réduire</a>
                                 </div>
-                                </div>
                             </div>
                         </div>
-                        
+                    </div>
                 </div>
-                    
-           
-                
-        {% endif %}
-    {% empty %}
-        <p>Aucune publication trouvée.</p>
-    {% endfor %}
-    <!-- Pagination -->
-    {% include 'feed/pagination.html' %}
+
+            {% endif %}
+        {% endfor %}
+        
+        <!-- Pagination -->
+        {% include 'feed/pagination.html' %}
     </div>
 </div>    
 {% endblock %}
