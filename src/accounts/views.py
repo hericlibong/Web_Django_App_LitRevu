@@ -1,14 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
-from django.contrib.auth.decorators import login_required
 
-
-
-@login_required
-def feed(request):
-    """test page feed to check if user is logged in"""
-    return render(request, 'accounts/feed.html')
 
 def login_view(request):
     """View function for handling user login."""
@@ -25,10 +18,12 @@ def login_view(request):
         form = LoginForm()
     return render(request, 'accounts/login.html', {'form': form})
 
+
 def logout_view(request):
     """View function for handling user logout."""
     auth_logout(request)
     return redirect('accounts:login')
+
 
 def signup(request):
     """View function for handling user signup."""
@@ -45,4 +40,3 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'accounts/signup.html', {'form': form})
-

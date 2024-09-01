@@ -21,6 +21,7 @@ class TicketAdmin(admin.ModelAdmin):
         }),
     )
 
+
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ('ticket', 'rating', 'headline', 'user', 'time_created')
@@ -37,9 +38,8 @@ class ReviewAdmin(admin.ModelAdmin):
         }),
     )
 
+
 @admin.register(UserFollows)
 class UserFollowsAdmin(admin.ModelAdmin):
     list_display = ('user', 'followed_user')
     search_fields = ('user__username', 'followed_user__username')
-
-

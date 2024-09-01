@@ -7,13 +7,14 @@ from ckeditor.widgets import CKEditorWidget
 
 User = get_user_model()
 
+
 class TicketForm(forms.ModelForm):
     """Form for adding a tucket"""
     description = forms.CharField(widget=CKEditorWidget())
 
     class Meta:
         model = Ticket
-        fields = ['title', 'author', 'description', 'image']    
+        fields = ['title', 'author', 'description', 'image']
 
 
 class UserFollowForm(forms.Form):
@@ -35,6 +36,7 @@ class ReviewForm(forms.ModelForm):
         label="Rating"
     )
     body = forms.CharField(widget=CKEditorWidget())
+
     class Meta:
         model = Review
         fields = ['headline', 'rating', 'body']

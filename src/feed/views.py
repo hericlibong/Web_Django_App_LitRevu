@@ -13,8 +13,8 @@ from django.contrib import messages
 from itertools import chain
 
 
-
 User = get_user_model()
+
 
 class CreateTicketAndReviewView(LoginRequiredMixin, CreateView):
     """View for creating a ticket and a review."""
@@ -67,34 +67,21 @@ class FeedView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         user = self.request.user
         followed_users = UserFollows.objects.filter(user=user).values_list('followed_user', flat=True)
-
-    #     # Préparer une requête prefetch pour inclure les critiques avec les tickets
-        
-        # recent_reviews_prefetch = Prefetch('review_set', queryset=Review.objects.order_by('-time_created')[:2], to_attr='recent_reviews')
-        recent_reviews_prefetch = Prefetch('review_set', queryset=Review.objects.order_by('-time_created')[:2], to_attr='recent_reviews')
-
-        # Compter le nombre de critiques par billet
-        # ticket_reviews_count = Ticket.objects.annotate(num_reviews=Count('review')).order_by('-time_created')
-        #context['ticket_reviews_count'] = ticket_reviews_count
-
-    #     # Récupérer les tickets de l'utilisateur et des utilisateurs suivis, incluant les critiques
-        # tickets = Ticket.objects.filter(
-        #     Q(user__in=followed_users) | Q(user=user)
-        # ).prefetch_related(recent_reviews_prefetch).order_by('-time_created')
-
+        recent_reviews_prefetch = Prefetch(
+            'review_set',
+            queryset=Review.objects.order_by('-time_created')[:2],
+            to_attr='recent_reviews'
+        )
         tickets = Ticket.objects.filter(
             Q(user__in=followed_users) | Q(user=user)
         ).prefetch_related(recent_reviews_prefetch).annotate(num_reviews=Count('review')).order_by('-time_created')
-
-
         return tickets
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        feed_items = context['feed_items']
         context['stars'] = range(1, 6)
         return context
-    
+
 
 @login_required
 def add_follow(request):
@@ -125,13 +112,13 @@ class UserFollowsCreateView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return UserFollows.objects.filter(user=self.request.user)
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = UserFollowForm()
         context['followers'] = UserFollows.objects.filter(followed_user=self.request.user)
         return context
-    
+
     def post(self, request, *args, **kwargs):
         form = UserFollowForm(request.POST)
         if form.is_valid():
@@ -152,7 +139,7 @@ class UserFollowsCreateView(LoginRequiredMixin, ListView):
                 messages.error(request, error.as_text())
         return super().get(request, *args, **kwargs)  # Rediriger vers la même page avec les messages d'erreur.
 
- 
+
 class unfollowView(LoginRequiredMixin, DeleteView):
     model = UserFollows
     success_url = reverse_lazy('feed:follow_list')
@@ -175,15 +162,15 @@ class ReviewCreateView(LoginRequiredMixin, CreateView):
             form.add_error(None, 'Vous avez déjà publié une critique pour ce billet.')
             form.add_error(None, 'Cliquez pour retourner au flux.')
             return self.form_invalid(form)
-        
+
         form.instance.user = self.request.user
         form.instance.ticket = self.ticket
         return super().form_valid(form)
-    
+
     def get_success_url(self):
         """Return the URL to redirect to after creating a review."""
         return reverse('feed:feed')
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['ticket'] = get_object_or_404(Ticket, pk=self.kwargs.get('pk'))
@@ -213,7 +200,7 @@ class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """View for deleting a review."""
-    model = Review  
+    model = Review
     template_name = 'feed/review_confirm_delete.html'
 
     def test_func(self):
@@ -241,7 +228,7 @@ class TicketCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-   
+
 
 class TicketUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """View for updating a ticket."""
@@ -253,7 +240,7 @@ class TicketUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         ticket = self.get_object()
         return ticket.user == self.request.user
-    
+
 
 class TicketDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """View for deleting a ticket."""
@@ -265,13 +252,13 @@ class TicketDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         ticket = self.get_object()
         return ticket.user == self.request.user
 
-    
+
 class PostsListView(LoginRequiredMixin, ListView):
     """View for listing tickets and reviews."""
     template_name = 'feed/posts_list.html'
     context_object_name = 'items'
     paginate_by = 5
-   
+
     def get_queryset(self):
         user = self.request.user
         # Récupérer les tickets de l'utilisateur
@@ -279,7 +266,7 @@ class PostsListView(LoginRequiredMixin, ListView):
             content_type=Value('ticket', output_field=CharField()),
             sort_date=F('time_created')
         )
-        
+
         # Récupérer les critiques de l'utilisateur sur les tickets d'autres utilisateurs
         reviews = Review.objects.filter(user=user).exclude(ticket__user=user).select_related('ticket').annotate(
             content_type=Value('review', output_field=CharField()),

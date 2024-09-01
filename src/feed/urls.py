@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import (TicketCreateView, TicketUpdateView, 
+from .views import (TicketCreateView, TicketUpdateView,
                     TicketDeleteView, ReviewCreateView, ReviewUpdateView,
-                    ReviewDeleteView, UserFollowsCreateView, unfollowView, 
+                    ReviewDeleteView, UserFollowsCreateView, unfollowView,
                     add_follow, FeedView, TicketDetailView, CreateTicketAndReviewView, PostsListView)
 
 
