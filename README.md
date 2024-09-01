@@ -25,20 +25,20 @@ LitRevu est une application Django qui permet aux utilisateurs de demander ou de
    ```
    git clone https://github.com/hericlibong/Web_Django_App_LitRevu.git
    cd Web_Django_App_LitRevu
-```
+    ```
 
 2. **Créer l'environnement virtuel**
 
     ```
     python -m venv env
     source env/bin/activate  # Sur Windows : env\Scripts\activate
-```
+    ```
 
 3. **Installer les dépendances**
 
     ```
     pip install -r requirements.txt
-```
+    ```
 
 4. **Utilisation de la base de données**
 
@@ -54,7 +54,7 @@ Depuis le dossier `src`, lancez le serveur de développement :
     ```
     cd src
     python manage.py runserver
-```
+    ```
 
 2. **Accéder à l'application**
 
