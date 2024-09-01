@@ -3,7 +3,11 @@
 {% block content %}
 <br>
 <div class="container">
+    <div>
     <h2>Vos posts</h2>
+</div>
+</br>
+    <div class="list-group">
     {% for item in items %}
         {% if item.content_type == "ticket" %}
             <div class="card mb-3" style="max-width: 700px;">
@@ -69,6 +73,8 @@
                 </div>
             </div>
         {% else %}
+        
+        
         <!-- critique/réponse à billet d'un utilisateur  -->
             <div class="card mb-3" style="max-width: 700px;">
                 <div class="card mb-4" style="max-width: 700px; background-color: skyblue;">
@@ -124,5 +130,6 @@
     {% endfor %}
     <!-- Pagination -->
     {% include 'feed/pagination.html' %}
+    </div>
 </div>    
 {% endblock %}
