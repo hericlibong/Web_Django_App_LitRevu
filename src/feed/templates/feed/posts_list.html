@@ -76,41 +76,67 @@
         
         
         <!-- critique/réponse à billet d'un utilisateur  -->
-            <div class="card mb-3" style="max-width: 700px;">
+            
                 <div class="card mb-4" style="max-width: 700px; background-color: skyblue;">
-                    <div class="row g-0">
+                    <div class="row no-gutters">
                         <!-- Colonne pour l'image -->
-                        {% if item.ticket.image %}
+                        
                         <div class="col-md-4">
-                            <img src="{{ item.ticket.image.url }}" class="img-fluid rounded-start" alt="{{ item.ticket.title }}">
-                        </div>
+                            {% if item.ticket.image %}
+                            <img src="{{ item.ticket.image.url }}" class="card-img" alt="{{ item.ticket.title }}">
+                        
                         {% endif %}
+                    </div>
                         <!-- Colonne pour le texte -->
-                        <div class="{% if item.ticket.image %}col-md-8{% else %}col-md-12{% endif %}">
+                        <div class="col-md-8">
                             <div class="card-body">
-                                <p>{{ item.time_created }}</p>
-                                <strong>
-                                    {% if item.user == request.user %}
-                                    Vous avez écrit une critique sur "{{ item.ticket.title }}" un ticket de {{ item.ticket.user.username }}
+                                <em class="ticket-publication">
+                                {{ item.ticket.user.username }} a publié un ticket
+                                </em>
+                                <p class="ticket-date">{{ item.ticket.time_created|date:"d M Y H:i" }}</p>
+                                <h5 class="ticket-title">{{ item.ticket.title }}</h5>
+                                <h5 class="ticket-author">{{ item.ticket.author }}</h5>
+                                <p class="description-title">Résumé</p>
+                                <div id="shortDescription{{ forloop.counter }}" class="ticket-description">
+                                    {{ item.ticket.description|truncatechars:400|safe }}
+                                    {% if item.ticket.description|length > 400 %}
+                                    <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Lire la suite</a>
                                     {% endif %}
-                                </strong>
-                                <div class="mt-2">
-                                    {% for star in stars %}
-                                    <i class="fa fa-star {% if item.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
-                                    {% endfor %}
                                 </div>
-                                <p class="mt-3"><strong>Titre de votre critique :</strong> {{ item.headline }}</p>
-                                <p class="card-text">
-                                    <div id="shortReview{{ forloop.counter }}">{{ item.body|truncatechars:200|safe }}
-                                        {% if item.body|length > 200 %}
-                                        <a href="#" data-index="{{ forloop.counter }}" class="toggleReview">Lire la suite...</a>
-                                        {% endif %}
-                                    </div>
-                                    <div id="fullReview{{ forloop.counter }}" class="collapse">
-                                        {{ item.body|safe }}
-                                        <a href="#" data-index="{{ forloop.counter }}" class="toggleReview">Réduire</a>
-                                    </div>
-                                </p>
+                                <div id="fullDescription{{ forloop.counter }}" class="ticket-description collapse">
+                                    {{ item.ticket.description|safe }}
+                                    <a href="#" data-index="{{ forloop.counter }}" class="toggleDescription">Réduire</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card text-bg-light mb-3" style="max-width: 600px;margin-left:30px;">
+                            <div class="card-header">
+                                {% if item.user == request.user %} vous avez {% else %} {{ item.user.username }} a {% endif %} publié une critique | Date de publication : <strong>{{ item.time_created|date:"d M Y H:i" }}</strong>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.headline }}</h5>
+                                <p class="card-text">Critique</p>
+                                <p>
+                                <div id="shortReview{{ forloop.counter }}">{{ item.body|truncatechars:200|safe }}
+                                    {% if item.body|length > 200 %}
+                                    <a href="#" data-index="{{ forloop.counter }}" class="toggleReview">Lire la suite...</a>
+                                    {% endif %} 
+                                </div>
+                                <div id="fullReview{{ forloop.counter }}" class="collapse">
+                                    {{ item.body|safe }}
+                                    <a href="#" data-index="{{ forloop.counter }}" class="toggleReview">Réduire</a>
+                                </div>
+                            </p>
+                            Note :
+                            <div class="mt-2">
+                                {% for star in stars %}
+                                <i class="fa fa-star {% if item.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
+                                {% endfor %}
+                            </div>
+
+                               <div class="card-footer"> 
                                 <!-- Boutons de gestion -->
                                 {% if item.user == request.user %}
                                 <div class="mt-3">
@@ -122,7 +148,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                    
+           
                 
         {% endif %}
     {% empty %}
