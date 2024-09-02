@@ -102,5 +102,30 @@ html, body {
   border-radius: 0; /* Supprime les coins arrondis */
 }
 
+.nav-item {
+  color: white;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #6c757d; /* Couleur pour texte secondaire */
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057; /* Couleur pour le corps du texte */
+}
+
 
 

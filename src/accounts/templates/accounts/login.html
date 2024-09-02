@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <h2 style="text-align: center;">Connectez-vous</h2>
                         <p class="text-muted">Connectez-vous avec votre compte</p>
-                        <form method="post" action="{% url 'accounts:login' %}">
+                        <form method="post" action="{% url 'accounts:login' %}" id="login-form">
                             {% csrf_token %}
                             <!-- Affichage du message d'erreur général -->
                             {% if form.non_field_errors %}
@@ -64,4 +64,11 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById('signup-form').onsubmit = function() {
+        this.reset();  // Reset all form fields to their initial values
+    };
+</script>
+
+
 {% endblock %}
