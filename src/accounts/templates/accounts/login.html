@@ -26,6 +26,9 @@
                                 <p>{{ error }}</p>
                                 {% endfor %}
                             </div>
+                           {% endif %}
+                           
+                            <!-- Champs de formulaire avec form-floating -->
                             <div class="input-group mb-3">
                                 <label for="username" class="sr-only">Nom d'utilisateur</label>
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -35,6 +38,9 @@
                                 <label for="password" class="sr-only">Mot de passe</label>
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <input type="password" class="form-control" placeholder="Password" name="password">
+                            <!-- Affichage des erreurs pour le champ password -->
+                            
+                            
                             </div>
                             <div class="row">
                                 <div class="col-6">

@@ -13,42 +13,36 @@
                         <p class="text-muted">Créez votre compte</p>
                         <form method="post">
                             {% csrf_token %}
+                            <!-- Affichage du message d'erreur général -->
+                            {% if form.errors %}
+                            <div class="alert alert-danger">
+                               
+                               
+                                <p>{{ form.errors }}</p>
+                                    
+                                   
+                               
+                            </div>
+                            {% endif %}
                             <!-- Champs de formulaire avec form-floating -->
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="id_username" name="username" placeholder="Nom d'utilisateur" required>
                                 <label for="id_username">Nom d'utilisateur</label>
-                                <!-- Affichage des erreurs pour le champ username -->
-                                {% if form.username.errors %}
-                                <div class="text-danger">
-                                    {% for error in form.username.errors %}
-                                    <p>{{ error }}</p>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
+                                
+                                
+
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="id_password1" name="password1" placeholder="Mot de passe" required>
                                 <label for="id_password1">Mot de passe</label>
-                                <!-- Affichage des erreurs pour le champ password1 -->
-                                {% if form.password1.errors %}
-                                <div class="text-danger">
-                                    {% for error in form.password1.errors %}
-                                    <p>{{ error }}</p>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
+                               
+                                
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="id_password2" name="password2" placeholder="Confirmez le mot de passe" required>
                                 <label for="id_password2">Confirmez le mot de passe</label>
-                                <!-- Affichage des erreurs pour le champ password2 -->
-                                {% if form.password2.errors %}
-                                <div class="text-danger">
-                                    {% for error in form.password2.errors %}
-                                    <p>{{ error }}</p>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
+                                
+                                
                             </div>
                             <div class="row">
                                 <div class="col-6">
