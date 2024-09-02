@@ -19,11 +19,20 @@
                         <p class="text-muted">Connectez-vous avec votre compte</p>
                         <form method="post" action="{% url 'accounts:login' %}">
                             {% csrf_token %}
+                            <!-- Affichage du message d'erreur général -->
+                            {% if form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.non_field_errors %}
+                                <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
                             <div class="input-group mb-3">
+                                <label for="username" class="sr-only">Nom d'utilisateur</label>
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input type="text" class="form-control" placeholder="Username" name="username">
                             </div>
                             <div class="input-group mb-4">
+                                <label for="password" class="sr-only">Mot de passe</label>
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <input type="password" class="form-control" placeholder="Password" name="password">
                             </div>

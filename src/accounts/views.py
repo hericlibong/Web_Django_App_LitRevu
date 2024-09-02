@@ -14,6 +14,8 @@ def login_view(request):
             if user is not None:
                 auth_login(request, user)
                 return redirect('feed:feed')  # Redirection mise à jour
+            else:
+                form.add_error(None, "Nom d'utilisateur ou mot de passe incorrect.")
     else:
         form = LoginForm()
     return render(request, 'accounts/login.html', {'form': form})
