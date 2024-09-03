@@ -5,7 +5,8 @@
 <br>
 <div class="container">
     <div>
-        <h2>Vos posts</h2>
+        
+        <span class="badge bg-light" style="border: 1px solid;"><h3>Derniers Posts</h3></span>
     </div>
     <br>
     <div class="list-group">
@@ -96,8 +97,8 @@
 
             {% else %}
             <!-- Critique/réponse à billet d'un utilisateur -->
-                <div class="card mb-4" style="max-width: 700px; background-color: skyblue;">
-                    <div class="card text-bg-light mb-3" style="max-width: 600px; margin-left: 30px;">
+                <div class="card mb-4" style="max-width: 700px; background-color:lightgrey">
+                    <div class="card text-bg-light mb-3" style="max-width: 600px; margin-top: 2em; margin-left: 30px;">
                         <div class="card-header">
                             {% if item.user == request.user %}
                                 Vous avez
@@ -139,6 +140,7 @@
 
                     <!-- Ticket associé à cette critique -->
                     <div class="row no-gutters">
+                        
                         <div class="col-md-4">
                             {% if item.ticket.image %}
                                 <img src="{{ item.ticket.image.url }}" class="card-img" alt="{{ item.ticket.title }}">

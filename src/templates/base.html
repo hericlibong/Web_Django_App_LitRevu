@@ -32,10 +32,10 @@
                     <ul class="navbar-nav ms-auto">
                         {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'feed:feed' %}" style="color: black;">Mon Flux</a>
+                            <a class="nav-link" href="{% url 'feed:feed' %}">Mon Flux</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'feed:posts' %}">Mes Posts</a>
+                            <a class="nav-link" href="{% url 'feed:posts' %}">Posts</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'feed:follow_list' %}">Abonnements</a>

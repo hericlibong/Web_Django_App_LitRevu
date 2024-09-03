@@ -66,10 +66,12 @@
                     <a href="#" data-index="{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="toggleReview">Réduire</a>
                 </div>
             </p>
-            Note :
+            <p>Note :</p>
+            <div class="mt-2">
             {% for star in stars %}
             <i class="fa fa-star {% if review.rating >= star %}text-warning{% else %}text-muted{% endif %}"></i>
             {% endfor %}
+            </div>
                 </div>
                 
                 
