@@ -34,7 +34,7 @@ class SignUpForm(UserCreationForm):
             raise ValidationError('Le mot de passe doit contenir au moins un chiffre')
         if not any(char.isupper() for char in password1):
             raise ValidationError('Le mot de passe doit contenir au moins une lettre majuscule')
-       
+
         return password1
 
     def clean_password2(self):
