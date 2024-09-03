@@ -135,5 +135,39 @@ html, body {
   color: #495057; /* Couleur pour le corps du texte */
 }
 
+/**
+ * 
+ * Pagination
+ */
+
+
+/* Style général pour les liens de pagination */
+.pagination .page-link {
+  color: #000000; /* Texte en noir par défaut */
+  background-color: transparent; /* Fond transparent */
+  border: 1px solid #dee2e6; /* Bordure standard Bootstrap */
+}
+
+/* Style pour l'élément actif (la page courante) */
+.pagination .page-item.active .page-link {
+  color: #ffffff; /* Texte en blanc */
+  background-color: #000000; /* Fond en noir pour l'élément actif */
+  border-color: #000000; /* Bordure en noir pour l'élément actif */
+}
+
+/* Style pour les éléments désactivés */
+.pagination .page-item.disabled .page-link {
+  color: #6c757d; /* Texte en gris pour les éléments désactivés */
+  background-color: transparent; /* Fond transparent pour les éléments désactivés */
+  border: 1px solid #dee2e6; /* Bordure standard Bootstrap */
+}
+
+/* Changement de couleur au survol */
+.pagination .page-link:hover {
+  color: #000000; /* Texte en noir au survol */
+  background-color: #f8f9fa; /* Fond légèrement gris au survol */
+  border-color: #dee2e6; /* Bordure standard Bootstrap */
+}
+
 
 
