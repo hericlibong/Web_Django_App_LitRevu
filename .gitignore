@@ -4,4 +4,5 @@ src/accounts/.flake8
 src/accounts/flake-report/
 src/feed/.flake8
 src/feed/flake-report/
+src/WebDjangoApp/.env
 
