@@ -30,7 +30,7 @@ LitRevu est une application Django qui permet aux utilisateurs de demander ou de
 2. **Créer l'environnement virtuel**
 
     ```
-    python -m venv env
+    python -m venv venv
     source env/bin/activate  # Sur Windows : env\Scripts\activate
     ```
 
@@ -62,7 +62,7 @@ Vous n'avez pas besoin de migrer la base de données, car un fichier db.sqlite3 
             from django.core.management.utils import get_random_secret_key
             print(get_random_secret_key())
         ```    
-        
+
 - Assurez-vous que les valeurs des autres variables comme `DEBUG` et `ALLOWED_HOSTS` sont appropriées pour votre environnement de développement.
 
 ### Sauvegarder les modifications
