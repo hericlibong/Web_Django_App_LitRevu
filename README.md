@@ -40,21 +40,48 @@ LitRevu est une application Django qui permet aux utilisateurs de demander ou de
     pip install -r requirements.txt
     ```
 
-4. **Utilisation de la base de données**
 
+4. **Utilisation de la base de données**
 Vous n'avez pas besoin de migrer la base de données, car un fichier db.sqlite3 avec des données de démonstration est déjà inclus dans le projet.
 
+## Configuration du fichier `.env`
 
-## Utilisation
+### Préparer le fichier de configuration
+- Localisez le fichier `.env.sample` dans le dossier principal du projet.
+- Copiez ce fichier et renommez la copie en `.env` pour commencer la configuration de votre environnement.
+
+### Modifier le fichier `.env`
+- Ouvrez le fichier `.env` avec un éditeur de texte.
+- Remplacez `your_secret_key_here` par une clé secrète Django forte et unique.
+    - #### Générer une clé secrète Django
+        - Vous pouvez générer une clé secrète en utilisant un outil en ligne ou en exécutant un script Python pour générer des clés sécurisées.
+        - via des outils en ligne tels que [Djecrety](https://djecrety.ir/). Ce site fournit une clé secrète Django sécurisée que vous pouvez simplement copier et coller dans votre fichier `.env`.
+        - Exécutez le script Python suivant pour générer une clé secrète :
+
+        ```python
+            from django.core.management.utils import get_random_secret_key
+            print(get_random_secret_key())
+        ```    
+        
+- Assurez-vous que les valeurs des autres variables comme `DEBUG` et `ALLOWED_HOSTS` sont appropriées pour votre environnement de développement.
+
+### Sauvegarder les modifications
+- Enregistrez le fichier `.env` après avoir fait les modifications nécessaires.
+- Ce fichier ne doit pas être ajouté à votre dépôt git, assurez-vous qu'il est listé dans votre `.gitignore` pour éviter toute exposition accidentelle de vos configurations.
+
+## Lancer l'application
+
+Une fois le fichier `.env` configuré, suivez les instructions pour activer votre environnement virtuel, installer les dépendances, et démarrer le serveur de développement.
 
 1. **Lancer le serveur**
-
 Depuis le dossier `src`, lancez le serveur de développement :
+
 
     ```
     cd src
     python manage.py runserver
     ```
+
 
 2. **Accéder à l'application**
 
@@ -62,15 +89,9 @@ Ouvrez votre navigateur et accédez à http://127.0.0.1:8000/ pour utiliser l'ap
 
 3. **Tester l'application**
 
-Vous pouvez tester l'application avec un  déjà configuré :
+Vous pouvez tester l'application avec un accès  déjà configuré :
 
     Nom d'utilisateur : opc-user
     Mot de passe : demo
     
 
-## Structure du Projet
-
-Le projet est organisé de la manière suivante :
-- src/ : Contient le code source de l'application Django.
-- requirements.txt : Liste des dépendances Python nécessaires à l'application.
-- db.sqlite3 : Base de données SQLite utilisée en environnement de développement avec des données de démonstration.
