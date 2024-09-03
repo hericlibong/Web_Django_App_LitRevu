@@ -56,12 +56,7 @@ Vous n'avez pas besoin de migrer la base de données, car un fichier db.sqlite3 
     - #### Générer une clé secrète Django
         - Vous pouvez générer une clé secrète en utilisant un outil en ligne ou en exécutant un script Python pour générer des clés sécurisées.
         - via des outils en ligne tels que [Djecrety](https://djecrety.ir/). Ce site fournit une clé secrète Django sécurisée que vous pouvez simplement copier et coller dans votre fichier `.env`.
-        - Exécutez le script Python suivant pour générer une clé secrète :
-
-        ```python
-            from django.core.management.utils import get_random_secret_key
-            print(get_random_secret_key())
-        ```    
+         
 
 - Assurez-vous que les valeurs des autres variables comme `DEBUG` et `ALLOWED_HOSTS` sont appropriées pour votre environnement de développement.
 
