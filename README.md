@@ -1,3 +1,7 @@
+
+![picture_sample](pictures/litRevu_2.png)
+
+
 # LitRevu
 
 LitRevu est une application Django qui permet aux utilisateurs de demander ou de publier des critiques de livres ou d’articles. Elle propose trois cas d’utilisation principaux :
