@@ -92,5 +92,72 @@ Vous pouvez tester l'application avec un accès  déjà configuré :
 
     Nom d'utilisateur : opc-user
     Mot de passe : demo
+
+
+
+## **Feuille de route**
+
+Ce projet est en cours de refactorisation pour enrichir ses fonctionnalités et améliorer sa structure. Voici un aperçu des étapes clés et des objectifs associés.
+
+### **1. Migration de la base de données vers PostgreSQL**  
+- **Objectif :** Remplacer la base de données SQLite par PostgreSQL pour plus de robustesse en production.  
+- **Détails :**  
+  - Configuration des paramètres PostgreSQL dans `settings.py`.  
+  - Création des migrations et transfert des données.  
+  - Vérification de l'intégrité des données après la migration.
+
+---
+
+### **2. Mise en place d'un profil utilisateur enrichi**  
+- **Objectif :** Permettre aux utilisateurs de disposer de profils personnalisés.  
+- **Détails :**  
+  - Création d'un modèle `Profile` lié au modèle `User`.  
+  - Ajout des champs `biographie`, `photo de profil` et `site web`.  
+  - Création des vues et formulaires pour afficher et modifier le profil.  
+  - Tests pour garantir le bon fonctionnement.
+
+---
+
+### **3. Implémentation de l'API RESTful**  
+- **Objectif :** Exposer les profils utilisateurs via une API RESTful.  
+- **Détails :**  
+  - Utilisation de Django REST Framework pour créer des endpoints sécurisés.  
+  - Endpoints pour récupérer la liste des profils (`GET /api/profiles/`) et un profil utilisateur spécifique (`GET /api/profiles/<id>/`).  
+  - Ajout d'une authentification par tokens pour sécuriser l'accès.
+
+---
+
+### **4. Conteneurisation avec Docker**  
+- **Objectif :** Simplifier l'exécution du projet en local et en production avec Docker.  
+- **Détails :**  
+  - Création du `Dockerfile` pour définir l'image de l'application.  
+  - Ajout d'un fichier `docker-compose.yml` pour orchestrer les services nécessaires (application Django, PostgreSQL).  
+  - Test de l'image Docker pour s'assurer du bon fonctionnement.
+
+---
+
+### **5. Configuration du pipeline CI/CD**  
+- **Objectif :** Automatiser les tests et le déploiement continu.  
+- **Détails :**  
+  - Utilisation de GitHub Actions pour exécuter les tests automatiquement lors de chaque push.  
+  - Configuration des workflows pour construire l'image Docker et déployer l'application sur Render.  
+  - Vérification de l'état des builds et correction des éventuelles erreurs.
+
+---
+
+### **6. Documentation et maintenance**  
+- **Objectif :** Documenter le projet pour faciliter son utilisation et sa maintenance.  
+- **Détails :**  
+  - Documentation des endpoints API (via DRF Spectacular ou Swagger).  
+  - Ajout des instructions pour contribuer au projet.  
+  - Rédaction des tests unitaires et fonctionnels pour garantir la stabilité du projet.
+
+---
+
+Cette feuille de route permet de suivre l'avancement des développements et les améliorations apportées à l'application.
+
+## **Gestion du projet**  
+Le suivi des tâches et des étapes du projet est accessible [ici](https://github.com/users/hericlibong/projects/4).
+
     
 

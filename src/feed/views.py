@@ -1,3 +1,4 @@
+# feed/views.py
 from django.db.models import Q, Prefetch, Count, Value, CharField, F
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
