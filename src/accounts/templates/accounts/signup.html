@@ -27,6 +27,7 @@
                             <!-- Champs de formulaire avec form-floating -->
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="id_username" name="username" placeholder="Nom d'utilisateur" required>
+                                
                                 <label for="id_username">Nom d'utilisateur</label>
                                 
                                 
@@ -69,7 +70,7 @@
 
 <script>
     document.getElementById('signup-form').onsubmit = function() {
-        this.reset();  // Reset all form fields to their initial values
+        // this.reset();  // Reset all form fields to their initial values
     };
 </script>
 {% endblock %}

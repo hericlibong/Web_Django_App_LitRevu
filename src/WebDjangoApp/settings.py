@@ -87,10 +87,24 @@ WSGI_APPLICATION = 'WebDjangoApp.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST', default='127.0.0.1'),
+        'PORT': env('DATABASE_PORT', default='5432'),
+    }
+}
+
+# Option pour utiliser SQLite lors des tests légers (si activé dans `.env`)
+if env.bool('USE_SQLITE', default=False):
+    DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+
+
+
 
 
 # Password validation

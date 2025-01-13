@@ -1,0 +1,1995 @@
+[
+    {
+        "model": "sessions.session",
+        "pk": "37ip7ucrt9hv24mfnovto9lex5mbuv6o",
+        "fields": {
+            "session_data": "e30:1sbdMf:SUstdfIZ_FQ6OOQTmt_qV2YGv-dRgio02skIW8u3eno",
+            "expire_date": "2024-08-21T09:53:53.059Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "3knj2nge4i7c9f00sy7rjf2e7va1o762",
+        "fields": {
+            "session_data": ".eJxVjDEOgzAMRe-SuYrAxA507M4ZUBybhrYKEoGp6t0LEkO7_vfef5shbGsatqLLMIm5mtpcfjcO8an5APII-T7bOOd1mdgeij1psf0s-rqd7t9BCiXtdYPoK-xYW4gEomPlkakRJCWH0I4YpMbI7JqoEKIideA8UCu7BWQ-X9QjN38:1syb5d:PxokLHomkftYopaF2oEwrpS1yUyQK5L5ODugrjISTio",
+            "expire_date": "2024-10-23T18:07:13.264Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "b7xp10j08zbd6nm7aurgs9qqmbjygdn4",
+        "fields": {
+            "session_data": ".eJxVjDEOgzAMRe-SuYrAxA507M4ZUBybhrYKEoGp6t0LEkO7_vfef5shbGsatqLLMIm5mtpcfjcO8an5APII-T7bOOd1mdgeij1psf0s-rqd7t9BCiXtdYPoK-xYW4gEomPlkakRJCWH0I4YpMbI7JqoEKIideA8UCu7BWQ-X9QjN38:1slZxf:jrjUma6jkgBbIEldSl64LfR3vvP7VppcH0f5UO1YF2E",
+            "expire_date": "2024-09-17T20:17:11.265Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "em6qoyh3z0w3dt2tfjrem6s4rggfmwj9",
+        "fields": {
+            "session_data": ".eJxVjDEOgzAMRe-SuYrAxA507M4ZUBybhrYKEoGp6t0LEkO7_vfef5shbGsatqLLMIm5mtpcfjcO8an5APII-T7bOOd1mdgeij1psf0s-rqd7t9BCiXtdYPoK-xYW4gEomPlkakRJCWH0I4YpMbI7JqoEKIideA8UCu7BWQ-X9QjN38:1slHtb:MEMJKyh-NbLnpOjhfOsniK1MG3oleGjBIlcpUiwFdQ0",
+            "expire_date": "2024-09-17T00:59:47.289Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "is81jd7yzcrxz9w86lawxq1zbixi0wad",
+        "fields": {
+            "session_data": ".eJxVjDEOgzAMRe-SuYrAxA507M4ZUBybhrYKEoGp6t0LEkO7_vfef5shbGsatqLLMIm5mtpcfjcO8an5APII-T7bOOd1mdgeij1psf0s-rqd7t9BCiXtdYPoK-xYW4gEomPlkakRJCWH0I4YpMbI7JqoEKIideA8UCu7BWQ-X9QjN38:1skXev:gGlyTFhxemW4neoKZ0pez_VxomTG9ciHI-RacP4_baI",
+            "expire_date": "2024-09-14T23:37:33.888Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "p1ogv4sbzhsh6w46elcphlherd01xgfp",
+        "fields": {
+            "session_data": "e30:1sbUP8:g3IvzE4CqoKnuxt2Zt5_3oZiDCknWYtqnVvQ-2Jxavk",
+            "expire_date": "2024-08-21T00:19:50.133Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "svkqajob0po2hqhlu75sq8frulttd25p",
+        "fields": {
+            "session_data": ".eJxVjDEOgzAMRe-SuYrAxA507M4ZUBybhrYKEoGp6t0LEkO7_vfef5shbGsatqLLMIm5mtpcfjcO8an5APII-T7bOOd1mdgeij1psf0s-rqd7t9BCiXtdYPoK-xYW4gEomPlkakRJCWH0I4YpMbI7JqoEKIideA8UCu7BWQ-X9QjN38:1slSFY:He5ZOBZ_LujwlUq4xUPNhEYr8w2l4CKUcinH7bk9Bws",
+            "expire_date": "2024-09-17T12:03:08.226Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "x6xultry75orxyfsw0innuc2t7erv19c",
+        "fields": {
+            "session_data": ".eJxVjDEOgzAMRe-SuYrAxA507M4ZUBybhrYKEoGp6t0LEkO7_vfef5shbGsatqLLMIm5mtpcfjcO8an5APII-T7bOOd1mdgeij1psf0s-rqd7t9BCiXtdYPoK-xYW4gEomPlkakRJCWH0I4YpMbI7JqoEKIideA8UCu7BWQ-X9QjN38:1tWBEV:c7WmSXZ04kkvrVL0RDhDDL3VgxqMSN_0IAVmK05Si04",
+            "expire_date": "2025-01-24T09:23:11.023Z"
+        }
+    },
+    {
+        "model": "accounts.user",
+        "fields": {
+            "password": "pbkdf2_sha256$720000$f9n11OUO0DhwmF93TteDRe$13TvS1cxbWveby5RHo7Wjybl0re6uDzpzqH4n1v+YbM=",
+            "last_login": "2025-01-10T09:23:11.017Z",
+            "is_superuser": true,
+            "username": "adminheric-opc",
+            "first_name": "",
+            "last_name": "",
+            "email": "hericlibong@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2024-08-06T23:09:07.437Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "accounts.user",
+        "fields": {
+            "password": "pbkdf2_sha256$720000$vv4p9rm0VNtq8FVUWm5Ne6$fu5dwu8JS3ltwYyrIUAS5zfOukLDBslMKu/ICMw/R/E=",
+            "last_login": "2024-08-31T23:35:24.136Z",
+            "is_superuser": false,
+            "username": "user_2",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2024-08-18T21:37:52.398Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "accounts.user",
+        "fields": {
+            "password": "pbkdf2_sha256$720000$8nVQVAFGwfL9KHwhzKbQou$qGkrOVS62wonMxSjv7ennlRdNab6BRMpuvDlfkUO9JM=",
+            "last_login": "2024-09-03T00:54:05.676Z",
+            "is_superuser": false,
+            "username": "user_0",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2024-08-19T10:17:53.987Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "accounts.user",
+        "fields": {
+            "password": "pbkdf2_sha256$720000$53PpemH9kZxkOvjD7bkPA2$2oNNxutTadkVMWiQeZHnpIr9JoOIT/hpjwRXqDEqr68=",
+            "last_login": "2024-08-29T22:22:51.083Z",
+            "is_superuser": false,
+            "username": "user_1",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2024-08-19T17:58:50.778Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "accounts.user",
+        "fields": {
+            "password": "pbkdf2_sha256$720000$UpCVll1W7Sto8WVGmMaYHT$yaEvFcA9bqRKcKXSpjRiUi+k7XFzue7yYvXWQxLJTU0=",
+            "last_login": "2024-08-26T21:20:01.441Z",
+            "is_superuser": false,
+            "username": "user_4",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2024-08-25T16:33:11.524Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "accounts.user",
+        "fields": {
+            "password": "pbkdf2_sha256$720000$PTc1GroD1tfDu5EGhKETPZ$5g9kAvPl1giO7JPhs2t+OPqxhA31SMk9JfYGKIxbhAM=",
+            "last_login": "2024-08-31T00:54:40.207Z",
+            "is_superuser": false,
+            "username": "user_5",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2024-08-25T18:00:57.778Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "accounts.user",
+        "fields": {
+            "password": "pbkdf2_sha256$720000$uTi08Ky4eETdTx9tWyldVA$u6TLKbgst5ldcqSG19Mvq9YBOrN3RkN+0fu2LXqJ2xQ=",
+            "last_login": "2024-09-03T20:16:44.808Z",
+            "is_superuser": false,
+            "username": "opc-user",
+            "first_name": "",
+            "last_name": "",
+            "email": "demo@example.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2024-09-01T17:51:31Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 1,
+        "fields": {
+            "title": "Tu sais qui",
+            "author": "Auteur inconnu",
+            "description": "je voudrais une critique sur ce livre d",
+            "user": [
+                "user_2"
+            ],
+            "image": "images/tusaisqui_8cFSZUm.jpg",
+            "time_created": "2024-08-13T23:52:13.432Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 5,
+        "fields": {
+            "title": "Ne cherche pas Ó savoir",
+            "author": "Marc Behm",
+            "description": " A l&#39;a&eacute;roport, Lucy ach&egrave;te &quot;Moby Dick&quot; et une bouteille de scotch. De quoi tuer le temps avant de prendre livraison d&#39;un client. Lucy collecte les &acirc;mes pour Lucifer. A la morgue, le Dr Hegel remercie &quot;le piqueur&quot;, un serial killer qui a d&eacute;j&agrave; poignard&eacute; onze victimes avec un pic &agrave; glace, de lui envoyer sur sa table de dissection de superbes jeunes femmes. Au cimeti&egrave;re, V&eacute;ronique Hegel converse avec sa m&egrave;re, enterr&eacute;e depuis des ann&eacute;es. Quant &agrave; Walter G&ocirc;sta, il se planque. Son d&eacute;lai terrestre a expir&eacute;, mais il refuse d&#39;honorer son contrat. Lucy est &agrave; sa recherche. Le sens de tout &ccedil;a ? &quot;Ne cherche pas &agrave; savoir. De toute fa&ccedil;on, qu&#39;est-ce que signifient la vie, la mort, toutes ces foutaises ? &quot; Un serial killer, un ange de l&#39;enfer, un m&eacute;decin n&eacute;crophile, un cadavre en fuite, des damn&eacute;s qui croient &eacute;chapper &agrave; leur destin en s&#39;aspergeant d&#39;eau b&eacute;nite.. ",
+            "user": [
+                "user_2"
+            ],
+            "image": "images/Et-ne-cherche-pas-a-savoir_1iJlTn5.jpg",
+            "time_created": "2024-08-14T21:46:23.140Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 6,
+        "fields": {
+            "title": "La Reine des pommes",
+            "author": "Chester Himes",
+            "description": " Je voudrais une critique sur ce livre de chester himes ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "image": "images/CVT_La-reine-des-pommes_6179_JrqUpIy.webp",
+            "time_created": "2024-08-14T23:25:58.137Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 8,
+        "fields": {
+            "title": "Rabbit est riche",
+            "author": "Auteur inconnu",
+            "description": "je veux une critique de ce livre",
+            "user": [
+                "adminheric-opc"
+            ],
+            "image": "images/rabbit_est_riche.jpg",
+            "time_created": "2024-08-18T21:55:05.127Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 10,
+        "fields": {
+            "title": "allah n'est pas obligÚ",
+            "author": "Auteur inconnu",
+            "description": "je veux une critique",
+            "user": [
+                "adminheric-opc"
+            ],
+            "image": "images/CVT_Allah-nest-pas-oblige_2046_OW6L78p.jpg",
+            "time_created": "2024-08-18T22:16:47.972Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 11,
+        "fields": {
+            "title": "Ceci est un billet",
+            "author": "Auteur inconnu",
+            "description": "je demande une critique",
+            "user": [
+                "adminheric-opc"
+            ],
+            "image": "images/CVT_Couche-dans-le-pain_2686_uX0i25M.jpg",
+            "time_created": "2024-08-20T23:16:22.390Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 12,
+        "fields": {
+            "title": "Eichmann Ó JÚrusalem",
+            "author": "Hannah Arendt",
+            "description": " je voudrais une critique sur ce livre d&#39;Hannah Arendt qui &eacute;voque le proc&egrave;s du Nazi Adolf Eichman &agrave; J&eacute;rusalem ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "image": "images/CVT_Eichmann-a-Jerusalem_1202.webp",
+            "time_created": "2024-08-21T09:30:17.962Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 13,
+        "fields": {
+            "title": "L'Útranger",
+            "author": "Albert Camus",
+            "description": " &laquo;Quand la sonnerie a encore retenti, que la porte du box s&#39;est ouverte, c&#39;est le silence de la salle qui est mont&eacute; vers moi, le silence, et cette singuli&egrave;re sensation que j&#39;ai eue lorsque j&#39;ai constat&eacute; que le jeune journaliste avait d&eacute;tourn&eacute; les yeux. Je n&#39;ai pas regard&eacute; du c&ocirc;t&eacute; de Marie. Je n&#39;en ai pas eu le temps parce que le pr&eacute;sident m&#39;a dit dans une forme bizarre que j&#39;aurais la t&ecirc;te tranch&eacute;e sur une place publique au nom du peuple fran&ccedil;ais...&raquo; ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "image": "images/CVT_LEtranger_6254.webp",
+            "time_created": "2024-08-21T12:19:24.700Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 14,
+        "fields": {
+            "title": "Bon sang de bonsoir",
+            "author": "Richard Wright",
+            "description": " Vingt-quatre heures de la vie d&#39;un noir am&eacute;ricain, au d&eacute;but de la pr&eacute;sidence de Roosevelt. Vingt-quatre heures terribles. Jake, ne pouvant supporter les contraintes qui lui sont inflig&eacute;es, n&#39;ayant pas moyen de les briser, en est r&eacute;duit &agrave; se d&eacute;truire et &agrave; d&eacute;truire ses proches. Violent, tyrannique, brutalisant sa femme, organisant l&#39;enfer &agrave; deux, il court &agrave; sa perte. Vingt-quatre heures : une journ&eacute;e qui d&eacute;bute par un cauchemar et s&#39;ach&egrave;ve dans l&#39;&eacute;pouvante. Source : Folio, Gallimard ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "image": "images/51BZ181NEKL._SX195__qwscv6o.jpg",
+            "time_created": "2024-08-23T23:00:40.230Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 15,
+        "fields": {
+            "title": "Tandis que j'agonise",
+            "author": "William Faulkner",
+            "description": " &quot;Tandis que j&#39;agonise&quot; est un roman paradoxal. Paradoxal, d&#39;abord au vu du faible succ&egrave;s public qu&#39;il rencontra, alors qu&#39;il allait marquer un grand nombre d&#39;&eacute;crivains ou d&#39;artistes tel Jean-Louis Barrault qui fit du roman une de ses premi&egrave;res pi&egrave;ces (&quot;Autour d&#39;une m&egrave;re&quot;). L&#39;autre paradoxe veut que l&#39;auteur se soit peu investi dans la r&eacute;daction de ce texte. Faulkner l&#39;aurait &eacute;crit en six semaines, entre minuit et quatre heures du matin, au fond d&#39;une soute &agrave; charbon. Un v&eacute;ritable tour de force, dont, &agrave; n&#39;en pas douter, il &eacute;tait plut&ocirc;t fier. Totalement novateur, le r&eacute;cit allie farce grotesque et trag&eacute;die humaine. Anse Bundren et sa famille entreprennent un voyage fun&eacute;raire pour aller enterrer la femme de ce dernier, quelque part dans le Mississippi. Sous la chaleur de juillet, le corps se d&eacute;compose, les mulets se perdent, un des fils se casse une jambe, l&#39;autre perd la raison, tandis que le p&egrave;re ne pense qu&#39;au nouveau dentier qu&#39;il va s&#39;acheter. ",
+            "user": [
+                "user_5"
+            ],
+            "image": "images/CVT_Tandis-que-jagonise_8236.webp",
+            "time_created": "2024-08-25T20:29:29.266Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 16,
+        "fields": {
+            "title": "Les FrÞres Karamazov",
+            "author": "Fiodor Dosto´evski",
+            "description": " <strong>Dernier grand roman </strong>de F. M. Dosto&iuml;evski (1821-1881) Les Fr&egrave;res Karamazov paraissent en revue de 1879 &agrave; 1880 dans Le Messager russe. &Agrave; mesure des livraisons, le succ&egrave;s va grandissant, renforc&eacute; par les lectures qu&#39;en donne l&#39;&eacute;crivain aux soir&eacute;es litt&eacute;raires du moins dans le public car la presse r&eacute;agit en fonction de ses convictions d&eacute;mocrates ou conservatrices. <em>Les attentats terroristes</em> se multiplient, les pendaisons aussi. ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "image": "images/CVT_Les-freres-Karamazov-tome-1_8739.webp",
+            "time_created": "2024-08-26T01:10:49.643Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 17,
+        "fields": {
+            "title": "1984",
+            "author": "Georges Orwell",
+            "description": " <strong>Ann&eacute;e 1984 en Oc&eacute;anie</strong>. 1984 ? C&#39;est en tout cas ce qu&#39;il semble &agrave; Winston, qui ne saurait toutefois en jurer. Le pass&eacute; a &eacute;t&eacute; oblit&eacute;r&eacute; et r&eacute;invent&eacute;, et les &eacute;v&eacute;nements les plus r&eacute;cents sont susceptibles d&#39;&ecirc;tre modifi&eacute;s. Winston est lui-m&ecirc;me charg&eacute; de r&eacute;crire les archives qui contredisent le pr&eacute;sent et les promesses de<em> Big Brother</em>. Gr&acirc;ce &agrave; une technologie de pointe, ce dernier sait tout, voit tout. Il n&#39;est pas une &acirc;me dont il ne puisse conna&icirc;tre les pens&eacute;es ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "image": "images/CVT_1984_6175.webp",
+            "time_created": "2024-08-26T08:52:34.475Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 18,
+        "fields": {
+            "title": "Comment faire l'amour avec un nÞgre sans se fatiguer",
+            "author": "Dany LaferriÞre",
+            "description": " <strong>Premier livre de Dany Laferri&egrave;re,</strong> satire f&eacute;roce des st&eacute;r&eacute;otypes et des clich&eacute;s racistes, Comment faire l&#39;amour avec un n&egrave;gre sans se fatiguer se pr&eacute;sente comme la joyeuse description d&#39;une vie de boh&egrave;me, version black. \r\n\r\n Deux jeunes noirs oisifs partagent un appartement dans un quartier pauvre de Montr&eacute;al. L&#39;un d&#39;entre eux, le narrateur, projette d&#39;&eacute;crire un roman et, pour s&#39;occuper, conna&icirc;t diverses aventures f&eacute;minines en dissertant sur la trilogie <em>Blanc-Blanche-N&egrave;gre</em> ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "image": "images/CVT_Comment-faire-lamour-avec-un-negre-sans-se-fatigu_4065.webp",
+            "time_created": "2024-08-26T13:00:45.963Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 19,
+        "fields": {
+            "title": "Le meilleur des mondes",
+            "author": "Aldous Huxley",
+            "description": " D&eacute;fi, r&eacute;quisitoire, utopie, ce livre mondialement c&eacute;l&egrave;bre, chef-d&rsquo;&oelig;uvre de la litt&eacute;rature d&#39;anticipation, a fait d&#39;Aldous Huxley l&#39;un des t&eacute;moins les plus lucides de notre temps.<br />\r\n<em>&laquo; Aujourd&#39;hui, devait &eacute;crire l&#39;auteur pr&egrave;s de vingt ans apr&egrave;s la parution de son livre, il semble pratiquement possible que cette horreur s&#39;abatte sur nous dans le d&eacute;lai d&#39;un si&egrave;cle. Du moins, si nous nous abstenons d&#39;ici l&agrave; de nous faire sauter en miettes... Nous n&#39;avons le choix qu&#39;entre deux solutions : ou bien un certain nombre de totalitarismes nationaux, militaris&eacute;s, ayant comme racine la terreur de la bombe atomique, et comme cons&eacute;quence la destruction de la civilisation (ou, si la guerre est limit&eacute;e, la perp&eacute;tuation du militarisme) ; ou bien un seul totalitarisme supranational, suscit&eacute; par le chaos social r&eacute;sultant du progr&egrave;s technologique. &raquo;</em><br />\r\nBienvenue au Centre d&#39;Incubation et de Conditionnement de Londres-Central. &Agrave; gauche, les couveuses o&ugrave; l&#39;homme moderne, artificiellement f&eacute;cond&eacute;, attend de rejoindre une soci&eacute;t&eacute; parfaite. &Agrave; droite : la salle de conditionnement o&ugrave; chaque enfant subit les stimuli qui plus tard feront son bonheur. Tel f&oelig;tus sera Alpha &ndash; l&#39;&eacute;lite &ndash; tel autre Epsilon &ndash; caste inf&eacute;rieure. Miracle technologique : ici commence un monde parfait, biologiquement programm&eacute; pour la stabilit&eacute; &eacute;ternelle... La visite est &agrave; peine termin&eacute;e que d&eacute;j&agrave; certains ricanent. Se pourrait-il qu&#39;avant l&#39;av&egrave;nement de l&#39;&Eacute;tat Mondial, l&#39;&ecirc;tre humain ait &eacute;t&eacute; issu d&#39;un p&egrave;re et d&#39;une m&egrave;re ? Incroyable, d&eacute;go&ucirc;tant... mais vrai. Dans une r&eacute;serve du Nouveau Mexique, un homme Sauvage a &eacute;chapp&eacute; au programme. Bient&ocirc;t, il devra choisir : int&eacute;grer cette nouvelle condition humaine ou persister dans sa d&eacute;mence.. ",
+            "user": [
+                "user_1"
+            ],
+            "image": "images/CVT_13487_1710045.webp",
+            "time_created": "2024-08-27T13:38:39.948Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 20,
+        "fields": {
+            "title": "les survivants",
+            "author": "Piers Paul Read",
+            "description": " Le 13 octobre 1972, un bimoteur affr&eacute;t&eacute; par de jeunes Uruguayens &eacute;tudiants et rugbymen s&#39;&eacute;crase dans la Cordill&egrave;re des Andes. Les autorit&eacute;s sont contraintes d&#39;abandonner toute recherche au bout de huit jours. C&#39;est alors que les trente-cinq survivants de l&#39;accident prennent la d&eacute;cision de d&eacute;couper et de manger leurs camarades morts. Seize surv&eacute;curent. C&#39;est cette aventure que Piers Paul Read publia chez Grasset en 1974. ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "image": "images/CVT_Les-survivants_9200.webp",
+            "time_created": "2024-08-27T17:40:12.700Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 22,
+        "fields": {
+            "title": "Discours sur le colonialisme",
+            "author": "AimÚ CÚsaire",
+            "description": " J&#39;ai tr&egrave;s envie d&#39;acheter ce livre on m&#39;en a beaucoup parl&eacute;. Mais je n&#39;y connais rien &agrave; l&#39;Histoire du colonialisme. J&#39;ai l&#39;impression que ce sont des affaires qui nous ne concernent plus. Mais il s&#39;agit quand d&#39;Aim&eacute; C&eacute;saire, l&#39;un des plus grands po&egrave;te et &eacute;crivain de sa g&eacute;n&eacute;ration donc, je me dis que &ccedil;a doit &ecirc;tre int&eacute;ressant. Si quelqu&#39;un l&#39;a lu j&#39;aimerai bien avoir son avis. Merci ",
+            "user": [
+                "user_2"
+            ],
+            "image": "images/CVT_Discours-sur-le-colonialisme_6677.jpg",
+            "time_created": "2024-08-29T22:42:27.886Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 23,
+        "fields": {
+            "title": "Da vinci code",
+            "author": "Dan Brown",
+            "description": " Robert Langdon, un &eacute;minent sp&eacute;cialiste de symbologie de Harvard, est convoqu&eacute; d&#39;urgence au Louvre. On a d&eacute;couvert un message cod&eacute; sur le cadavre du conservateur en chef, retrouv&eacute; assassin&eacute; au milieu de la Grande Galerie. Pour examiner la s&eacute;rie de pictogrammes, il est &eacute;paul&eacute; par Sophie Neveu, une brillante cryptographe membre de la police. A leur grande surprise, les premiers indices les conduisent &agrave; l&#39;&oelig;uvre de L&eacute;onard de Vinci. En d&eacute;chiffrant le code, Langdon va mettre &agrave; jour l&#39;un des plus grands myst&egrave;res de notre temps... et devenir un homme traqu&eacute;. ",
+            "user": [
+                "opc-user"
+            ],
+            "image": "images/CVT_25168_1158368.webp",
+            "time_created": "2024-09-01T19:39:12.053Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 24,
+        "fields": {
+            "title": "Data Sanglantes",
+            "author": "Jakub Samalek",
+            "description": " Un roman captivant sur la fa&ccedil;on de truquer des &eacute;lections d&eacute;mocratiques en Europe et les pi&egrave;ges du dark net. Inqui&eacute;tant et addictif. \r\n\r\n Une jeune enqu&ecirc;trice, un mod&eacute;rateur de Facebook, une attach&eacute;e de presse id&eacute;aliste d&eacute;couvrent au p&eacute;ril de leurs vies les m&eacute;thodes qui permettent de truquer les &eacute;lections parlementaires. Des recherches universitaires aux possibilit&eacute;s infinies des nouvelles technologies pr&eacute;sent&eacute;es &agrave; Las Vegas, leur curiosit&eacute; en fera les cibles r&ecirc;v&eacute;es de tous ceux qui ont &agrave; perdre &agrave; &ecirc;tre connus en dehors du dark net. \r\n\r\n &nbsp; ",
+            "user": [
+                "opc-user"
+            ],
+            "image": "images/51Z-xUCkvJL._SX195_.jpg",
+            "time_created": "2024-09-03T20:12:57.930Z"
+        }
+    },
+    {
+        "model": "feed.ticket",
+        "pk": 25,
+        "fields": {
+            "title": "Dune",
+            "author": "Fiodor Dosto´evski",
+            "description": " Sur Dune, la plan&egrave;te des sables, germe l&#39;&eacute;pice qui donne long&eacute;vit&eacute; et prescience. &Agrave; cause de l&#39;&eacute;pice, tout l&#39;empire galactique du Padishah Shaddam IV tourne autour de Dune, &acirc;prement convoit&eacute;e pour les nobles maisons du Landsraad et la Guilde des Navigateurs. \r\n\r\n Leto Atreides, Duc et Cousin de l&#39;Empereur, a re&ccedil;u Dune en fief. Pour peu de temps. En 10191, il meurt assassin&eacute;. Mais son fils Paul, avec sa m&egrave;re, trouve asile dans les repaires du peuple Fremen, indompt&eacute;, invaincu, la lie de Dune pour certains, le sel de la terre pour d&#39;autres. Paul grandit dans le d&eacute;sert et forge l&#39;arme de sa vengeance. \r\n\r\n Mais ne va-t-il pas d&eacute;passer son but, lancer les l&eacute;gions Fremen en une effroyable croisade ? Il a, dit-on, le pouvoir de conna&icirc;tre l&#39;avenir. Aura-t-il celui de l&#39;&eacute;viter ? \r\n\r\n &nbsp; ",
+            "user": [
+                "opc-user"
+            ],
+            "image": "images/CVT_Dune-tome-1_3118.jpg",
+            "time_created": "2024-09-03T20:14:35.051Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 11,
+        "fields": {
+            "ticket": 1,
+            "rating": 4,
+            "headline": "A lire absolument",
+            "body": "c'est une critique de user_2",
+            "user": [
+                "user_2"
+            ],
+            "time_created": "2024-08-18T21:57:53.520Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 12,
+        "fields": {
+            "ticket": 5,
+            "rating": 4,
+            "headline": "Attention d'oeuvre!!!",
+            "body": "C'est une autre critique de user_2",
+            "user": [
+                "user_2"
+            ],
+            "time_created": "2024-08-18T21:58:37.808Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 13,
+        "fields": {
+            "ticket": 6,
+            "rating": 3,
+            "headline": "super polar",
+            "body": "une critique de moi simple  je ne vois pas la critique",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-18T21:59:33.375Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 15,
+        "fields": {
+            "ticket": 10,
+            "rating": 3,
+            "headline": "A lire absolument",
+            "body": "ceci est ue critique de user_2",
+            "user": [
+                "user_2"
+            ],
+            "time_created": "2024-08-18T22:39:38.903Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 18,
+        "fields": {
+            "ticket": 8,
+            "rating": 4,
+            "headline": "Attention d'oeuvre!!!",
+            "body": "testestts",
+            "user": [
+                "user_0"
+            ],
+            "time_created": "2024-08-21T08:50:59.974Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 19,
+        "fields": {
+            "ticket": 13,
+            "rating": 3,
+            "headline": "Attention chef d'oeuvre !!!",
+            "body": "Si vous n'avez pas lu ce livre dÚpechez vous",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-21T12:32:05.223Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 20,
+        "fields": {
+            "ticket": 12,
+            "rating": 3,
+            "headline": "A lire absolument",
+            "body": " Un essai sur la banalit&eacute; du mal ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-21T21:53:23.020Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 21,
+        "fields": {
+            "ticket": 11,
+            "rating": 3,
+            "headline": "super polar",
+            "body": "c'est une critique pour voir si tout fonctionne",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-21T22:21:55.765Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 22,
+        "fields": {
+            "ticket": 10,
+            "rating": 4,
+            "headline": "A lire absolument",
+            "body": "je teste",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-21T23:54:28.942Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 25,
+        "fields": {
+            "ticket": 13,
+            "rating": 2,
+            "headline": "J'ai aimÚ",
+            "body": "T'as pas lu þa, t'as rien lu.",
+            "user": [
+                "user_1"
+            ],
+            "time_created": "2024-08-22T17:31:33.216Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 26,
+        "fields": {
+            "ticket": 11,
+            "rating": 5,
+            "headline": "le meilleur des polars",
+            "body": "tu n'en reviendras pas",
+            "user": [
+                "user_1"
+            ],
+            "time_created": "2024-08-22T18:09:22.655Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 27,
+        "fields": {
+            "ticket": 8,
+            "rating": 5,
+            "headline": "Rabbit est un sadique",
+            "body": "Chef d'oeuvre, satyre, Ó vous de voir. Les 2 c'est pas mal non plus.",
+            "user": [
+                "user_1"
+            ],
+            "time_created": "2024-08-23T13:03:29.458Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 28,
+        "fields": {
+            "ticket": 13,
+            "rating": 5,
+            "headline": "Entre ici Camus!!!",
+            "body": "C'est peut Ûtre un des meilleurs livre que je n'ai jamais lu",
+            "user": [
+                "user_2"
+            ],
+            "time_created": "2024-08-23T16:17:30.659Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 29,
+        "fields": {
+            "ticket": 8,
+            "rating": 4,
+            "headline": "Bonne lecture!!",
+            "body": " <strong>Pennsylvanie, ann&eacute;es 70</strong>. Rabbit, la quarantaine, est riche. A vrai dire, il fait partie de la classe moyenne : il dirige une franchise Toyota, heureux h&eacute;ritage de son beau-p&egrave;re. Mais le chemin parcouru a &eacute;t&eacute; long, Rabbit a bien gal&eacute;r&eacute;. Une histoire de famille et une peinture sociale, entre r&eacute;alisme et satire matin&eacute;e d&#39;une touche de m&eacute;lancolie. Un des fils rouge est la relation compliqu&eacute;e avec son fils. Rabbit sent son autorit&eacute; de p&egrave;re de famille contest&eacute;e. Au beau milieu du roman, une sc&egrave;ne saisissante, qui associe l&#39;or et le sexe : Rabbit a investi une partie de ses &eacute;conomies dans l&#39;or : ayant achet&eacute; de pi&egrave;ces de monnaie pour trois mille dollars, il en pare sa capricieuse &eacute;pouse le temps d&#39;une m&eacute;morable partie de jambes en l&#39;air. Cette sc&egrave;ne marque le second leitmotiv : l&#39;argent et le sexe. Justement : j&#39;ai bien aim&eacute; la premi&egrave;re moiti&eacute; ; mais sur la seconde moiti&eacute;, l&#39;overdose de sexe m&#39;a d&eacute;senchant&eacute;e. Est-ce que c&#39;&eacute;tait la mode dans les ann&eacute;es 70-80 ? Et hop, je retire une &eacute;toile, m&ecirc;me deux. Dire qu&#39;il a eu le Pulitzer en 1982. Pffff ! Rabbit est le descendant direct de Babbitt, le personnage embl&eacute;matique du roman de Sinclair Lewis. Babbitt, monsieur tout-le-monde du Middle-West, tandis que Rabbit vit en Pennsylvanie, pays de John Updike. Lorsque j&#39;ai lu Babbit, il y a quelques ann&eacute;es, j&#39;avais not&eacute; une phrase de la pr&eacute;face : <em>&quot;Quand on appelle le bonheur, c&#39;est le confort qui r&eacute;pond &raquo;. Cela colle &eacute;galement au pr&eacute;sent texte. Oui, le confort, mais aussi la respectabilit&eacute; et sans doute la s&eacute;r&eacute;nit&eacute; qui accompagne la fortune ; le sentiment d&#39;&ecirc;tre arriv&eacute;. Rabbit est riche est le second roman d&#39;une t&eacute;tralogie. La traduction n&#39;est pas &agrave; la hauteur, ce que je d&eacute;plore tr&egrave;s souvent au sujet des oeuvres anglophones. A quand une nouvelle traduction ?.&quot;</em> ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-23T19:09:41.054Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 30,
+        "fields": {
+            "ticket": 14,
+            "rating": 3,
+            "headline": "A lire absolument",
+            "body": "Vingt-quatre heures de la vie d'un noir amÚricain, au dÚbut de la prÚsidence de Roosevelt. Vingt-quatre heures terribles. Jake, ne pouvant supporter les contraintes qui lui sont infligÚes, n'ayant pas moyen de les briser, en est rÚduit Ó se dÚtruire et Ó dÚtruire ses proches. Violent, tyrannique, brutalisant sa femme, organisant l'enfer Ó deux, il court Ó sa perte. Vingt-quatre heures : une journÚe qui dÚbute par un cauchemar et s'achÞve dans l'Úpouvante.\r\nSource : Folio, Gallimard",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-23T23:00:40.238Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 31,
+        "fields": {
+            "ticket": 15,
+            "rating": 4,
+            "headline": "Attention d'oeuvre!!!",
+            "body": " &quot;Tandis que j&#39;agonise&quot; est un roman d&#39;une grande beaut&eacute;&hellip; J&#39;y ai retrouv&eacute; la peinture du monde de la campagne am&eacute;ricaine dans les ann&eacute;es 1930, qui m&#39;avait plu dans &quot;Des souris et des hommes&quot;, de John Steinbeck. Avec quelque chose en plus, li&eacute; &agrave; la dimension religieuse et m&eacute;taphysique tr&egrave;s pr&eacute;sente dans le texte peut-&ecirc;tre. Avec des choses en moins aussi ; je n&#39;y retrouve ni la m&ecirc;me humanit&eacute; des personnages, ni la m&ecirc;me force. Mais il y a l&agrave; de grandes qualit&eacute;s d&#39;&eacute;criture, de description de l&#39;Am&eacute;rique paysanne des ann&eacute;es 30. Et c&#39;est un plaisir. Un plaisir de lire un texte comme &ccedil;a, avec une &eacute;criture telle que celle-ci. Un plaisir de lire un texte aussi complexe symboliquement et aussi plein d&#39;intelligence. Un plaisir de d&eacute;couvrir une telle peinture de la campagne am&eacute;ricaine dans les ann&eacute;es trente. Un bonheur, un grand et vrai bonheur. Un tr&egrave;s bon livre. ",
+            "user": [
+                "user_5"
+            ],
+            "time_created": "2024-08-25T20:34:25.431Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 32,
+        "fields": {
+            "ticket": 18,
+            "rating": 1,
+            "headline": "Nul de chez nul!!!",
+            "body": " Arriv&eacute;e jusqu&#39;&agrave; la page 92, j&#39;abandonne... je jette l&#39;&eacute;ponge.<br />\r\nA 50 % du livre, je ne vois aucun int&eacute;r&ecirc;t &agrave; continuer ma lecture.<br />\r\nL&#39;histoire de 2 hommes noirs qui passent leur temps &agrave; &quot;baiser&quot; des filles blanches, en &eacute;coutant du jazz. Pseudo &eacute;crivain. Glandeur assur&eacute; !!!<br />\r\nPas d&#39;histoire &agrave; proprement parler.<br />\r\n<strong>Bref, je n&#39;accroche pas et je n&#39;ai pas envie de perdre mon temps en lisant la suite..</strong> ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-26T13:00:45.980Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 33,
+        "fields": {
+            "ticket": 1,
+            "rating": 4,
+            "headline": "A lire absolument",
+            "body": " J&#39;ajoute une critique pour ajouter une critique ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-26T13:06:01.692Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 36,
+        "fields": {
+            "ticket": 5,
+            "rating": 4,
+            "headline": "A lire absolument",
+            "body": " Le Petit Prince vient d&rsquo;une plan&egrave;te &agrave; peine plus grande que lui sur laquelle il y a des baobabs et une fleur tr&egrave;s pr&eacute;cieuse, qui fait sa coquette et dont il se sent responsable. Le Petit Prince aime le coucher de soleil. Un jour, il l&#39;a vu quarante-quatre fois ! Il a aussi visit&eacute; d&#39;autres plan&egrave;tes et rencontr&eacute; des gens tr&egrave;s importants qui ne savaient pas r&eacute;pondre &agrave; ses questions. Sur la Terre, il a apprivois&eacute; le renard, qui est devenu son ami. ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-27T00:04:51.532Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 37,
+        "fields": {
+            "ticket": 19,
+            "rating": 4,
+            "headline": "La classique des classiques",
+            "body": " Il semble <strong>qu&#39;Aldous Huxley</strong> avait tout compris avant tout le monde. En lisant ce livre vous vous rendrez compte qu&#39;Eistein avait raison : <em>&quot;l&#39;imagination est plus importante que le savoir.&quot;</em> ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-27T13:43:27.401Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 40,
+        "fields": {
+            "ticket": 17,
+            "rating": 4,
+            "headline": "A lire absolument",
+            "body": " Un livre que tout le monde devrait avoir lu au moins une fois dans sa vie ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-28T23:55:22.565Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 41,
+        "fields": {
+            "ticket": 17,
+            "rating": 3,
+            "headline": "super polar",
+            "body": " j&#39;ajoute une critique ",
+            "user": [
+                "user_2"
+            ],
+            "time_created": "2024-08-29T00:39:22.474Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 42,
+        "fields": {
+            "ticket": 15,
+            "rating": 4,
+            "headline": "super polar",
+            "body": " Ayant d&eacute;j&agrave; lu&nbsp;le Bruit et la Fureur, j&#39;&eacute;tais pr&ecirc;t &agrave; revivre une nouvelle aventure avec un autre roman de&nbsp;<a href=\"https://www.babelio.com/auteur/William-Faulkner/2281\">William Faulkner</a>&nbsp;:&nbsp;<a href=\"https://www.babelio.com/livres/Faulkner-Tandis-que-jagonise/3302\">Tandis que j&#39;agonise</a>. Un v&eacute;ritable d&eacute;fi puisqu&#39;il s&#39;agit d&#39;une lecture exigeante qui demande beaucoup d&#39;attention. A vrai dire, on se sent comme &agrave; la recherche de la solution d&#39;une &eacute;nigme dont les indices sont &eacute;parpill&eacute;s et enferm&eacute;s herm&eacute;tiquement dans des cachettes obscures. Et l&#39;on doit ainsi suivre et trouver tout ce qui peut nous aider &agrave; comprendre ces myst&egrave;res. C&#39;est comme si&nbsp;<a href=\"https://www.babelio.com/auteur/William-Faulkner/2281\">William Faulkner</a>&nbsp;n&#39;informe pas, il cache, et par cons&eacute;quent, c&#39;est au lecteur de reconstituer l&#39;histoire.<br />\r\n<br />\r\n&nbsp;presque une quinzaine. Et l&agrave; le lecteur doit s&#39;adapter &agrave; la psychologie de chaque personnage puisque chaque chapitre racont&eacute; par un personnage est une sorte de monologue o&ugrave; le narrateur s&#39;exprime avec libert&eacute;. Cette m&eacute;thode s&#39;inscrit dans ce qu&#39;on appelle le courant de conscience et qu&#39;on retrouve aussi chez&nbsp;<a href=\"https://www.babelio.com/auteur/Virginia-Woolf/3228\">Virginia Woolf</a>&nbsp;entre autres. Ensuite, la narration polyphonique ne suit pas toujours un d&eacute;roulement purement chronologique ; des flash-back, des ellipses narratives et parfois de v&eacute;ritables d&eacute;lires ou paroles d&#39;enfant entrent en jeu. N&#39;oublions pas que les narrateurs sont diverses et repr&eacute;sentent des &acirc;ges aussi diff&eacute;rents et une multitude de caract&egrave;res. Enfin, il est plus question d&#39;expression intime et de monologue interne que de v&eacute;ritable narration ; autrement dit le narrateur ne cherche pas &agrave; informer le lecteur mais d&#39;exprimer ses sentiments, de justifier ses actes, de juger les actes des autres et parfois de donner libre cours &agrave; ses divagations. ",
+            "user": [
+                "adminheric-opc"
+            ],
+            "time_created": "2024-08-29T17:08:06.924Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 43,
+        "fields": {
+            "ticket": 16,
+            "rating": 5,
+            "headline": "Wahou !",
+            "body": " Je viens de refermer le premier tome des &quot;Fr&egrave;res Karamazov&quot; et le premier mot qui me vient &agrave; l&#39;esprit n&#39;est m&ecirc;me pas un mot digne de ce nom et devrait faire honte &agrave; la litt&eacute;raire que je suis... <em>Tant pis, je me lance : Wahou !</em><br />\r\nPas tr&egrave;s d&eacute;velopp&eacute; et en m&ecirc;me temps, j&#39;ai l&#39;impression qu&#39;il en dit plus long qu&#39;un discours interminable sur les raisons qui m&#39;ont fait d&eacute;vorer cet ouvrage malgr&eacute; la tonne de travail que j&#39;ai et qui m&#39;emp&ecirc;che de lire aussi abondamment que d&#39;habitude...<br />\r\n<strong>Dosto&iuml;evski</strong>&nbsp;comme&nbsp;<a href=\"https://www.babelio.com/auteur/Leon-Tolstoi/2515\">Tolsto&iuml;&nbsp;</a>ont ce don incroyable (et typiquement russe ?) de camper des personnages plus vrais que nature, si complexes et attachants que c&#39;en est presque douloureux et que j&#39;appr&eacute;hende r&eacute;ellement le moment o&ugrave; je finirai cette oeuvre magistrale une bonne fois pour toutes. le foisonnement de personnages ne m&#39;a m&ecirc;me pas d&eacute;rang&eacute;e, et il n&#39;y en a aucun que je sois parvenue &agrave; d&eacute;tester, m&ecirc;me pas le libertin path&eacute;tique, radin et fourbe qu&#39;est le p&egrave;re Karamazov, ou la vicieuse Grouchenka, manipulatrice, calculatrice et hautement opportuniste... Ils sont tous attachants &agrave; leur mani&egrave;re, ont tous leur pierre &agrave; apporter &agrave; l&#39;&eacute;difice et il m&#39;est impossible d&#39;imaginer ce roman sans un seul d&#39;entre eux !<br />\r\nPas une seule longueur dans ce pav&eacute; de 600 pages qui se lit (que dis-je ? Qui se d&eacute;vore !) avec plus de facilit&eacute; que beaucoup de modestes oeuvres d&#39;une centaine de pages...<br />\r\nPourtant, quand on y regarde de plus pr&egrave;s, le sujet ne semblait pas se pr&ecirc;ter &agrave; la production d&#39;un tel chef d&#39;oeuvre : une chronique familiale de plus, campant une famille dont les membres ont &eacute;t&eacute; s&eacute;par&eacute;s par la vie, les choix personnels... et qui se sont retrouv&eacute;s peu avant le d&eacute;but du roman, pour &ecirc;tre les acteurs d&#39;un drame qui les s&eacute;parera de nouveau, de fa&ccedil;on irr&eacute;m&eacute;diable : Fiodor Pavlovitch, riche d&eacute;bauch&eacute; malveillant et faisant preuve de peu d&#39;humanit&eacute;, est le p&egrave;re de quatre fils : Dmitri, impulsif, bagarreur, orgueilleux, Yvan, ath&eacute;e l&eacute;g&egrave;rement provocateur, instruit, volontiers m&eacute;prisant, Aliocha, pieux, candide et impossible &agrave; d&eacute;tester (le h&eacute;ros de l&#39;histoire selon les propres dires de son auteur, soit dit en passant), et Smerdiakov, enfant ill&eacute;gitime, libertin cynique et inspirant peu confiance. L&#39;un de ces quatre-l&agrave; sera parricide...<br />\r\nA cela s&#39;ajoutent des histoires d&#39;amour &agrave; n&#39;en plus finir, avec des personnages f&eacute;minins hauts en couleur et tr&egrave;s diff&eacute;rents les uns des autres, des intrigues qui s&#39;entrecroisent, des personnages secondaires marquants, des histoires de famille sordides, des r&eacute;flexions m&eacute;taphysiques &eacute;tourdissantes et vertigineuses, beaucoup de spiritualit&eacute; et d&#39;humanit&eacute;...<br />\r\nJe n&#39;en dirai pas plus, &agrave; part ceci : si vous ne l&#39;avez pas lu, allez-y de ce pas !<br />\r\nQuant &agrave; moi, je m&#39;arr&ecirc;te l&agrave;. Vite, je cours lire le deuxi&egrave;me tome ! ",
+            "user": [
+                "user_1"
+            ],
+            "time_created": "2024-08-29T22:26:25.904Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 44,
+        "fields": {
+            "ticket": 23,
+            "rating": 5,
+            "headline": "Je prÚfÞre le film",
+            "body": " Je ne souhaite pas alimenter outre mesure le d&eacute;bat qui se fait depuis bien longtemps sur ce livre. N&eacute;anmoins, ses d&eacute;tracteurs sont bien durs avec lui, il me semble : soit on ouvre ce livre en sachant qu&#39;il s&#39;agit l&agrave; d&#39;une oeuvre de fiction et on accepte les libert&eacute;s prises par l&#39;auteur par rapport &agrave;&nbsp;L Histoire&nbsp;; soit on a des convictions incompatibles avec cette fiction et, dans ce cas, on n&#39;ouvre pas ce livre.<br />\r\n<br />\r\nToujours est-il qu&#39;il sera difficile de reprocher &agrave;&nbsp;Dan Brown<a href=\"https://www.babelio.com/auteur/Dan-Brown/4394\">&nbsp;</a>d&#39;&ecirc;tre un mauvais narrateur : excellent policier, son livre garde en haleine son lecteur jusqu&#39;au bout et ceci malgr&eacute; ses quelques 600 pages ; les ficelles, certes, sont ultra-classiques, mais elles fonctionnent parfaitement.<br />\r\n<br />\r\nPar ailleurs, loin de donner cr&eacute;dit &agrave; toutes les th&eacute;ories historiques &eacute;voqu&eacute;es dans&nbsp;<a href=\"https://www.babelio.com/livres/Brown-Da-Vinci-Code/4395\">Da Vinci Code</a>, reconnaissons-lui le m&eacute;rite de nous faire r&eacute;flechir sur l&#39;&eacute;vidence et sur la fa&ccedil;on dont notre Histoire se fait et se transmet. Cette lecture, associ&eacute;e &agrave; celle des Falsificateurs d&#39;<a href=\"https://www.babelio.com/auteur/Antoine-Bello/10635\">Antoine Bello</a>, a de quoi nous poser des questions sur la v&eacute;racit&eacute; de nos convictions et sur la fa&ccedil;on dont les &quot;m&eacute;dias&quot; ont fabriqu&eacute; et continuent de fabriquer l&#39;information.<br />\r\n<br />\r\nEt bien, si cela d&eacute;range certain de remettre en question les certitudes, est-ce vraiment la faute de&nbsp;<a href=\"https://www.babelio.com/auteur/Dan-Brown/4394\">Dan Brown&nbsp;</a>? ",
+            "user": [
+                "opc-user"
+            ],
+            "time_created": "2024-09-01T19:39:12.053Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 45,
+        "fields": {
+            "ticket": 22,
+            "rating": 5,
+            "headline": "Un texte majeur",
+            "body": " <a href=\"https://www.babelio.com/auteur/Aime-Cesaire/12658\">Aim&eacute; C&eacute;saire&nbsp;</a>d&eacute;nonce dans ce pamphlet &eacute;crit en 1950 la violence et la barbarie coloniale. Cette violence extr&ecirc;me, toute enti&egrave;re au service de la bourgeoisie fran&ccedil;aise (et dont le point culminant furent les massacres de S&eacute;tif, en Alg&eacute;rie, et de Madagascar, en 1945) permettait d&#39;imposer aux peuples colonis&eacute;s une exploitation f&eacute;roce, et la r&eacute;-orientation de toute leur &eacute;conomie au profit de l&#39;industrie coloniale. Les imp&eacute;rialistes europ&eacute;ens n&#39;ont apport&eacute; ni civilisation, ni droits, ni libert&eacute;s, comme l&#39;auto-proclame les colonisateurs, mais l&#39;oppression et la haine, le racisme, et une forme de fascisme.<br />\r\n<a href=\"https://www.babelio.com/auteur/Aime-Cesaire/12658\">C&eacute;saire&nbsp;</a>oppose donc, &agrave; cette l&eacute;gende qui cherchait &agrave; se donner bonne conscience, des territoires aux &eacute;conomies naturelles, coop&eacute;ratives et &agrave; la mesure de l&#39;homme, d&eacute;truites par l&#39;imp&eacute;rialisme&nbsp;; des peuples brutalis&eacute;s et m&eacute;pris&eacute;s&nbsp;; &laquo;&nbsp;des soci&eacute;t&eacute;s vid&eacute;es d&#39;elles-m&ecirc;mes, des cultures pi&eacute;tin&eacute;es, des formes originales d&#39;institutions min&eacute;es, des terres confisqu&eacute;es, des religions assassin&eacute;es, des magnificences artistiques an&eacute;anties, d&#39;extraordinaires possibilit&eacute;s supprim&eacute;es&nbsp;&raquo;.<br />\r\nL&#39;auteur s&#39;insurge particuli&egrave;rement contre la torture inflig&eacute;e par l&#39;arm&eacute;e fran&ccedil;aise aux malgaches, aux vietnamiens et aux alg&eacute;riens.<br />\r\nIl critique ainsi objectivement la classe bourgeoise qu&#39;il qualifie de d&eacute;cadente, car ne connaissant plus de limites dans les crimes et les pr&eacute;judices qu&#39;elle commet au travers du syst&egrave;me &eacute;conomique capitaliste.<br />\r\nC&#39;est un excellent petit livre, qui d&eacute;nonce avec justesse les rapports entre colonisateurs et colonis&eacute;s, et r&eacute;sume &agrave; lui seul toute la morgue que constituait la colonisation. ",
+            "user": [
+                "opc-user"
+            ],
+            "time_created": "2024-09-01T19:41:39.958Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 47,
+        "fields": {
+            "ticket": 20,
+            "rating": 4,
+            "headline": "terrible",
+            "body": " critique&nbsp; ",
+            "user": [
+                "opc-user"
+            ],
+            "time_created": "2024-09-03T20:10:08.973Z"
+        }
+    },
+    {
+        "model": "feed.review",
+        "pk": 48,
+        "fields": {
+            "ticket": 25,
+            "rating": 4,
+            "headline": "A lire absolument",
+            "body": " Il y a des livres qui demandent &agrave; &ecirc;tre lus dans des conditions optimales. C&#39;est le cas de Dune, roman si foisonnant, si dense qu&#39;il exige une forte implication intellectuelle de son lecteur. Je n&#39;&eacute;tais pas dans ses dispositions, fatigu&eacute;e, des soucis annexes dans la t&ecirc;te... Je n&#39;ai donc pas &eacute;t&eacute; en mesure d&#39;appr&eacute;hender enti&egrave;rement cette oeuvre. Et pourtant j&#39;ai ador&eacute; ma lecture. \r\n\r\n &nbsp; \r\n\r\n J&#39;ai arpent&eacute; Arrakis sans en comprendre tout le sens mais j&#39;en ai bien saisi toute la beaut&eacute;. Si ma lecture a sans doute manqu&eacute; d&#39;un aspect c&eacute;r&eacute;bral, elle a revanche &eacute;t&eacute; tr&egrave;s sensorielle. Si je n&#39;ai pas &eacute;t&eacute; en mesure d&#39;appr&eacute;hender sa richesse th&eacute;matique, j&#39;en ai en revanche per&ccedil;u la splendeur de fa&ccedil;on quasi physique. En effet, au-del&agrave; de sa port&eacute;e philosophique, spirituel et de l&#39;aspect politique du r&eacute;cit, &quot;Dune&quot; est un roman d&#39;une beaut&eacute; chavirante. J&#39;ai &eacute;t&eacute; boulevers&eacute;e par la po&eacute;sie que d&eacute;gage le texte, que ce soit dans la peinture &eacute;vocatrice des paysages, la description des intrigues de cours ou des combats ou les consid&eacute;rations spirituelles, tout m&#39;a sembl&eacute; gracieux, lumineux, musical, raffin&eacute;, formellement sublime. Il y a un c&ocirc;t&eacute; v&eacute;ritablement envo&ucirc;tant, enivrant dans ce roman. Jodorowsky est vraiment le seul cin&eacute;aste qui aurait pu le porter &agrave; l&#39;&eacute;cran, le seul qui aurait sur retranscrire sous forme d&#39;images le chemiement spirituel de Paul. D&#39;ailleurs, au cours de ma lecture j&#39;ai souvent pens&eacute; aux B.D de Jodo, notamment &quot;la caste des m&eacute;ta-barons&quot; et &quot;le lama blanc&quot;. \r\n\r\n &nbsp; \r\n\r\n Je ne vais pas m&#39;&eacute;tendre davantage, je ne vais ps revenir sur la richesse th&eacute;matique de ce monument ni sur l&#39;admirable travail de cr&eacute;ation de tout un univers coh&eacute;rent, et ce dans tous ses aspects... d&#39;autres ont &eacute;voqu&eacute; tout cela mieux que je ne saurais le faire. Je dirais simplement que &quot;Dune&quot; est &eacute;norme. Un tr&egrave;s grand roman dont le souffle m&#39;a terrass&eacute;e et qu&#39;il faudra que je relise un jour. \r\n\r\n &nbsp; ",
+            "user": [
+                "opc-user"
+            ],
+            "time_created": "2024-09-03T20:14:35.059Z"
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 6,
+        "fields": {
+            "user": [
+                "adminheric-opc"
+            ],
+            "followed_user": [
+                "user_2"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 8,
+        "fields": {
+            "user": [
+                "user_0"
+            ],
+            "followed_user": [
+                "adminheric-opc"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 9,
+        "fields": {
+            "user": [
+                "user_0"
+            ],
+            "followed_user": [
+                "user_1"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 11,
+        "fields": {
+            "user": [
+                "user_1"
+            ],
+            "followed_user": [
+                "adminheric-opc"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 16,
+        "fields": {
+            "user": [
+                "user_2"
+            ],
+            "followed_user": [
+                "user_0"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 17,
+        "fields": {
+            "user": [
+                "user_2"
+            ],
+            "followed_user": [
+                "adminheric-opc"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 18,
+        "fields": {
+            "user": [
+                "user_5"
+            ],
+            "followed_user": [
+                "adminheric-opc"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 20,
+        "fields": {
+            "user": [
+                "user_4"
+            ],
+            "followed_user": [
+                "adminheric-opc"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 21,
+        "fields": {
+            "user": [
+                "adminheric-opc"
+            ],
+            "followed_user": [
+                "user_4"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 22,
+        "fields": {
+            "user": [
+                "adminheric-opc"
+            ],
+            "followed_user": [
+                "user_1"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 23,
+        "fields": {
+            "user": [
+                "adminheric-opc"
+            ],
+            "followed_user": [
+                "user_5"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 24,
+        "fields": {
+            "user": [
+                "opc-user"
+            ],
+            "followed_user": [
+                "adminheric-opc"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 25,
+        "fields": {
+            "user": [
+                "opc-user"
+            ],
+            "followed_user": [
+                "user_2"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 26,
+        "fields": {
+            "user": [
+                "opc-user"
+            ],
+            "followed_user": [
+                "user_1"
+            ]
+        }
+    },
+    {
+        "model": "feed.userfollows",
+        "pk": 28,
+        "fields": {
+            "user": [
+                "adminheric-opc"
+            ],
+            "followed_user": [
+                "opc-user"
+            ]
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2024-08-13T23:52:13.434Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "1",
+            "object_repr": "Tu sais qui",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2024-08-14T00:34:08.710Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "7",
+            "object_repr": "admin2",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2024-08-14T00:37:05.558Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "7",
+            "object_repr": "admin2",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2024-08-14T12:43:43.379Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "2",
+            "object_repr": "La reine des pommes",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2024-08-14T12:50:23.468Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "3",
+            "object_repr": "Allah n'est pas obligÚ",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2024-08-14T13:05:25.257Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "4",
+            "object_repr": "CouchÚ dans le foin",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2024-08-14T13:05:38.077Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "4",
+            "object_repr": "CouchÚ dans le pain",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Title\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2024-08-14T13:20:13.794Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "4",
+            "object_repr": "CouchÚ dans le pain",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2024-08-14T13:23:37.842Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "review"
+            ],
+            "object_id": "1",
+            "object_repr": "Review object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2024-08-14T13:28:23.409Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "review"
+            ],
+            "object_id": "2",
+            "object_repr": "Review object (2)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2024-08-14T13:29:11.579Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "review"
+            ],
+            "object_id": "2",
+            "object_repr": "Review object (2)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Headline\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2024-08-14T13:34:21.975Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "review"
+            ],
+            "object_id": "3",
+            "object_repr": "Review object (3)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2024-08-14T13:53:40.464Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "userfollows"
+            ],
+            "object_id": "1",
+            "object_repr": "UserFollows object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2024-08-14T13:54:08.968Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "userfollows"
+            ],
+            "object_id": "2",
+            "object_repr": "UserFollows object (2)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2024-08-14T13:58:35.364Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "userfollows"
+            ],
+            "object_id": "1",
+            "object_repr": "UserFollows object (1)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Followed user\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2024-08-14T13:58:46.145Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "userfollows"
+            ],
+            "object_id": "1",
+            "object_repr": "UserFollows object (1)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Followed user\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2024-08-14T13:59:20.123Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "userfollows"
+            ],
+            "object_id": "3",
+            "object_repr": "UserFollows object (3)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2024-08-14T18:05:18.788Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "2",
+            "object_repr": "La reine des pommes",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2024-08-18T11:36:12.192Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "review"
+            ],
+            "object_id": "4",
+            "object_repr": "Review object (4)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2024-08-18T21:34:27.043Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "8",
+            "object_repr": "pablo",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 21,
+        "fields": {
+            "action_time": "2024-08-18T21:34:27.043Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "7",
+            "object_repr": "admin2",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 22,
+        "fields": {
+            "action_time": "2024-08-18T21:34:27.060Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "6",
+            "object_repr": "richard",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 23,
+        "fields": {
+            "action_time": "2024-08-18T21:34:27.060Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "5",
+            "object_repr": "alfredo",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 24,
+        "fields": {
+            "action_time": "2024-08-18T21:34:27.076Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "4",
+            "object_repr": "erika",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 25,
+        "fields": {
+            "action_time": "2024-08-18T21:34:27.076Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "3",
+            "object_repr": "userdocu-2",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 26,
+        "fields": {
+            "action_time": "2024-08-18T21:34:27.076Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "2",
+            "object_repr": "userdocu-1",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 27,
+        "fields": {
+            "action_time": "2024-08-18T21:51:26.668Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "6",
+            "object_repr": "La Reine des pommes",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Description\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 28,
+        "fields": {
+            "action_time": "2024-08-18T21:51:50.255Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "1",
+            "object_repr": "Tu sais qui",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 29,
+        "fields": {
+            "action_time": "2024-08-18T21:52:08.348Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "5",
+            "object_repr": "Ne cherche pas Ó savoir",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 30,
+        "fields": {
+            "action_time": "2024-08-18T21:52:16.157Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "1",
+            "object_repr": "Tu sais qui",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 31,
+        "fields": {
+            "action_time": "2024-08-18T21:55:05.127Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "8",
+            "object_repr": "Rabbit est riche",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 32,
+        "fields": {
+            "action_time": "2024-08-18T21:56:21.127Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "8",
+            "object_repr": "Rabbit est riche",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 33,
+        "fields": {
+            "action_time": "2024-08-18T21:57:53.520Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "review"
+            ],
+            "object_id": "11",
+            "object_repr": "Review object (11)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 34,
+        "fields": {
+            "action_time": "2024-08-18T21:58:37.809Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "review"
+            ],
+            "object_id": "12",
+            "object_repr": "Review object (12)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 35,
+        "fields": {
+            "action_time": "2024-08-18T21:59:33.377Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "review"
+            ],
+            "object_id": "13",
+            "object_repr": "Review object (13)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 36,
+        "fields": {
+            "action_time": "2024-08-18T22:00:13.731Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "5",
+            "object_repr": "Ne cherche pas Ó savoir",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 37,
+        "fields": {
+            "action_time": "2024-08-18T22:00:39.259Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "ticket"
+            ],
+            "object_id": "1",
+            "object_repr": "Tu sais qui",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 38,
+        "fields": {
+            "action_time": "2024-08-18T22:01:13.073Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "10",
+            "object_repr": "user_1",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 39,
+        "fields": {
+            "action_time": "2024-08-18T22:01:13.079Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "9",
+            "object_repr": "user_0",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 40,
+        "fields": {
+            "action_time": "2024-08-19T09:44:10.338Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "userfollows"
+            ],
+            "object_id": "4",
+            "object_repr": "UserFollows object (4)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 41,
+        "fields": {
+            "action_time": "2024-08-19T10:30:12.193Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "userfollows"
+            ],
+            "object_id": "5",
+            "object_repr": "UserFollows object (5)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 42,
+        "fields": {
+            "action_time": "2024-08-19T10:30:22.648Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "userfollows"
+            ],
+            "object_id": "6",
+            "object_repr": "UserFollows object (6)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 43,
+        "fields": {
+            "action_time": "2024-08-19T22:32:14.440Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "userfollows"
+            ],
+            "object_id": "10",
+            "object_repr": "UserFollows object (10)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 44,
+        "fields": {
+            "action_time": "2024-08-19T22:32:41.645Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "userfollows"
+            ],
+            "object_id": "11",
+            "object_repr": "UserFollows object (11)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 45,
+        "fields": {
+            "action_time": "2024-08-19T22:33:24.213Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "userfollows"
+            ],
+            "object_id": "12",
+            "object_repr": "UserFollows object (12)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 46,
+        "fields": {
+            "action_time": "2024-08-19T23:28:25.557Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "userfollows"
+            ],
+            "object_id": "12",
+            "object_repr": "UserFollows object (12)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 47,
+        "fields": {
+            "action_time": "2024-08-20T19:59:49.805Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "review"
+            ],
+            "object_id": "13",
+            "object_repr": "Review object (13)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Body\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 48,
+        "fields": {
+            "action_time": "2024-08-20T21:34:58.143Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "feed",
+                "review"
+            ],
+            "object_id": "14",
+            "object_repr": "Review object (14)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 49,
+        "fields": {
+            "action_time": "2024-09-01T17:29:55.669Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "16",
+            "object_repr": "opc-demo",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 50,
+        "fields": {
+            "action_time": "2024-09-01T17:35:02.361Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "16",
+            "object_repr": "opc-demo",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 51,
+        "fields": {
+            "action_time": "2024-09-01T17:53:22.429Z",
+            "user": [
+                "opc-user"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "17",
+            "object_repr": "opcdemo",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 52,
+        "fields": {
+            "action_time": "2024-09-03T12:03:36.871Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "20",
+            "object_repr": "nouveautest",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 53,
+        "fields": {
+            "action_time": "2024-09-03T12:03:36.878Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "19",
+            "object_repr": "Aminata",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 54,
+        "fields": {
+            "action_time": "2024-09-03T12:03:53.064Z",
+            "user": [
+                "adminheric-opc"
+            ],
+            "content_type": [
+                "accounts",
+                "user"
+            ],
+            "object_id": "18",
+            "object_repr": "opc-user",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Superuser status\", \"Staff status\"]}}]"
+        }
+    }
+]
