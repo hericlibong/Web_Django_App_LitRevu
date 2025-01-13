@@ -2,6 +2,21 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
+from .models import Profile
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['bio', 'avatar']  # Liste des champs à afficher dans le formulaire
+        widgets = {
+            'bio': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Parlez un peu de vous...'}),
+            'avatar': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        }
+        labels = {
+            'bio': 'Biographie',
+            'avatar': 'Photo de profil',
+        }
 
 
 class SignUpForm(UserCreationForm):

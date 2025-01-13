@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Votre profil</h1>
+    <p><strong>Nom d'utilisateur :</strong> {{ profile.user.username }}</p>
+    <p><strong>Email :</strong> {{ profile.user.email }}</p>
+    <p><strong>Biographie :</strong> {{ profile.bio|default:"Pas de biographie." }}</p>
+    <p><strong>Photo de profil :</strong></p>
+    {% if profile.avatar %}
+        <img src="{{ profile.avatar.url }}" alt="Photo de profil" style="max-width: 200px;">
+    {% else %}
+        <p>Aucune photo de profil.</p>
+    {% endif %}
+    <a href="{% url 'accounts:profile_edit' %}" class="btn btn-primary">Modifier le profil</a>
+</div>
+{% endblock %}

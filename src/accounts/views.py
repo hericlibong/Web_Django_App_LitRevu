@@ -1,8 +1,49 @@
 # accounts/views.py
-
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LoginForm
+from django.views.generic import DetailView, UpdateView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+from .models import Profile
+from .forms import SignUpForm, LoginForm, ProfileForm
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+
+
+# Vue pour créer un nouveau profil utilisateur
+class ProfileCreateView(LoginRequiredMixin, CreateView):
+    model = Profile
+    form_class = ProfileForm
+    template_name = 'accounts/profile_create.html'
+    success_url = reverse_lazy('accounts:profile_detail')
+
+    def form_valid(self, form):
+        # Associer le profil à l'utilisateur connecté
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
+
+# Vue pour afficher le profil de l'utilisateur
+class ProfileDetailView(LoginRequiredMixin, DetailView):
+    model = Profile
+    template_name = 'accounts/profile_detail.html'
+    context_object_name = 'profile'
+
+    def get_object(self):
+        # Si l'utilisateur n'a pas de profil, rediriger vers la création de profil
+        if not hasattr(self.request.user, 'profile'):
+            return redirect('accounts:profile_create')
+        return self.request.user.profile
+
+# Vue pour mettre à jour le profil de l'utilisateur
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+    model = Profile
+    form_class = ProfileForm
+    template_name = 'accounts/profile_edit.html'
+    success_url = reverse_lazy('accounts:profile_detail')
+
+    def get_object(self):
+        # Récupérer le profil de l'utilisateur connecté
+        return self.request.user.profile
+
 
 
 def login_view(request):

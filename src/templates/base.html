@@ -44,8 +44,16 @@
                             <a class="nav-link">
                                 {{ user.username }} |
                                 <img src="{% static 'images/avatar.png' %}" alt="Avatar" width="30" height="30">
-                                
                             </a>
+                        </li>
+                        <li class="nav-item">
+                            {% if user.profile %}
+                            <!-- Lien vers le profil si déjà existant -->
+                            <a class="nav-link" href="{% url 'accounts:profile_detail' %}">Mon Profil</a>
+                            {% else %}
+                            <!-- Lien pour créer le profil si inexistant -->
+                            <a class="nav-link" href="{% url 'accounts:profile_create' %}">Créer mon Profil</a>
+                            {% endif %}
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'accounts:logout' %}"> Déconnexion</a>
@@ -59,6 +67,7 @@
                 </div>
             </div>
         </nav>
+        
         
         
 
