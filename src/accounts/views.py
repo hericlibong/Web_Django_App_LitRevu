@@ -4,8 +4,37 @@ from django.views.generic import DetailView, UpdateView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .models import Profile
+from django.contrib.auth import get_user_model
 from .forms import SignUpForm, LoginForm, ProfileForm
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from rest_framework.viewsets import ModelViewSet
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from .serializers import ProfileSerializer, UserSerializer
+
+User = get_user_model()
+
+class AdminOnlyViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = ProfileSerializer
+
+    def get_permissions(self):
+        if self.action in ['create', 'update', 'partial_update', 'destroy']:
+            return [IsAdminUser()]
+        return [IsAuthenticated()]
+
+
+# Vue pour afficher tous les utilisateurs avec leur profil
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = User.objects.all()  # Récupère tous les utilisateurs
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]  # Permission pour accéder à la liste des utilisateurs
+
+# Vue API pour lister les profils utilisateurs
+class ProfileApiViewSet(ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+    permission_classes = [IsAuthenticated]  # Permission pour accéder à la liste des profils
 
 
 # Vue pour créer un nouveau profil utilisateur

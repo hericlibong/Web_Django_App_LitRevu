@@ -42,11 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'livereload',
     'django.contrib.staticfiles',
     'accounts',
     'feed',
     'ckeditor',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -169,3 +169,17 @@ CKEDITOR_CONFIGS = {
         'width': 600
     }
 }
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 5,
+    
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Bloque l'accès pour les non-authentifiés
+    ],
+
+}
+
